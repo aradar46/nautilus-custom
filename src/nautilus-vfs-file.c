@@ -15,6 +15,7 @@
 #include "nautilus-directory-notify.h"
 #include "nautilus-directory-private.h"
 #include "nautilus-file-private.h"
+#include "nautilus-metadata.h"
 #include <glib/gi18n.h>
 
 G_DEFINE_TYPE (NautilusVFSFile, nautilus_vfs_file, NAUTILUS_TYPE_FILE);
@@ -150,6 +151,10 @@ vfs_file_set_metadata (NautilusFile *file,
 {
     g_autoptr (GFileInfo) info = g_file_info_new ();
     g_autofree char *gio_key = g_strconcat ("metadata::", key, NULL);
+    gboolean is_folder_color = g_str_equal (key, NAUTILUS_METADATA_KEY_CUSTOM_ICON_NAME) &&
+                               value != NULL &&
+                               (g_str_has_prefix (value, "folder-") ||
+                                g_str_has_prefix (value, "folder_"));
 
     if (value != NULL)
     {
@@ -159,6 +164,20 @@ vfs_file_set_metadata (NautilusFile *file,
     {
         /* Unset the key */
         g_file_info_set_attribute (info, gio_key,
+                                   G_FILE_ATTRIBUTE_TYPE_INVALID,
+                                   NULL);
+    }
+
+    if (is_folder_color)
+    {
+        g_file_info_set_attribute_string (info,
+                                          NAUTILUS_METADATA_ATTRIBUTE_FOLDER_COLOR,
+                                          value);
+    }
+    else if (g_str_equal (key, NAUTILUS_METADATA_KEY_CUSTOM_ICON_NAME) && value == NULL)
+    {
+        g_file_info_set_attribute (info,
+                                   NAUTILUS_METADATA_ATTRIBUTE_FOLDER_COLOR,
                                    G_FILE_ATTRIBUTE_TYPE_INVALID,
                                    NULL);
     }

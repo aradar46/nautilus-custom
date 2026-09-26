@@ -27,6 +27,7 @@
 
 #define NAUTILUS_METADATA_KEY_CUSTOM_ICON                	"custom-icon"
 #define NAUTILUS_METADATA_KEY_CUSTOM_ICON_NAME                	"custom-icon-name"
+#define NAUTILUS_METADATA_ATTRIBUTE_FOLDER_COLOR              "xattr::nautilus-folder-color"
 #define NAUTILUS_METADATA_KEY_EMBLEMS				"emblems"
 
 guint nautilus_metadata_get_id (const char *metadata);

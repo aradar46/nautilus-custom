@@ -421,6 +421,7 @@ get_metadata_from_info (GFileInfo *info)
 {
     GHashTable *metadata;
     char **attrs;
+    const char *folder_color;
     guint id;
     int i;
     GFileAttributeType type;
@@ -459,6 +460,14 @@ get_metadata_from_info (GFileInfo *info)
 
     g_strfreev (attrs);
 
+    folder_color = g_file_info_get_attribute_string (info,
+                                                     NAUTILUS_METADATA_ATTRIBUTE_FOLDER_COLOR);
+    if (folder_color != NULL && *folder_color != '\0')
+    {
+        id = nautilus_metadata_get_id (NAUTILUS_METADATA_KEY_CUSTOM_ICON_NAME);
+        g_hash_table_replace (metadata, GUINT_TO_POINTER (id), g_strdup (folder_color));
+    }
+
     return metadata;
 }
 
@@ -468,7 +477,8 @@ nautilus_file_update_metadata_from_info (NautilusFile *file,
 {
     gboolean changed = FALSE;
 
-    if (g_file_info_has_namespace (info, "metadata"))
+    if (g_file_info_has_namespace (info, "metadata") ||
+        g_file_info_has_attribute (info, NAUTILUS_METADATA_ATTRIBUTE_FOLDER_COLOR))
     {
         GHashTable *metadata;
 
