@@ -53,6 +53,20 @@ else
     flatpak install --user --noninteractive --assumeyes "$bundle_path"
 fi
 
+if ! flatpak info --user "$app_id" >/dev/null 2>&1; then
+    echo "Installation failed: ${app_id} was not installed." >&2
+    exit 1
+fi
+
+if ! flatpak run --command=true "$app_id"; then
+    echo "Flatpak cannot start apps in this system or VM." >&2
+    if [ "$(cat /proc/sys/kernel/unprivileged_userns_clone 2>/dev/null || true)" = "0" ]; then
+        echo "Enable user namespaces, then run this installer again:" >&2
+        echo "  sudo sysctl kernel.unprivileged_userns_clone=1" >&2
+    fi
+    exit 1
+fi
+
 if command -v xdg-mime >/dev/null 2>&1; then
     xdg-mime default "${app_id}.desktop" inode/directory
     xdg-mime default "${app_id}.desktop" application/x-gnome-saved-search
