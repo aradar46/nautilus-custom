@@ -1,0 +1,64 @@
+name: Build Flatpak release
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Install Flatpak tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y flatpak flatpak-builder
+
+      - name: Install GNOME SDK
+        run: |
+          flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+          flatpak install --user --noninteractive --assumeyes flathub org.gnome.Sdk//50 org.gnome.Platform//50
+
+      - name: Build application
+        run: |
+          flatpak-builder --user --force-clean --repo=flatpak-repo flatpak-build build-aux/flatpak/org.gnome.Nautilus.json
+
+      - name: Create portable bundle
+        run: |
+          flatpak build-bundle \
+            --runtime-repo=https://dl.flathub.org/repo/flathub.flatpakrepo \
+            flatpak-repo \
+            nautilus-custom.flatpak \
+            org.gnome.Nautilus.Custom
+
+      - name: Create installer
+        run: |
+          sed "s|@GITHUB_REPOSITORY@|${GITHUB_REPOSITORY}|g" packaging/install.sh.in > install.sh
+          chmod +x install.sh
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nautilus-custom-flatpak
+          path: |
+            nautilus-custom.flatpak
+            install.sh
+
+      - name: Publish GitHub release
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            nautilus-custom.flatpak \
+            install.sh \
+            --title "Custom Files $GITHUB_REF_NAME" \
+            --generate-notes

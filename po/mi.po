@@ -1,0 +1,5735 @@
+# Māori translation of nautilus.
+# Copyright (C) 2026 the nautilus authors.
+# This file is distributed under the same licence as the nautilus package.
+# Arlewatyerre Tuhoro-Bell <aidan@ursa.nz>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: nautilus main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/nautilus/issues\n"
+"POT-Creation-Date: 2026-08-30 21:08+0000\n"
+"PO-Revision-Date: 2026-09-01 12:30+1200\n"
+"Last-Translator: Arlewatyerre Tuhoro-Bell <aidan@ursa.nz>\n"
+"Language-Team: Māori <https://l10n.gnome.org/teams/mi/>\n"
+"Language: mi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: gnomi\n"
+
+#: data/nautilus-autorun-software.desktop.in:2
+msgid "Run Software"
+msgstr ""
+
+#: data/org.gnome.Nautilus.desktop.in.in:2
+#: data/org.gnome.Nautilus.metainfo.xml.in.in:5 src/nautilus-mime-actions.c:101
+#: src/nautilus-portal.c:582 src/resources/ui/nautilus-window.blp:160
+msgid "Files"
+msgstr ""
+
+#: data/org.gnome.Nautilus.desktop.in.in:3
+#: data/org.gnome.Nautilus.metainfo.xml.in.in:6
+msgid "Access and organize files"
+msgstr ""
+
+#. Translators: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
+#: data/org.gnome.Nautilus.desktop.in.in:5
+msgid "folder;manager;explore;disk;filesystem;nautilus;"
+msgstr ""
+
+#: data/org.gnome.Nautilus.desktop.in.in:20
+msgid "New Window"
+msgstr "Matapihi Hōu"
+
+#: data/org.gnome.nautilus.gschema.xml:82
+msgid "Always use the location entry, instead of the pathbar"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:83
+msgid ""
+"If set to true, Files will always use a textual input entry for the location "
+"toolbar, instead of the pathbar."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:87
+msgid "Where to perform recursive search"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:88
+msgid ""
+"Locations in which Files should search subfolders. Available values are "
+"“local-only”, “always”, “never”."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:92
+msgid "Filter the search dates using either last used or last modified"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:93
+msgid "Filter the search dates using either last used or last modified."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:97
+msgid "Whether to show a context menu item to delete permanently"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:98
+msgid ""
+"If set to true, Files will show a delete permanently context menu item to "
+"bypass the Trash."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:102
+msgid ""
+"Whether to show context menu items to create links from copied or selected "
+"files"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:103
+msgid ""
+"If set to true, Files will show context menu items to create links from the "
+"copied or selected files."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:108
+msgid "When to show number of items in a folder"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:109
+msgid ""
+"Speed tradeoff for when to show the number of items in a folder. If set to "
+"“always” then always show item counts, even if the folder is on a remote "
+"server. If set to “local-only” then only show counts for local file systems. "
+"If set to “never” then never bother to compute item counts."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:113
+msgid "Type of click used to launch/open files"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:114
+msgid ""
+"Possible values are “single” to launch files on a single click, or “double” "
+"to launch them on a double click."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:118
+msgid "Use extra mouse button events in Files"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:119
+msgid ""
+"For users with mice that have “Forward” and “Back” buttons, this key will "
+"determine if any action is taken inside of Files when either is pressed."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:123
+msgid "Mouse button to activate the “Forward” command in browser window"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:124
+msgid ""
+"For users with mice that have buttons for “Forward” and “Back”, this key "
+"will set which button activates the “Forward” command in a browser window. "
+"Possible values range between 6 and 14."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:128
+msgid "Mouse button to activate the “Back” command in browser window"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:129
+msgid ""
+"For users with mice that have buttons for “Forward” and “Back”, this key "
+"will set which button activates the “Back” command in a browser window. "
+"Possible values range between 6 and 14."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:134
+msgid "When to show thumbnails of files"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:135
+msgid ""
+"Speed trade-off for when to show a file as a thumbnail. If set to “always” "
+"then always thumbnail, even if the folder is on a remote server. If set to "
+"“local-only” then only show thumbnails for local file systems. If set to "
+"“never” then never bother to thumbnail files, just use a generic icon. "
+"Despite what the name may suggest, this applies to any previewable file type."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:139
+msgid "Maximum image size for thumbnailing"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:140
+msgid ""
+"Images over this size (in megabytes) won’t be thumbnailed. The purpose of "
+"this setting is to avoid thumbnailing large images that may take a long time "
+"to load or use lots of memory."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:147
+msgid "Default sort order"
+msgstr "Raupapa kōmaka taunoa"
+
+#: data/org.gnome.nautilus.gschema.xml:148
+msgid ""
+"The default sort-order for items in the icon view. Possible values are "
+"“name”, “size”, “type”, “mtime”, “atime” and “starred”."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:152
+msgid "Reverse sort order in new windows"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:153
+msgid ""
+"If true, files in new windows will be sorted in reverse order. I.e., if "
+"sorted by name, then instead of sorting the files from “a” to “z”, they will "
+"be sorted from “z” to “a”; if sorted by size, instead of being incrementally "
+"they will be sorted decrementally."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:163
+msgid "Default folder viewer"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:164
+msgid ""
+"When a folder is visited this viewer is used. Possible values are “list-"
+"view”, and “icon-view”."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:168
+msgid "Whether to show hidden files"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:169
+msgid ""
+"This key is deprecated and ignored. The “show-hidden” key from "
+"“org.gtk.Settings.FileChooser” is now used instead."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:173
+msgid "Whether GTK 4 settings migration happened"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:174
+msgid ""
+"Whether settings shared with GtkFileChooser have been migrated from their "
+"GTK 3 keys to the GTK 4 ones."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:178
+msgid ""
+"Whether to open the hovered folder after a timeout when drag and drop "
+"operation"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:179
+msgid ""
+"If this is set to true, when performing a drag and drop operation the "
+"hovered folder will open automatically after a timeout."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:183
+msgid ""
+"Whether to have full text search enabled by default when opening a new "
+"window/tab"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:184
+msgid ""
+"If set to true, Files will also match the file contents besides the name. "
+"This toggles the default active state, which can still be overridden in the "
+"search popover"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:188
+msgid "How to display file timestamps in the views"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:189
+msgid ""
+"If set to 'simple', Files will show Today and Yesterday with time, otherwise "
+"the exact date without time. If set to 'detailed', it will always show the "
+"exact date and time."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:196
+msgid "Default format for compressing files"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:197
+msgid "The format that will be selected when compressing files."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:204
+msgid "List of possible captions on icons"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:205
+msgid ""
+"A list of captions below an icon in the icon view. The actual number of "
+"captions shown depends on the zoom level. Some possible values are: “size”, "
+"“type”, “date_modified”, “owner”, “group”, “permissions”, and “mime_type”."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:214
+msgid "Default icon view zoom level"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:225
+msgid "Default list view zoom level"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:229
+msgid "Columns visible in list view"
+msgstr "Ngā tīwai rārangi e whakaaturia ana i te tiro rārangi"
+
+#: data/org.gnome.nautilus.gschema.xml:233
+msgid "Column order in list view"
+msgstr "Raupapa tīwai rārangi i te tiro rārangi"
+
+#: data/org.gnome.nautilus.gschema.xml:237
+msgid "Use tree view"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:238
+msgid ""
+"Whether a tree should be used for list view navigation instead of a flat "
+"list."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:245
+msgid "Initial size of the window"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:246
+msgid "A tuple containing the initial width and height of the app window."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:250
+msgid "Whether the navigation window should be maximized"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:251
+msgid "Whether the navigation window should be maximized by default."
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:255
+msgid "Initial size of the file chooser window"
+msgstr ""
+
+#: data/org.gnome.nautilus.gschema.xml:256
+msgid ""
+"A tuple containing the initial width and height of the file chooser window."
+msgstr ""
+
+#: data/org.gnome.Nautilus.metainfo.xml.in.in:8
+msgid ""
+"Files, also known as Nautilus, is the default file manager of the GNOME "
+"desktop. It provides a simple and integrated way of managing your files and "
+"browsing your file system."
+msgstr ""
+
+#: data/org.gnome.Nautilus.metainfo.xml.in.in:12
+msgid ""
+"Nautilus supports all the basic functions of a file manager and more. It can "
+"search and manage your files and folders, both locally and on a network, "
+"read and write data to and from removable media, run scripts, and launch "
+"apps. It has three views: Icon Grid, Icon List, and Tree List. Its functions "
+"can be extended with plugins and scripts."
+msgstr ""
+
+#: data/org.gnome.Nautilus.metainfo.xml.in.in:46 src/nautilus-window.c:1729
+#: src/nautilus-window.c:1734 src/nautilus-window.c:1739
+msgid "The GNOME Project"
+msgstr "Te Kaupapa GNOME"
+
+#: data/org.gnome.Nautilus.metainfo.xml.in.in:60 src/nautilus-files-view.c:9723
+msgid "Grid View"
+msgstr ""
+
+#: data/org.gnome.Nautilus.metainfo.xml.in.in:64 src/nautilus-files-view.c:9734
+msgid "List View"
+msgstr "Tiro Rārangi"
+
+#: data/org.gnome.Nautilus.metainfo.xml.in.in:68
+#: src/nautilus-search-directory-file.c:230
+#: src/nautilus-search-directory-file.c:269
+msgid "Search"
+msgstr "Rapu"
+
+#: data/org.gnome.Nautilus.metainfo.xml.in.in:72
+msgid "Selection of Multiple Files"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:85
+#, c-format
+msgid "%d hour"
+msgid_plural "%d hours"
+msgstr[0] "%d haora"
+msgstr[1] "%d haora"
+
+#: extensions/audio-video-properties/totem-properties-view.c:87
+#, c-format
+msgid "%d minute"
+msgid_plural "%d minutes"
+msgstr[0] "%d meneti"
+msgstr[1] "%d meneti"
+
+#: extensions/audio-video-properties/totem-properties-view.c:90
+#, c-format
+msgid "%d second"
+msgid_plural "%d seconds"
+msgstr[0] "%d hēkona"
+msgstr[1] "%d hēkona"
+
+#. 5 hours 2 minutes 12 seconds
+#: extensions/audio-video-properties/totem-properties-view.c:96
+#, c-format
+msgctxt "time"
+msgid "%s %s %s"
+msgstr ""
+
+#. 2 minutes 12 seconds
+#: extensions/audio-video-properties/totem-properties-view.c:101
+#, c-format
+msgctxt "time"
+msgid "%s %s"
+msgstr ""
+
+#. 0 seconds
+#: extensions/audio-video-properties/totem-properties-view.c:111
+msgid "0 seconds"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:131
+#: extensions/image-properties/nautilus-image-properties-model.c:224
+#: src/nautilus-batch-rename-dialog.h:165
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:65
+msgid "Title"
+msgstr "Taitara"
+
+#: extensions/audio-video-properties/totem-properties-view.c:132
+msgid "Artist"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:133
+msgid "Album"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:156
+msgid "Comment"
+msgstr "Tākupu"
+
+#: extensions/audio-video-properties/totem-properties-view.c:167
+#: extensions/audio-video-properties/totem-properties-view.c:176
+msgid "Year"
+msgstr "Tau"
+
+#: extensions/audio-video-properties/totem-properties-view.c:223
+#, c-format
+msgid "%d kbps"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:239
+#, c-format
+msgid "%d × %d"
+msgstr "%d × %d"
+
+#: extensions/audio-video-properties/totem-properties-view.c:240
+msgid "Dimensions"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:243
+msgid "Video Codec"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:244
+msgid "Video Bit Rate"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:257
+#, c-format
+msgid "%0.2f frame per second"
+msgid_plural "%0.2f frames per second"
+msgstr[0] "%0.2f tāngata mō ia hēkona"
+msgstr[1] "%0.2f tāngata mō ia hēkona"
+
+#: extensions/audio-video-properties/totem-properties-view.c:261
+msgid "Frame Rate"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:272
+msgid "Audio Codec"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:274
+msgid "Audio Bit Rate"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:289
+msgid "Sample Rate"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:300
+msgid "Surround"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:304
+msgid "Mono"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:308
+msgid "Stereo"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:314
+msgid "Channels"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:338
+#: extensions/image-properties/nautilus-image-properties-model.c:299
+#: src/nautilus-window-slot.c:1718
+msgid "Oops! Something went wrong."
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:349
+msgid "Audio and Video Properties"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:353
+msgid "Audio Properties"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:357
+msgid "Video Properties"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:365
+msgid "Duration"
+msgstr "Roanga"
+
+#: extensions/audio-video-properties/totem-properties-view.c:371
+msgid "Container"
+msgstr ""
+
+#: extensions/audio-video-properties/totem-properties-view.c:400
+msgid "Audio/Video Properties"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:86
+#, c-format
+msgid "%d pixel"
+msgid_plural "%d pixels"
+msgstr[0] "%d matapāhi"
+msgstr[1] "%d matapāhi"
+
+#: extensions/image-properties/nautilus-image-properties-model.c:103
+msgid "Image Type"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:104
+msgid "Width"
+msgstr "Whānui"
+
+#: extensions/image-properties/nautilus-image-properties-model.c:105
+msgid "Height"
+msgstr "Teitei"
+
+#: extensions/image-properties/nautilus-image-properties-model.c:214
+msgid "Camera Brand"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:215
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:35
+msgid "Camera Model"
+msgstr "Tauira Kāmera"
+
+#: extensions/image-properties/nautilus-image-properties-model.c:216
+msgid "Exposure Time"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:217
+msgid "Exposure Program"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:218
+msgid "Aperture Value"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:219
+msgid "ISO Speed Rating"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:220
+msgid "Flash Fired"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:221
+msgid "Metering Mode"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:222
+msgid "Focal Length"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:223
+msgid "Software"
+msgstr "Pūmanawa"
+
+#: extensions/image-properties/nautilus-image-properties-model.c:225
+msgid "Description"
+msgstr "Whakaahuatanga"
+
+#: extensions/image-properties/nautilus-image-properties-model.c:226
+msgid "Keywords"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:227
+msgid "Creator"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:228
+msgid "Created On"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:229
+msgid "Copyright"
+msgstr "Manatārua"
+
+#: extensions/image-properties/nautilus-image-properties-model.c:230
+msgid "Rating"
+msgstr ""
+
+#. Translators: "N" and "S" stand for
+#. * north and south in GPS coordinates.
+#: extensions/image-properties/nautilus-image-properties-model.c:243
+msgid "N"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:243
+msgid "S"
+msgstr ""
+
+#. Translators: "E" and "W" stand for
+#. * east and west in GPS coordinates.
+#: extensions/image-properties/nautilus-image-properties-model.c:247
+msgid "E"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:247
+msgid "W"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:254
+msgid "Coordinates"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:299
+msgid "Failed to load image information"
+msgstr ""
+
+#: extensions/image-properties/nautilus-image-properties-model.c:314
+msgid "Image Properties"
+msgstr ""
+
+#: src/nautilus-app-chooser.c:83
+msgid "Could not set as default"
+msgstr ""
+
+#: src/nautilus-app-chooser.c:85
+#, c-format
+msgid "Error while setting “%s” as default app: %s"
+msgstr ""
+
+#: src/nautilus-app-chooser.c:87 src/nautilus-application.c:637
+#: src/nautilus-autorun-software.c:157 src/nautilus-mime-actions.c:1291
+#: src/nautilus-ui-utilities.c:360
+msgid "_OK"
+msgstr "Ā_E"
+
+#. Translators: %s is the filename.  i.e. "Choose an app to open test.jpg"
+#: src/nautilus-app-chooser.c:226
+#, c-format
+msgid "Choose an app to open <b>%s</b>"
+msgstr ""
+
+#: src/nautilus-app-chooser.c:232
+msgid "Open Items"
+msgstr ""
+
+#: src/nautilus-app-chooser.c:236 src/nautilus-window.c:972
+msgid "Open Folder"
+msgstr ""
+
+#: src/nautilus-app-chooser.c:240 src/resources/ui/nautilus-app-chooser.blp:5
+msgid "Open File"
+msgstr "Whakatuwhera Kōnae"
+
+#: src/nautilus-app-chooser-widget.c:267
+#, c-format
+msgid "No apps found for “%s”"
+msgstr ""
+
+#: src/nautilus-app-chooser-widget.c:273
+msgid "No apps found"
+msgstr ""
+
+#. translators: This is an accessible label for a shown icon.
+#: src/nautilus-app-chooser-widget.c:507
+msgid "App icon"
+msgstr ""
+
+#: src/nautilus-app-chooser-widget.c:555
+msgid "Default App"
+msgstr ""
+
+#: src/nautilus-app-chooser-widget.c:559
+msgid "Recommended Apps"
+msgstr ""
+
+#: src/nautilus-app-chooser-widget.c:563
+msgid "Related Apps"
+msgstr ""
+
+#: src/nautilus-app-chooser-widget.c:567
+msgid "Other Apps"
+msgstr ""
+
+#: src/nautilus-application.c:186
+msgid "No Home Directory"
+msgstr ""
+
+#: src/nautilus-application.c:187
+msgid "Make sure the directory exists and has correct access permissions set."
+msgstr ""
+
+#: src/nautilus-application.c:506
+msgid "--quit cannot be used with URIs."
+msgstr ""
+
+#: src/nautilus-application.c:515
+msgid "--select must be used with at least an URI."
+msgstr ""
+
+#: src/nautilus-application.c:636
+msgid "There was an error displaying help"
+msgstr ""
+
+#: src/nautilus-application.c:761
+#, c-format
+msgid ""
+"“%s” is an internal protocol. Opening this location directly is not "
+"supported."
+msgstr ""
+
+#: src/nautilus-application.c:843
+msgid "Show the version of the program."
+msgstr ""
+
+#: src/nautilus-application.c:847
+msgid "Always open a new window for browsing specified URIs"
+msgstr ""
+
+#: src/nautilus-application.c:851
+msgid "Quit Nautilus."
+msgstr ""
+
+#: src/nautilus-application.c:855
+msgid "Select specified URI in parent folder."
+msgstr ""
+
+#: src/nautilus-application.c:857
+msgid "[URI…]"
+msgstr ""
+
+#: src/nautilus-autorun-software.c:141
+#, c-format
+msgid ""
+"Unable to start the program:\n"
+"%s"
+msgstr ""
+
+#: src/nautilus-autorun-software.c:145
+msgid "The program is not marked as executable."
+msgstr ""
+
+#: src/nautilus-autorun-software.c:149
+#, c-format
+msgid "Unable to locate the program"
+msgstr ""
+
+#: src/nautilus-autorun-software.c:155
+msgid "Oops! There was a problem running this software."
+msgstr ""
+
+#: src/nautilus-autorun-software.c:185
+msgid "If you don’t trust this location or aren’t sure, press Cancel."
+msgstr ""
+
+#: src/nautilus-autorun-software.c:187
+#, c-format
+msgid ""
+"“%s” contains software intended to be automatically started. Would you like "
+"to run it?"
+msgstr ""
+
+#. Cancel response is always available and the default response
+#: src/nautilus-autorun-software.c:219 src/nautilus-dialog-utilities.c:96
+#: src/nautilus-file-chooser.c:248 src/nautilus-mime-actions.c:674
+#: src/nautilus-mime-actions.c:1124 src/nautilus-mime-actions.c:1431
+#: src/nautilus-ui-utilities.c:539 src/resources/ui/nautilus-app-chooser.blp:19
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:140
+#: src/resources/ui/nautilus-compress-dialog.blp:19
+#: src/resources/ui/nautilus-file-conflict-dialog.blp:16
+#: src/resources/ui/nautilus-file-properties-change-permissions.blp:15
+#: src/resources/ui/nautilus-files-view-select-items.blp:16
+#: src/resources/ui/nautilus-operations-ui-manager-request-passphrase.blp:16
+#: src/resources/ui/nautilus-search-types-dialog.blp:19
+msgid "_Cancel"
+msgstr "_Whakakore"
+
+#: src/nautilus-autorun-software.c:220
+msgid "_Run"
+msgstr "_Whakahaere"
+
+#: src/nautilus-batch-rename-dialog.c:521
+#, c-format
+msgid "“%s” would not be a unique new name."
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.c:527
+#, c-format
+msgid "“%s” would conflict with an existing file."
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.c:966
+msgid "Name cannot be empty."
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.c:972
+msgid "Name cannot contain “/”."
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.c:978
+msgid "“.” is not a valid name."
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.c:984
+msgid "“..” is not a valid name."
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.c:1586
+#, c-format
+msgid "Rename %d Folder"
+msgid_plural "Rename %d Folders"
+msgstr[0] "Whakaingoa Anō %d Kōpaki"
+msgstr[1] "Whakaingoa Anō %d Kōpaki"
+
+#: src/nautilus-batch-rename-dialog.c:1594
+#, c-format
+msgid "Rename %d File"
+msgid_plural "Rename %d Files"
+msgstr[0] "Whakaingoa Anō %d Kōnae"
+msgstr[1] "Whakaingoa Anō %d Kōnae"
+
+#. To translators: %d is the total number of files and folders.
+#. * Singular case of the string is never used
+#: src/nautilus-batch-rename-dialog.c:1604
+#, c-format
+msgid "Rename %d File and Folder"
+msgid_plural "Rename %d Files and Folders"
+msgstr[0] "Whakaingoa Anō %d Kōnae me Kōpaki"
+msgstr[1] "Whakaingoa Anō %d Kōnae me Kōpaki"
+
+#: src/nautilus-batch-rename-dialog.h:89
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:88
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:242
+msgid "Original Name (Ascending)"
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.h:94
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:94
+msgid "Original Name (Descending)"
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.h:99
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:100
+msgid "First Modified"
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.h:104
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:106
+msgid "Last Modified"
+msgstr "Whakakētanga Whakamutunga"
+
+#: src/nautilus-batch-rename-dialog.h:109
+msgid "First Created"
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.h:114
+msgid "Last Created"
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.h:123
+msgid "Camera model"
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.h:130
+msgid "Creation date"
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.h:137
+msgid "Season number"
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.h:144
+msgid "Episode number"
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.h:151
+msgid "Track number"
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.h:158
+msgid "Artist name"
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.h:172
+msgid "Album name"
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.h:179
+msgid "Original file name"
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.h:190
+msgid "1, 2, 3"
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.h:197
+msgid "01, 02, 03"
+msgstr ""
+
+#: src/nautilus-batch-rename-dialog.h:204
+msgid "001, 002, 003"
+msgstr ""
+
+#: src/nautilus-bookmark.c:99 src/nautilus-file-utilities.c:66
+#: src/nautilus-pathbar.c:420 src/nautilus-shell-search-provider.c:277
+#: src/nautilus-sidebar.c:698 src/nautilus-window.c:148
+msgid "Home"
+msgstr "Kāinga"
+
+#: src/nautilus-clipboard.c:79
+#, c-format
+msgid "Clipboard string cannot be NULL."
+msgstr ""
+
+#. Translators: Do not translate 'cut' and 'copy'. These are literal keywords.
+#: src/nautilus-clipboard.c:88
+#, c-format
+msgid "Nautilus Clipboard must begin with “cut” or “copy”."
+msgstr ""
+
+#: src/nautilus-clipboard.c:97
+#, c-format
+msgid "Nautilus Clipboard must not have empty lines."
+msgstr ""
+
+#: src/nautilus-column-chooser.c:370
+msgid "View More"
+msgstr "Tirohia Ētahi Anō"
+
+#: src/nautilus-column-utilities.c:69 src/nautilus-sidebar.c:2002
+msgid "Name"
+msgstr "Ingoa"
+
+#: src/nautilus-column-utilities.c:70
+msgid "The name and icon of the file."
+msgstr ""
+
+#: src/nautilus-column-utilities.c:76
+msgid "Size"
+msgstr "Rahi"
+
+#: src/nautilus-column-utilities.c:77
+msgid "The size of the file."
+msgstr ""
+
+#: src/nautilus-column-utilities.c:83
+msgid "Type"
+msgstr "Momo"
+
+#: src/nautilus-column-utilities.c:84
+msgid "The type of the file."
+msgstr ""
+
+#. Translators: This refers to a date time
+#: src/nautilus-column-utilities.c:90
+#: src/resources/ui/nautilus-properties-widget.blp:457
+#: src/resources/ui/nautilus-search-popover.blp:190
+msgid "Modified"
+msgstr "Kua whakakētia"
+
+#: src/nautilus-column-utilities.c:91
+msgid "The date the file was modified."
+msgstr ""
+
+#: src/nautilus-column-utilities.c:99
+msgid "Detailed Type"
+msgstr ""
+
+#: src/nautilus-column-utilities.c:100
+msgid "The detailed type of the file."
+msgstr ""
+
+#: src/nautilus-column-utilities.c:106
+#: src/resources/ui/nautilus-properties-widget.blp:443
+msgid "Accessed"
+msgstr "Kua uru"
+
+#: src/nautilus-column-utilities.c:107
+msgid "The date the file was accessed."
+msgstr ""
+
+#. Translators: This refers to a date time
+#: src/nautilus-column-utilities.c:115
+#: src/resources/ui/nautilus-properties-widget.blp:471
+#: src/resources/ui/nautilus-search-popover.blp:197
+msgid "Created"
+msgstr "I Waihangatia"
+
+#: src/nautilus-column-utilities.c:116
+msgid "The date the file was created."
+msgstr ""
+
+#: src/nautilus-column-utilities.c:125
+#: src/resources/ui/nautilus-file-properties-change-permissions.blp:34
+msgid "Owner"
+msgstr "Kaipupuri"
+
+#: src/nautilus-column-utilities.c:126
+msgid "The owner of the file."
+msgstr ""
+
+#: src/nautilus-column-utilities.c:133
+#: src/resources/ui/nautilus-file-properties-change-permissions.blp:48
+msgid "Group"
+msgstr "Rōpū"
+
+#: src/nautilus-column-utilities.c:134
+msgid "The group of the file."
+msgstr ""
+
+#: src/nautilus-column-utilities.c:141
+msgid "Permissions"
+msgstr "Whakaaetanga"
+
+#: src/nautilus-column-utilities.c:142
+msgid "The permissions of the file."
+msgstr ""
+
+#: src/nautilus-column-utilities.c:149
+#: src/resources/menu/nautilus-toolbar-view-menu.ui:51
+msgid "Recency"
+msgstr ""
+
+#: src/nautilus-column-utilities.c:150
+msgid "The date the file was accessed by the user."
+msgstr ""
+
+#: src/nautilus-column-utilities.c:160
+msgid "Shows if file is starred."
+msgstr ""
+
+#: src/nautilus-column-utilities.c:205
+#: src/resources/ui/nautilus-properties-widget.blp:426
+msgid "Trashed On"
+msgstr ""
+
+#: src/nautilus-column-utilities.c:206
+msgid "Date when file was moved to the Trash"
+msgstr ""
+
+#: src/nautilus-column-utilities.c:213
+msgid "Original Location"
+msgstr ""
+
+#: src/nautilus-column-utilities.c:214
+msgid "Original location of file before moved to the Trash"
+msgstr ""
+
+#: src/nautilus-column-utilities.c:232
+#: src/resources/menu/nautilus-toolbar-view-menu.ui:58
+msgid "Relevance"
+msgstr "Hāngaitanga"
+
+#: src/nautilus-column-utilities.c:233
+msgid "Relevance rank for search"
+msgstr ""
+
+#: src/nautilus-compress-dialog.c:253
+msgid "ZIP (.zip)"
+msgstr ""
+
+#: src/nautilus-compress-dialog.c:254
+msgid "Compatible with all operating systems."
+msgstr ""
+
+#: src/nautilus-compress-dialog.c:259
+msgid "Encrypted ZIP (.zip)"
+msgstr ""
+
+#: src/nautilus-compress-dialog.c:260
+msgid "Password-protected ZIP, must be installed on Windows and Mac."
+msgstr ""
+
+#: src/nautilus-compress-dialog.c:265
+msgid "TAR (.tar.xz)"
+msgstr ""
+
+#: src/nautilus-compress-dialog.c:266
+msgid "Smaller archives but Linux and Mac only."
+msgstr ""
+
+#: src/nautilus-compress-dialog.c:271
+msgid "7Z (.7z)"
+msgstr ""
+
+#: src/nautilus-compress-dialog.c:272
+msgid "Smaller archives but must be installed on Windows and Mac."
+msgstr ""
+
+#: src/nautilus-date-utilities.c:474
+#, c-format
+msgid "Since %s"
+msgstr ""
+
+#: src/nautilus-dbus-launcher.c:50
+#, c-format
+msgid "Details: %s"
+msgstr ""
+
+#: src/nautilus-dbus-launcher.c:51 src/nautilus-dbus-launcher.c:79
+msgid "There was an error launching the app."
+msgstr ""
+
+#: src/nautilus-dbus-launcher.c:80
+msgid "Details: The proxy has not been created."
+msgstr ""
+
+#: src/nautilus-dialog-utilities.c:103
+msgid "Copy _Anyway"
+msgstr ""
+
+#: src/nautilus-dialog-utilities.c:107
+msgid "Proceed _Anyway"
+msgstr ""
+
+#: src/nautilus-dialog-utilities.c:111
+msgid "Empty _Trash"
+msgstr ""
+
+#: src/nautilus-dialog-utilities.c:117 src/nautilus-operations-ui-manager.c:351
+msgid "_Merge"
+msgstr ""
+
+#: src/nautilus-dialog-utilities.c:121 src/nautilus-file-chooser.c:249
+#: src/nautilus-file-chooser.c:358
+#: src/resources/ui/nautilus-file-conflict-dialog.blp:42
+msgid "_Replace"
+msgstr "_Whakakapi"
+
+#: src/nautilus-dialog-utilities.c:125
+msgid "S_kip All"
+msgstr ""
+
+#: src/nautilus-dialog-utilities.c:130
+#: src/resources/ui/nautilus-file-conflict-dialog.blp:23
+msgid "_Skip"
+msgstr "_Tīpokatia"
+
+#: src/nautilus-dialog-utilities.c:135
+msgid "_Skip Files"
+msgstr ""
+
+#: src/nautilus-dialog-utilities.c:140
+msgid "Delete _All"
+msgstr ""
+
+#: src/nautilus-dialog-utilities.c:145
+msgid "_Delete"
+msgstr "_Muku"
+
+#: src/nautilus-dialog-utilities.c:155
+msgid "_Retry"
+msgstr ""
+
+#. Translators: this is of the format "hostname (uri-scheme)"
+#: src/nautilus-directory.c:590
+#, c-format
+msgid "%s (%s)"
+msgstr "%s (%s)"
+
+#: src/nautilus-dnd.c:109
+msgid "_Move Here"
+msgstr ""
+
+#: src/nautilus-dnd.c:114
+msgid "_Copy Here"
+msgstr ""
+
+#: src/nautilus-dnd.c:119
+msgid "_Link Here"
+msgstr ""
+
+#: src/nautilus-dnd.c:128 src/nautilus-file-operations.c:2257
+#: src/nautilus-mime-actions.c:685
+#: src/resources/ui/nautilus-progress-info-widget.blp:38
+#: src/resources/ui/nautilus-toolbar.blp:36
+msgid "Cancel"
+msgstr "Whakakore"
+
+#: src/nautilus-dnd.c:259
+msgid "Dropped Image"
+msgstr ""
+
+#: src/nautilus-error-reporting.c:63
+#, c-format
+msgid "You do not have the permissions necessary to view the contents of “%s”."
+msgstr ""
+
+#: src/nautilus-error-reporting.c:70
+#, c-format
+msgid "“%s” could not be found. Perhaps it has recently been deleted."
+msgstr ""
+
+#: src/nautilus-error-reporting.c:77
+#, c-format
+msgid "Sorry, could not display all the contents of “%s”: %s"
+msgstr ""
+
+#: src/nautilus-error-reporting.c:89
+msgid "This location could not be displayed."
+msgstr ""
+
+#: src/nautilus-error-reporting.c:112
+#, c-format
+msgid "You do not have the permissions necessary to change the group of “%s”."
+msgstr ""
+
+#. fall through
+#: src/nautilus-error-reporting.c:130
+#, c-format
+msgid "Sorry, could not change the group of “%s”: %s"
+msgstr ""
+
+#: src/nautilus-error-reporting.c:136
+msgid "The group could not be changed."
+msgstr ""
+
+#: src/nautilus-error-reporting.c:153
+#, c-format
+msgid "Sorry, could not change the owner of “%s”: %s"
+msgstr ""
+
+#: src/nautilus-error-reporting.c:157
+msgid "The owner could not be changed."
+msgstr ""
+
+#: src/nautilus-error-reporting.c:174
+#, c-format
+msgid "Sorry, could not change the permissions of “%s”: %s"
+msgstr ""
+
+#: src/nautilus-error-reporting.c:178
+msgid "The permissions could not be changed."
+msgstr ""
+
+#: src/nautilus-error-reporting.c:199
+#, c-format
+msgid ""
+"The name “%s” is already used in this location. Please use a different name."
+msgstr ""
+
+#: src/nautilus-error-reporting.c:207
+#, c-format
+msgid ""
+"There is no “%s” in this location. Perhaps it was just moved or deleted?"
+msgstr ""
+
+#: src/nautilus-error-reporting.c:215
+#, c-format
+msgid "You do not have the permissions necessary to rename “%s”."
+msgstr ""
+
+#: src/nautilus-error-reporting.c:227
+#, c-format
+msgid ""
+"The name “%s” is not valid because it contains the character “%c”. Please "
+"use a different name."
+msgstr ""
+
+#: src/nautilus-error-reporting.c:233
+#, c-format
+msgid "The name “%s” is not valid. Please use a different name."
+msgstr ""
+
+#: src/nautilus-error-reporting.c:242
+#, c-format
+msgid "The name “%s” is too long. Please use a different name."
+msgstr ""
+
+#: src/nautilus-error-reporting.c:250
+#, c-format
+msgid ""
+"Could not rename “%s” because a process is using it. If it's open in another "
+"application, close it before renaming it."
+msgstr ""
+
+#. fall through
+#: src/nautilus-error-reporting.c:270
+#, c-format
+msgid "Sorry, could not rename “%s” to “%s”: %s"
+msgstr ""
+
+#: src/nautilus-error-reporting.c:275
+msgid "The item could not be renamed."
+msgstr ""
+
+#: src/nautilus-file.c:1196 src/nautilus-vfs-file.c:271
+msgid "This file cannot be mounted"
+msgstr ""
+
+#: src/nautilus-file.c:1250
+msgid "This file cannot be unmounted"
+msgstr ""
+
+#: src/nautilus-file.c:1297
+msgid "This file cannot be ejected"
+msgstr ""
+
+#: src/nautilus-file.c:1342 src/nautilus-vfs-file.c:446
+msgid "This file cannot be started"
+msgstr ""
+
+#: src/nautilus-file.c:1401 src/nautilus-file.c:1439
+msgid "This file cannot be stopped"
+msgstr ""
+
+#: src/nautilus-file.c:1780
+#, c-format
+msgid "Slashes are not allowed in filenames"
+msgstr ""
+
+#: src/nautilus-file.c:1823
+#, c-format
+msgid "Toplevel files cannot be renamed"
+msgstr ""
+
+#: src/nautilus-file.c:1903
+#, c-format
+msgid "File not found"
+msgstr ""
+
+#: src/nautilus-file.c:5327
+#, c-format
+msgid "Not allowed to set permissions"
+msgstr ""
+
+#: src/nautilus-file.c:5673
+#, c-format
+msgid "Not allowed to set owner"
+msgstr ""
+
+#: src/nautilus-file.c:5692
+#, c-format
+msgid "Specified owner “%s” doesn’t exist"
+msgstr ""
+
+#: src/nautilus-file.c:5982
+#, c-format
+msgid "Not allowed to set group"
+msgstr ""
+
+#: src/nautilus-file.c:6001
+#, c-format
+msgid "Specified group “%s” doesn’t exist"
+msgstr ""
+
+#. Translators: This is a username followed by "(You)" to indicate the file is owned by the current user
+#: src/nautilus-file.c:6141
+#, c-format
+msgid "%s (You)"
+msgstr ""
+
+#: src/nautilus-file.c:6173
+#, c-format
+msgid "%'u item"
+msgid_plural "%'u items"
+msgstr[0] "%'u tūemi"
+msgstr[1] "%'u tūemi"
+
+#: src/nautilus-file.c:6174
+#, c-format
+msgid "%'u folder"
+msgid_plural "%'u folders"
+msgstr[0] "%'u kōpaki"
+msgstr[1] "%'u kōpaki"
+
+#: src/nautilus-file.c:6175
+#, c-format
+msgid "%'u file"
+msgid_plural "%'u files"
+msgstr[0] "%'u kōnae"
+msgstr[1] "%'u kōnae"
+
+#: src/nautilus-file.c:6259 src/nautilus-properties.c:2113
+#, c-format
+msgid "%s byte"
+msgid_plural "%s bytes"
+msgstr[0] "%s paita"
+msgstr[1] "%s paita"
+
+#. This means no contents at all were readable
+#: src/nautilus-file.c:6652
+msgid "? bytes"
+msgstr ""
+
+#. This means no contents at all were readable
+#: src/nautilus-file.c:6664
+msgid "? items"
+msgstr ""
+
+#. Translators: This about a file type.
+#: src/nautilus-file.c:6673
+msgid "Unknown type"
+msgstr ""
+
+#. Fallback, use for both unknown attributes and attributes
+#. * for which we have no more appropriate default.
+#.
+#: src/nautilus-file.c:6704
+msgid "Unknown"
+msgstr "Tē mōhiotia"
+
+#: src/nautilus-file.c:6754 src/nautilus-file.c:6762 src/nautilus-file.c:6821
+msgid "Program"
+msgstr ""
+
+#: src/nautilus-file.c:6755
+msgid "Audio"
+msgstr "Oro"
+
+#: src/nautilus-file.c:6756
+msgid "Font"
+msgstr "Momotuhi"
+
+#: src/nautilus-file.c:6757
+msgid "Image"
+msgstr "Whakaahua"
+
+#: src/nautilus-file.c:6758
+msgid "Archive"
+msgstr ""
+
+#: src/nautilus-file.c:6759
+msgid "Markup"
+msgstr ""
+
+#: src/nautilus-file.c:6760 src/nautilus-file.c:6761
+msgid "Text"
+msgstr "Kuputuhi"
+
+#: src/nautilus-file.c:6763 src/nautilus-mime-actions.c:283
+msgid "Video"
+msgstr "Ataata"
+
+#: src/nautilus-file.c:6764
+msgid "Contacts"
+msgstr "Ngā Hoapā"
+
+#: src/nautilus-file.c:6765
+msgid "Calendar"
+msgstr "Maramataka"
+
+#: src/nautilus-file.c:6766
+msgid "Document"
+msgstr "Tuhinga"
+
+#: src/nautilus-file.c:6767 src/nautilus-mime-actions.c:244
+msgid "Presentation"
+msgstr ""
+
+#: src/nautilus-file.c:6768 src/nautilus-mime-actions.c:256
+msgid "Spreadsheet"
+msgstr ""
+
+#. Refers to a file type which is known but not one of the basic types
+#: src/nautilus-file.c:6801
+msgid "Other"
+msgstr "Tētahi atu"
+
+#: src/nautilus-file.c:6823
+msgid "Binary"
+msgstr ""
+
+#: src/nautilus-file.c:6828
+msgid "Folder"
+msgstr "Kōpaki"
+
+#: src/nautilus-file.c:6886
+msgid "Link"
+msgstr ""
+
+#. Note to localizers: convert file type string for file
+#. * (e.g. "folder", "plain text") to file type for symbolic link
+#. * to that kind of file (e.g. "link to folder").
+#.
+#. Translators: File name for new symlink. %s is target's name
+#: src/nautilus-file.c:6892 src/nautilus-filename-utilities.c:253
+#, c-format
+msgid "Link to %s"
+msgstr ""
+
+#: src/nautilus-file.c:6908 src/nautilus-file.c:6924 src/nautilus-file.c:6940
+msgid "Link (broken)"
+msgstr ""
+
+#. Translators: This refers to available space in a folder; e.g.: 100 MB Free
+#: src/nautilus-file.c:7101
+#, c-format
+msgid "%s Free"
+msgstr ""
+
+#. Translators: This is the role for a folder icon when a screen reader is
+#. * used. If a folder is selected, it will say "XXXXXX. Folder"
+#: src/nautilus-file.c:8438
+msgctxt "Role"
+msgid "Folder"
+msgstr "Kōpaki"
+
+#. Translators: This is the role for a file icon when a screen reader is
+#. * used. If a file is selected, it will say "XXXXXX. File"
+#: src/nautilus-file.c:8441
+msgctxt "Role"
+msgid "File"
+msgstr "Kōnae"
+
+#. Translators: when a file is marked with a star, this text
+#. * is added at the end of the name when prononunced by a
+#. * screen reader, after the role
+#. * (e.g. "My documents. Folder. Starred")
+#.
+#: src/nautilus-file.c:8460
+msgctxt "Role"
+msgid "Starred"
+msgstr ""
+
+#: src/nautilus-file-chooser.c:238
+msgid "Replace When Saving?"
+msgstr ""
+
+#: src/nautilus-file-chooser.c:244
+#, c-format
+msgid ""
+"“%s” already exists in “%s”. Saving will replace or overwrite its contents."
+msgstr ""
+
+#: src/nautilus-file-operations.c:388
+#, c-format
+msgid "%'d second"
+msgid_plural "%'d seconds"
+msgstr[0] "%'d hēkona"
+msgstr[1] "%'d hēkona"
+
+#: src/nautilus-file-operations.c:394 src/nautilus-file-operations.c:406
+#, c-format
+msgid "%'d minute"
+msgid_plural "%'d minutes"
+msgstr[0] "%'d meneti"
+msgstr[1] "%'d meneti"
+
+#: src/nautilus-file-operations.c:405 src/nautilus-file-operations.c:413
+#, c-format
+msgid "%'d hour"
+msgid_plural "%'d hours"
+msgstr[0] "%'d haora"
+msgstr[1] "%'d haora"
+
+#: src/nautilus-file-operations.c:473 src/nautilus-properties.c:948
+msgid "unknown"
+msgstr ""
+
+#: src/nautilus-file-operations.c:965 src/nautilus-file-operations.c:1017
+#, c-format
+msgid "Permanently Delete “%s”?"
+msgstr ""
+
+#: src/nautilus-file-operations.c:969 src/nautilus-file-operations.c:1022
+#, c-format
+msgid "Permanently Delete %'d Selected Item?"
+msgid_plural "Permanently Delete %'d Selected Items?"
+msgstr[0] "Muku Pūmau i %'d Tūemi Kua Tīpakohia?"
+msgstr[1] "Muku Pūmau i %'d Tūemi Kua Tīpakohia?"
+
+#: src/nautilus-file-operations.c:977 src/nautilus-file-operations.c:1030
+msgid "Permanently deleted items can not be restored"
+msgstr ""
+
+#: src/nautilus-file-operations.c:988
+msgid "Empty Trash?"
+msgstr ""
+
+#: src/nautilus-file-operations.c:989
+msgid "All items in the Trash will be permanently deleted"
+msgstr ""
+
+#. Translators: This action removes a file from Recent
+#: src/nautilus-file-operations.c:1088
+#, c-format
+msgid "Cleared “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:1092
+#, c-format
+msgid "Deleted “%s”"
+msgstr ""
+
+#. Translators: This action removes a file from Recent
+#: src/nautilus-file-operations.c:1100
+#, c-format
+msgid "Clearing “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:1104
+#, c-format
+msgid "Deleting “%s”"
+msgstr ""
+
+#. Translators: This action removes file(s) from Recent
+#: src/nautilus-file-operations.c:1120
+#, c-format
+msgid "Cleared %'d file"
+msgid_plural "Cleared %'d files"
+msgstr[0] "Kua whakawāteatia %'d kōnae"
+msgstr[1] "Kua whakawāteatia %'d kōnae"
+
+#: src/nautilus-file-operations.c:1126
+#, c-format
+msgid "Deleted %'d file"
+msgid_plural "Deleted %'d files"
+msgstr[0] "Kua mukua %'d kōnae"
+msgstr[1] "Kua mukua %'d kōnae"
+
+#. Translators: This action removes file(s) from Recent
+#: src/nautilus-file-operations.c:1136
+#, c-format
+msgid "Clearing %'d file"
+msgid_plural "Clearing %'d files"
+msgstr[0] "Kei te whakawātea i %'d kōnae"
+msgstr[1] "Kei te whakawātea i %'d kōnae"
+
+#: src/nautilus-file-operations.c:1142
+#, c-format
+msgid "Deleting %'d file"
+msgid_plural "Deleting %'d files"
+msgstr[0] "Kei te muku i %'d kōnae"
+msgstr[1] "Kei te muku i %'d kōnae"
+
+#. To translators: %'d is the number of files completed for the operation,
+#. * so it will be something like 2/14.
+#: src/nautilus-file-operations.c:1172 src/nautilus-file-operations.c:1180
+#: src/nautilus-file-operations.c:1220 src/nautilus-file-operations.c:1557
+#: src/nautilus-file-operations.c:1565 src/nautilus-file-operations.c:1605
+#: src/nautilus-file-operations.c:3431 src/nautilus-file-operations.c:3439
+#: src/nautilus-file-operations.c:3510 src/nautilus-file-operations.c:8026
+#: src/nautilus-file-operations.c:8094
+#, c-format
+msgid "%'d / %'d"
+msgstr ""
+
+#. To translators: %s will expand to a time duration like "2 minutes".
+#. * So the whole thing will be something like "1 / 5 -- 2 hours left (4 files/s)"
+#. *
+#. * The singular/plural form will be used depending on the remaining time (i.e. the %s argument).
+#.
+#: src/nautilus-file-operations.c:1199 src/nautilus-file-operations.c:1584
+#, c-format
+msgid "%'d / %'d — %s left"
+msgid_plural "%'d / %'d — %s left"
+msgstr[0] "%'d / %'d — %s toe"
+msgstr[1] "%'d / %'d — %s toe"
+
+#: src/nautilus-file-operations.c:1203 src/nautilus-file-operations.c:1587
+#, c-format
+msgid "(%d file/s)"
+msgid_plural "(%d files/s)"
+msgstr[0] "(%d kōnae)"
+msgstr[1] "(%d kōnae)"
+
+#: src/nautilus-file-operations.c:1316
+#, c-format
+msgid "Failed to delete all child files"
+msgstr ""
+
+#: src/nautilus-file-operations.c:1368 src/nautilus-file-operations.c:2595
+msgid "Error while deleting."
+msgstr ""
+
+#: src/nautilus-file-operations.c:1375
+#, c-format
+msgid "You do not have sufficient permissions to delete the folder “%s”."
+msgstr ""
+
+#: src/nautilus-file-operations.c:1378
+#, c-format
+msgid "There was an error deleting the folder “%s”."
+msgstr ""
+
+#: src/nautilus-file-operations.c:1385
+#, c-format
+msgid "You do not have sufficient permissions to delete the file “%s”."
+msgstr ""
+
+#: src/nautilus-file-operations.c:1388
+#, c-format
+msgid "There was an error deleting the file “%s”."
+msgstr ""
+
+#: src/nautilus-file-operations.c:1505
+#, c-format
+msgid "Trashing “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:1509
+#, c-format
+msgid "Trashed “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:1521
+#, c-format
+msgid "Trashing %'d file"
+msgid_plural "Trashing %'d files"
+msgstr[0] "Kei te nuku i %'d kōnae ki te ipupara"
+msgstr[1] "Kei te nuku i %'d kōnae ki te ipupara"
+
+#: src/nautilus-file-operations.c:1527
+#, c-format
+msgid "Trashed %'d file"
+msgid_plural "Trashed %'d files"
+msgstr[0] "Kua nukuhia %'d kōnae ki te ipupara"
+msgstr[1] "Kua nukuhia %'d kōnae ki te ipupara"
+
+#. Translators: %s is a file name
+#: src/nautilus-file-operations.c:1674
+#, c-format
+msgid "“%s” can’t be put in the trash. Do you want to delete it immediately?"
+msgstr ""
+
+#: src/nautilus-file-operations.c:1684
+msgid "This remote location does not support sending items to the trash."
+msgstr ""
+
+#: src/nautilus-file-operations.c:1976
+msgid "Trashing Files"
+msgstr ""
+
+#: src/nautilus-file-operations.c:1980
+msgid "Deleting Files"
+msgstr ""
+
+#. Translators: %s is a file name formatted for display
+#: src/nautilus-file-operations.c:2137 src/nautilus-files-view.c:6640
+#: src/nautilus-sidebar.c:2364 src/nautilus-sidebar.c:2393
+#, c-format
+msgid "Unable to eject “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:2142
+#, c-format
+msgid "Unable to unmount “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:2250
+msgid "Empty Trash Before Ejecting?"
+msgstr ""
+
+#: src/nautilus-file-operations.c:2253
+#, c-format
+msgid ""
+"Empty the trash to free up space on “%s”. All trashed items will be "
+"permanently deleted."
+msgstr ""
+
+#: src/nautilus-file-operations.c:2258
+msgid "Do _Not Empty"
+msgstr ""
+
+#. Translators: This is an action in a dialog to
+#. * clear trashed items.
+#: src/nautilus-file-operations.c:2261
+msgid "_Empty"
+msgstr "_Putua"
+
+#. Translators: %s is a file name formatted for display
+#: src/nautilus-file-operations.c:2422 src/nautilus-files-view.c:6593
+#: src/nautilus-sidebar.c:1777
+#, c-format
+msgid "Unable to access “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:2496
+#, c-format
+msgid "Preparing to copy %'d file (%s)"
+msgid_plural "Preparing to copy %'d files (%s)"
+msgstr[0] "E whakarite ana ki te tārua i %'d kōnae (%s)"
+msgstr[1] "E whakarite ana ki te tārua i %'d kōnae (%s)"
+
+#: src/nautilus-file-operations.c:2509
+#, c-format
+msgid "Preparing to move %'d file (%s)"
+msgid_plural "Preparing to move %'d files (%s)"
+msgstr[0] "E whakarite ana ki te nuku i %'d kōnae (%s)"
+msgstr[1] "E whakarite ana ki te nuku i %'d kōnae (%s)"
+
+#: src/nautilus-file-operations.c:2522
+#, c-format
+msgid "Preparing to delete %'d file (%s)"
+msgid_plural "Preparing to delete %'d files (%s)"
+msgstr[0] "E whakarite ana ki te muku i %'d kōnae (%s)"
+msgstr[1] "E whakarite ana ki te muku i %'d kōnae (%s)"
+
+#: src/nautilus-file-operations.c:2532
+#, c-format
+msgid "Preparing to trash %'d file"
+msgid_plural "Preparing to trash %'d files"
+msgstr[0] "E whakarite ana ki te nuku i %'d kōnae ki te ipupara"
+msgstr[1] "E whakarite ana ki te nuku i %'d kōnae ki te ipupara"
+
+#: src/nautilus-file-operations.c:2541
+#, c-format
+msgid "Preparing to compress %'d file"
+msgid_plural "Preparing to compress %'d files"
+msgstr[0] "E whakarite ana ki te kōpeke i %'d kōnae"
+msgstr[1] "E whakarite ana ki te kōpeke i %'d kōnae"
+
+#: src/nautilus-file-operations.c:2585 src/nautilus-file-operations.c:4039
+#: src/nautilus-file-operations.c:4209 src/nautilus-file-operations.c:4283
+#: src/nautilus-file-operations.c:4547
+msgid "Error while copying."
+msgstr ""
+
+#: src/nautilus-file-operations.c:2590 src/nautilus-file-operations.c:4205
+#: src/nautilus-file-operations.c:4279 src/nautilus-file-operations.c:4546
+msgid "Error while moving."
+msgstr ""
+
+#: src/nautilus-file-operations.c:2600
+msgid "Error while moving files to trash."
+msgstr ""
+
+#: src/nautilus-file-operations.c:2605
+msgid "Error while compressing files."
+msgstr ""
+
+#: src/nautilus-file-operations.c:2692
+#, c-format
+msgid ""
+"Files in the folder “%s” cannot be handled because you do not have "
+"permissions to see them."
+msgstr ""
+
+#: src/nautilus-file-operations.c:2698 src/nautilus-file-operations.c:4220
+#, c-format
+msgid ""
+"There was an error getting information about the files in the folder “%s”."
+msgstr ""
+
+#: src/nautilus-file-operations.c:2745
+#, c-format
+msgid ""
+"The folder “%s” cannot be handled because you do not have permissions to "
+"read it."
+msgstr ""
+
+#: src/nautilus-file-operations.c:2751 src/nautilus-file-operations.c:4294
+#, c-format
+msgid "There was an error reading the folder “%s”."
+msgstr ""
+
+#: src/nautilus-file-operations.c:2854
+#, c-format
+msgid ""
+"The file “%s” cannot be handled because you do not have permissions to read "
+"it."
+msgstr ""
+
+#: src/nautilus-file-operations.c:2859
+#, c-format
+msgid "There was an error getting information about “%s”."
+msgstr ""
+
+#: src/nautilus-file-operations.c:2978 src/nautilus-file-operations.c:3035
+#: src/nautilus-file-operations.c:3081 src/nautilus-file-operations.c:3141
+#, c-format
+msgid "Error while copying to “%s”."
+msgstr ""
+
+#: src/nautilus-file-operations.c:2984
+msgid "You do not have permissions to access the destination folder."
+msgstr ""
+
+#: src/nautilus-file-operations.c:2988
+msgid "There was an error getting information about the destination."
+msgstr ""
+
+#: src/nautilus-file-operations.c:3036
+msgid "The destination is not a folder."
+msgstr ""
+
+#: src/nautilus-file-operations.c:3086
+msgid ""
+"There is not enough space on the destination. Try to remove files to make "
+"space."
+msgstr ""
+
+#: src/nautilus-file-operations.c:3089
+#, c-format
+msgid "%s more space is required to copy to the destination."
+msgstr ""
+
+#: src/nautilus-file-operations.c:3125
+msgid "File too Large for Destination"
+msgstr ""
+
+#: src/nautilus-file-operations.c:3126
+msgid "Files bigger than 4.3 GB cannot be copied onto a FAT filesystem."
+msgstr ""
+
+#: src/nautilus-file-operations.c:3142
+msgid "The destination is read-only."
+msgstr ""
+
+#: src/nautilus-file-operations.c:3213
+#, c-format
+msgid "Moving “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:3214
+#, c-format
+msgid "Moving “%s” to “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:3218
+#, c-format
+msgid "Moved “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:3219
+#, c-format
+msgid "Moved “%s” to “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:3226
+#, c-format
+msgid "Copying “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:3227
+#, c-format
+msgid "Copying “%s” to “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:3231
+#, c-format
+msgid "Copied “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:3232
+#, c-format
+msgid "Copied “%s” to “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:3269
+#, c-format
+msgid "Duplicating “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:3273
+#, c-format
+msgid "Duplicated “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:3292
+#, c-format
+msgid "Moving %'d file"
+msgid_plural "Moving %'d files"
+msgstr[0] "Kei te nuku i %'d kōnae"
+msgstr[1] "Kei te nuku i %'d kōnae"
+
+#: src/nautilus-file-operations.c:3295
+#, c-format
+msgid "Moving %'d file to “%s”"
+msgid_plural "Moving %'d files to “%s”"
+msgstr[0] "Kei te nuku i %'d kōnae ki “%s”"
+msgstr[1] "Kei te nuku i %'d kōnae ki “%s”"
+
+#: src/nautilus-file-operations.c:3301
+#, c-format
+msgid "Copying %'d file"
+msgid_plural "Copying %'d files"
+msgstr[0] "Kei te tārua i %'d kōnae"
+msgstr[1] "Kei te tārua i %'d kōnae"
+
+#: src/nautilus-file-operations.c:3304
+#, c-format
+msgid "Copying %'d file to “%s”"
+msgid_plural "Copying %'d files to “%s”"
+msgstr[0] "Kei te tārua i %'d kōnae ki “%s”"
+msgstr[1] "Kei te tārua i %'d kōnae ki “%s”"
+
+#: src/nautilus-file-operations.c:3325
+#, c-format
+msgid "Moved %'d file"
+msgid_plural "Moved %'d files"
+msgstr[0] "Kua nukuhia %'d kōnae"
+msgstr[1] "Kua nukuhia %'d kōnae"
+
+#: src/nautilus-file-operations.c:3328
+#, c-format
+msgid "Moved %'d file to “%s”"
+msgid_plural "Moved %'d files to “%s”"
+msgstr[0] "Kua nukuhia %'d kōnae ki “%s”"
+msgstr[1] "Kua nukuhia %'d kōnae ki “%s”"
+
+#: src/nautilus-file-operations.c:3334
+#, c-format
+msgid "Copied %'d file"
+msgid_plural "Copied %'d files"
+msgstr[0] "Kua tāruatia %'d kōnae"
+msgstr[1] "Kua tāruatia %'d kōnae"
+
+#: src/nautilus-file-operations.c:3337
+#, c-format
+msgid "Copied %'d file to “%s”"
+msgid_plural "Copied %'d files to “%s”"
+msgstr[0] "Kua tāruatia %'d kōnae ki “%s”"
+msgstr[1] "Kua tāruatia %'d kōnae ki “%s”"
+
+#: src/nautilus-file-operations.c:3362
+#, c-format
+msgid "Duplicating %'d file"
+msgid_plural "Duplicating %'d files"
+msgstr[0] "Kei te tārite i %'d kōnae"
+msgstr[1] "Kei te tārite i %'d kōnae"
+
+#: src/nautilus-file-operations.c:3365
+#, c-format
+msgid "Duplicating %'d file in “%s”"
+msgid_plural "Duplicating %'d files in “%s”"
+msgstr[0] "Kei te tārite i %'d kōnae i roto i “%s”"
+msgstr[1] "Kei te tārite i %'d kōnae i roto i “%s”"
+
+#: src/nautilus-file-operations.c:3377
+#, c-format
+msgid "Duplicated %'d file"
+msgid_plural "Duplicated %'d files"
+msgstr[0] "Kua tāritea %'d kōnae"
+msgstr[1] "Kua tāritea %'d kōnae"
+
+#: src/nautilus-file-operations.c:3380
+#, c-format
+msgid "Duplicated %'d file in “%s”"
+msgid_plural "Duplicated %'d files in “%s”"
+msgstr[0] "Kua tāritea %'d kōnae i roto i “%s”"
+msgstr[1] "Kua tāritea %'d kōnae i roto i “%s”"
+
+#. To translators: %s will expand to a size like "2 bytes" or "3 MB", so something like "4 kB / 4 MB"
+#. To translators: %s will expand to a size like "2 bytes" or "3 MB".
+#. To translators: %s will expand to a size like "2 bytes" or
+#. * "3 MB", so something like "4 kB / 4 MB"
+#.
+#. To translators: %s will expand to a size like "2 bytes" or "3 MB", so something like "4 kB / 4 MB"
+#. To translators: %s will expand to a size like "2 bytes" or "3 MB".
+#: src/nautilus-file-operations.c:3421 src/nautilus-file-operations.c:3481
+#: src/nautilus-file-operations.c:7527 src/nautilus-file-operations.c:7754
+#: src/nautilus-file-operations.c:8021 src/nautilus-file-operations.c:8064
+#, c-format
+msgid "%s / %s"
+msgstr ""
+
+#. To translators: %s will expand to a size like "2 bytes" or "3 MB", %s to a time duration like
+#. * "2 minutes". So the whole thing will be something like "2 kB / 4 MB -- 2 hours left (4 kB/s)"
+#. *
+#. * The singular/plural form will be used depending on the remaining time (i.e. the %s argument).
+#.
+#. To translators: %s will expand to a size like "2 bytes" or
+#. * "3 MB", %s to a time duration like "2 minutes". So the whole
+#. * thing will be something like
+#. * "2 kB / 4 MB -- 2 hours left (4 kB/s)"
+#. *
+#. * The singular/plural form will be used depending on the
+#. * remaining time (i.e. the %s argument).
+#.
+#. To translators: %s will expand to a size like "2 bytes" or "3 MB", %s to a time duration like
+#. * "2 minutes". So the whole thing will be something like "2 kB / 4 MB -- 2 hours left (4 kB/s)"
+#. *
+#. * The singular/plural form will be used depending on the remaining time (i.e. the %s argument).
+#.
+#: src/nautilus-file-operations.c:3465 src/nautilus-file-operations.c:7545
+#: src/nautilus-file-operations.c:8053
+#, c-format
+msgid "%s / %s — %s left (%s/s)"
+msgid_plural "%s / %s — %s left (%s/s)"
+msgstr[0] "%s / %s — %s toe (%s/s)"
+msgstr[1] "%s / %s — %s toe (%s/s)"
+
+#. To translators: %s will expand to a time duration like "2 minutes".
+#. * So the whole thing will be something like "1 / 5 -- 2 hours left (4 kB/s)"
+#. *
+#. * The singular/plural form will be used depending on the remaining time (i.e. the %s argument).
+#.
+#: src/nautilus-file-operations.c:3499 src/nautilus-file-operations.c:8083
+#, c-format
+msgid "%'d / %'d — %s left (%s/s)"
+msgid_plural "%'d / %'d — %s left (%s/s)"
+msgstr[0] "%'d / %'d — %s toe (%s/s)"
+msgstr[1] "%'d / %'d — %s toe (%s/s)"
+
+#: src/nautilus-file-operations.c:4027
+#, c-format
+msgid ""
+"The folder “%s” cannot be copied because you do not have permissions to "
+"create it in the destination."
+msgstr ""
+
+#: src/nautilus-file-operations.c:4033
+#, c-format
+msgid "There was an error creating the folder “%s”."
+msgstr ""
+
+#: src/nautilus-file-operations.c:4215
+#, c-format
+msgid ""
+"Files in the folder “%s” cannot be copied because you do not have "
+"permissions to see them."
+msgstr ""
+
+#: src/nautilus-file-operations.c:4289
+#, c-format
+msgid ""
+"The folder “%s” cannot be copied because you do not have permissions to read "
+"it."
+msgstr ""
+
+#: src/nautilus-file-operations.c:4354 src/nautilus-file-operations.c:4912
+#: src/nautilus-file-operations.c:5566
+#, c-format
+msgid "Error while moving “%s”."
+msgstr ""
+
+#: src/nautilus-file-operations.c:4355
+msgid "Could not remove the source folder."
+msgstr ""
+
+#: src/nautilus-file-operations.c:4639 src/nautilus-file-operations.c:5374
+msgid "You cannot move a folder into itself."
+msgstr ""
+
+#: src/nautilus-file-operations.c:4640 src/nautilus-file-operations.c:5375
+msgid "You cannot copy a folder into itself."
+msgstr ""
+
+#: src/nautilus-file-operations.c:4641 src/nautilus-file-operations.c:5376
+msgid "The destination folder is inside the source folder."
+msgstr ""
+
+#: src/nautilus-file-operations.c:4663 src/nautilus-file-operations.c:5398
+msgid "You cannot move a file over itself."
+msgstr ""
+
+#: src/nautilus-file-operations.c:4664 src/nautilus-file-operations.c:5399
+msgid "You cannot copy a file over itself."
+msgstr ""
+
+#: src/nautilus-file-operations.c:4665 src/nautilus-file-operations.c:5400
+msgid "The source file would be overwritten by the destination."
+msgstr ""
+
+#: src/nautilus-file-operations.c:4916 src/nautilus-file-operations.c:4975
+#, c-format
+msgid "Error while copying “%s”."
+msgstr ""
+
+#: src/nautilus-file-operations.c:4919
+#, c-format
+msgid "Could not remove the already existing file with the same name in %s."
+msgstr ""
+
+#: src/nautilus-file-operations.c:4976
+#, c-format
+msgid "There was an error copying the file into %s."
+msgstr ""
+
+#: src/nautilus-file-operations.c:5143
+msgid "Copying Files"
+msgstr ""
+
+#: src/nautilus-file-operations.c:5261
+#, c-format
+msgid "Preparing to move to “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:5263
+msgid "Preparing to move"
+msgstr ""
+
+#: src/nautilus-file-operations.c:5266
+#, c-format
+msgid "Preparing to move %'d file"
+msgid_plural "Preparing to move %'d files"
+msgstr[0] "E whakarite ana ki te nuku i %'d kōnae"
+msgstr[1] "E whakarite ana ki te nuku i %'d kōnae"
+
+#: src/nautilus-file-operations.c:5567
+#, c-format
+msgid "There was an error moving the file into %s."
+msgstr ""
+
+#: src/nautilus-file-operations.c:5777
+msgid "Moving Files"
+msgstr ""
+
+#: src/nautilus-file-operations.c:5879
+#, c-format
+msgid "Creating links in “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:5881
+msgid "Creating links"
+msgstr ""
+
+#: src/nautilus-file-operations.c:5884
+#, c-format
+msgid "Making link to %'d file"
+msgid_plural "Making links to %'d files"
+msgstr[0] "Kei te waihanga hono ki %'d kōnae"
+msgstr[1] "Kei te waihanga hono ki %'d kōnae"
+
+#: src/nautilus-file-operations.c:6024
+#, c-format
+msgid "Error while creating link to %s."
+msgstr ""
+
+#: src/nautilus-file-operations.c:6031
+msgid "Symbolic links only supported for local files"
+msgstr ""
+
+#: src/nautilus-file-operations.c:6035
+msgid "The target doesn’t support symbolic links."
+msgstr ""
+
+#: src/nautilus-file-operations.c:6042
+#, c-format
+msgid "There was an error creating the symlink in %s."
+msgstr ""
+
+#: src/nautilus-file-operations.c:6300
+msgid "Setting permissions"
+msgstr ""
+
+#. localizers: the initial name of a new folder
+#: src/nautilus-file-operations.c:6558
+msgid "Untitled Folder"
+msgstr ""
+
+#. localizers: the initial name of a new empty document
+#: src/nautilus-file-operations.c:6573
+msgid "Untitled Document"
+msgstr ""
+
+#: src/nautilus-file-operations.c:6802
+#, c-format
+msgid "Error while creating directory “%s”."
+msgstr ""
+
+#: src/nautilus-file-operations.c:6807
+#, c-format
+msgid "Error while creating file “%s”."
+msgstr ""
+
+#: src/nautilus-file-operations.c:6811
+#, c-format
+msgid "There was an error creating the directory in %s."
+msgstr ""
+
+#: src/nautilus-file-operations.c:6900
+msgid "Saving image"
+msgstr ""
+
+#: src/nautilus-file-operations.c:6915
+msgid "Saved image"
+msgstr ""
+
+#: src/nautilus-file-operations.c:6945
+msgid "Failed to save image"
+msgstr ""
+
+#. Start the timed wait to cancel the rename.
+#: src/nautilus-file-operations.c:7098
+#, c-format
+msgid "Renaming “%s” to “%s”."
+msgstr ""
+
+#. Translators: This is used to auto-generate a file name for pasted images from
+#. * the clipboard i.e. "Pasted image.png", "Pasted image 1.png", ...
+#: src/nautilus-file-operations.c:7130
+msgid "Pasted image"
+msgstr ""
+
+#: src/nautilus-file-operations.c:7137
+msgid "Retrieving clipboard data"
+msgstr ""
+
+#: src/nautilus-file-operations.c:7169
+msgid "Retrieving image data"
+msgstr ""
+
+#: src/nautilus-file-operations.c:7387
+msgid "Emptying Trash"
+msgstr ""
+
+#: src/nautilus-file-operations.c:7430
+msgid "Verifying destination"
+msgstr ""
+
+#: src/nautilus-file-operations.c:7484
+#, c-format
+msgid "Extracting “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:7611 src/nautilus-file-operations.c:7699
+#, c-format
+msgid "Error extracting “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:7619
+#, c-format
+msgid "There was an error while extracting “%s”."
+msgstr ""
+
+#: src/nautilus-file-operations.c:7694
+#, c-format
+msgid "Not enough free space to extract “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:7731
+#, c-format
+msgid "Extracted “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:7733
+#, c-format
+msgid "Extracted “%s” to “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:7739
+#, c-format
+msgid "Extracted %'d file"
+msgid_plural "Extracted %'d files"
+msgstr[0] "Kua unuhia %'d kōnae"
+msgstr[1] "Kua unuhia %'d kōnae"
+
+#: src/nautilus-file-operations.c:7743
+#, c-format
+msgid "Extracted %'d file to “%s”"
+msgid_plural "Extracted %'d files to “%s”"
+msgstr[0] "Kua unuhia %'d kōnae ki “%s”"
+msgstr[1] "Kua unuhia %'d kōnae ki “%s”"
+
+#: src/nautilus-file-operations.c:7777
+msgid "Preparing to extract"
+msgstr ""
+
+#: src/nautilus-file-operations.c:7905
+msgid "Extracting Files"
+msgstr ""
+
+#: src/nautilus-file-operations.c:7971
+#, c-format
+msgid "Compressing “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:7973
+#, c-format
+msgid "Compressing “%s” into “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:7979
+#, c-format
+msgid "Compressing %'d file"
+msgid_plural "Compressing %'d files"
+msgstr[0] "Kei te kōpeke i %'d kōnae"
+msgstr[1] "Kei te kōpeke i %'d kōnae"
+
+#: src/nautilus-file-operations.c:7983
+#, c-format
+msgid "Compressing %'d file into “%s”"
+msgid_plural "Compressing %'d files into “%s”"
+msgstr[0] "Kei te kōpeke i %'d kōnae ki roto i “%s”"
+msgstr[1] "Kei te kōpeke i %'d kōnae ki roto i “%s”"
+
+#: src/nautilus-file-operations.c:8134
+#, c-format
+msgid "Error compressing “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:8136
+#, c-format
+msgid "Error compressing “%s” into “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:8142
+#, c-format
+msgid "Error compressing %'d file"
+msgid_plural "Error compressing %'d files"
+msgstr[0] "Hapa kōpeke i %'d kōnae"
+msgstr[1] "Hapa kōpeke i %'d kōnae"
+
+#: src/nautilus-file-operations.c:8146
+#, c-format
+msgid "Error compressing %'d file into “%s”"
+msgid_plural "Error compressing %'d files into “%s”"
+msgstr[0] "Hapa kōpeke i %'d kōnae ki roto i “%s”"
+msgstr[1] "Hapa kōpeke i %'d kōnae ki roto i “%s”"
+
+#: src/nautilus-file-operations.c:8155
+msgid "There was an error while compressing files."
+msgstr ""
+
+#: src/nautilus-file-operations.c:8178
+#, c-format
+msgid "Compressed “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:8180
+#, c-format
+msgid "Compressed “%s” into “%s”"
+msgstr ""
+
+#: src/nautilus-file-operations.c:8186
+#, c-format
+msgid "Compressed %'d file"
+msgid_plural "Compressed %'d files"
+msgstr[0] "Kua kōpeketia %'d kōnae"
+msgstr[1] "Kua kōpeketia %'d kōnae"
+
+#: src/nautilus-file-operations.c:8190
+#, c-format
+msgid "Compressed %'d file into “%s”"
+msgid_plural "Compressed %'d files into “%s”"
+msgstr[0] "Kua kōpeketia %'d kōnae ki “%s”"
+msgstr[1] "Kua kōpeketia %'d kōnae ki “%s”"
+
+#: src/nautilus-file-operations.c:8307
+msgid "Compressing Files"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:176 src/nautilus-window.c:931
+msgid "Undo"
+msgstr "Wete"
+
+#: src/nautilus-file-undo-operations.c:180
+msgid "Undo last action"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:185
+msgid "Redo"
+msgstr "Mahi anō"
+
+#: src/nautilus-file-undo-operations.c:189
+msgid "Redo last undone action"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:451
+#, c-format
+msgid "Move %d item back to “%s”"
+msgid_plural "Move %d items back to “%s”"
+msgstr[0] "Hokia whakamuri %d tūemi ki “%s”"
+msgstr[1] "Hokia whakamuri %d tūemi ki “%s”"
+
+#: src/nautilus-file-undo-operations.c:454
+#, c-format
+msgid "Move %d item to “%s”"
+msgid_plural "Move %d items to “%s”"
+msgstr[0] "Nukuhia %d tūemi ki “%s”"
+msgstr[1] "Nukuhia %d tūemi ki “%s”"
+
+#: src/nautilus-file-undo-operations.c:458
+#, c-format
+msgid "_Undo Move %d item"
+msgid_plural "_Undo Move %d items"
+msgstr[0] "_Wete i te Nuku o %d tūemi"
+msgstr[1] "_Wete i te Nuku o %d tūemi"
+
+#: src/nautilus-file-undo-operations.c:461
+#, c-format
+msgid "_Redo Move %d item"
+msgid_plural "_Redo Move %d items"
+msgstr[0] "_Mahi Anō i te Nuku o %d tūemi"
+msgstr[1] "_Mahi Anō i te Nuku o %d tūemi"
+
+#: src/nautilus-file-undo-operations.c:467
+#, c-format
+msgid "Move “%s” back to “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:468
+#, c-format
+msgid "Move “%s” to “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:470
+msgid "_Undo Move"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:471
+msgid "_Redo Move"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:476
+msgid "_Undo Restore From Trash"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:477
+msgid "_Redo Restore From Trash"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:481
+#, c-format
+msgid "Move %d item back to trash"
+msgid_plural "Move %d items back to trash"
+msgstr[0] "Hokia whakamuri %d tūemi ki te ipupara"
+msgstr[1] "Hokia whakamuri %d tūemi ki te ipupara"
+
+#: src/nautilus-file-undo-operations.c:484
+#: src/nautilus-file-undo-operations.c:1609
+#, c-format
+msgid "Restore %d item from trash"
+msgid_plural "Restore %d items from trash"
+msgstr[0] "Whakahokia %d tūemi mai i te ipupara"
+msgstr[1] "Whakahokia %d tūemi mai i te ipupara"
+
+#: src/nautilus-file-undo-operations.c:490
+#, c-format
+msgid "Move “%s” back to trash"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:491
+#, c-format
+msgid "Restore “%s” from trash"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:498
+#, c-format
+msgid "Delete %d copied item"
+msgid_plural "Delete %d copied items"
+msgstr[0] "Mukua %d tūemi kua tāruatia"
+msgstr[1] "Mukua %d tūemi kua tāruatia"
+
+#: src/nautilus-file-undo-operations.c:501
+#, c-format
+msgid "Copy %d item to “%s”"
+msgid_plural "Copy %d items to “%s”"
+msgstr[0] "Tāruatia %d tūemi ki “%s”"
+msgstr[1] "Tāruatia %d tūemi ki “%s”"
+
+#: src/nautilus-file-undo-operations.c:505
+#, c-format
+msgid "_Undo Copy %d item"
+msgid_plural "_Undo Copy %d items"
+msgstr[0] "_Wete i te Tāruatanga o %d tūemi"
+msgstr[1] "_Wete i te Tāruatanga o %d tūemi"
+
+#: src/nautilus-file-undo-operations.c:508
+#, c-format
+msgid "_Redo Copy %d item"
+msgid_plural "_Redo Copy %d items"
+msgstr[0] "_Mahi anō i te Tāruatanga o %d tūemi"
+msgstr[1] "_Mahi anō i te Tāruatanga o %d tūemi"
+
+#: src/nautilus-file-undo-operations.c:514
+#: src/nautilus-file-undo-operations.c:541
+#: src/nautilus-file-undo-operations.c:825
+#: src/nautilus-file-undo-operations.c:2343
+#: src/nautilus-file-undo-operations.c:2506
+#, c-format
+msgid "Delete “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:515
+#, c-format
+msgid "Copy “%s” to “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:517
+msgid "_Undo Copy"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:518
+msgid "_Redo Copy"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:525
+#, c-format
+msgid "Delete %d duplicated item"
+msgid_plural "Delete %d duplicated items"
+msgstr[0] "Mukua %d tūemi kua tāritea"
+msgstr[1] "Mukua %d tūemi kua tāritea"
+
+#: src/nautilus-file-undo-operations.c:528
+#, c-format
+msgid "Duplicate %d item in “%s”"
+msgid_plural "Duplicate %d items in “%s”"
+msgstr[0] "Tāritea %d tūemi i roto i “%s”"
+msgstr[1] "Tāritea %d tūemi i roto i “%s”"
+
+#: src/nautilus-file-undo-operations.c:532
+#, c-format
+msgid "_Undo Duplicate %d item"
+msgid_plural "_Undo Duplicate %d items"
+msgstr[0] "_Wete i te Tāruatanga o %d tūemi"
+msgstr[1] "_Wete i te Tāruatanga o %d tūemi"
+
+#: src/nautilus-file-undo-operations.c:535
+#, c-format
+msgid "_Redo Duplicate %d item"
+msgid_plural "_Redo Duplicate %d items"
+msgstr[0] "_Mahi anō i te Tāruatanga o %d tūemi"
+msgstr[1] "_Mahi anō i te Tāruatanga o %d tūemi"
+
+#: src/nautilus-file-undo-operations.c:542
+#, c-format
+msgid "Duplicate “%s” in “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:545
+msgid "_Undo Duplicate"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:546
+msgid "_Redo Duplicate"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:553
+#, c-format
+msgid "Delete links to %d item"
+msgid_plural "Delete links to %d items"
+msgstr[0] "Mukua ngā hono ki %d tūemi"
+msgstr[1] "Mukua ngā hono ki %d tūemi"
+
+#: src/nautilus-file-undo-operations.c:556
+#, c-format
+msgid "Create links to %d item"
+msgid_plural "Create links to %d items"
+msgstr[0] "Waihanga hono ki %d tūemi"
+msgstr[1] "Waihanga hono ki %d tūemi"
+
+#: src/nautilus-file-undo-operations.c:562
+#, c-format
+msgid "Delete link to “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:563
+#, c-format
+msgid "Create link to “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:565
+msgid "_Undo Create Link"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:566
+msgid "_Redo Create Link"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:829
+#, c-format
+msgid "Create an empty file “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:831
+msgid "_Undo Create Empty File"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:832
+msgid "_Redo Create Empty File"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:836
+#, c-format
+msgid "Create a new folder “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:838
+msgid "_Undo Create Folder"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:839
+msgid "_Redo Create Folder"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:843
+#, c-format
+msgid "Create new file “%s” from template "
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:845
+msgid "_Undo Create From Template"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:846
+msgid "_Redo Create From Template"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1057
+#: src/nautilus-file-undo-operations.c:1058
+#, c-format
+msgid "Rename “%s” as “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1060
+msgid "_Undo Rename"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1061
+msgid "_Redo Rename"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1178
+#: src/nautilus-file-undo-operations.c:1182
+#, c-format
+msgid "Batch rename %d file"
+msgid_plural "Batch rename %d files"
+msgstr[0] "Whakaingoa anō %d kōnae ngātahi"
+msgstr[1] "Whakaingoa anō %d kōnae ngātahi"
+
+#: src/nautilus-file-undo-operations.c:1187
+msgid "_Undo Batch Rename"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1188
+msgid "_Redo Batch Rename"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1391
+#: src/nautilus-file-undo-operations.c:1408
+#, c-format
+msgid "Unstar %d file"
+msgid_plural "Unstar %d files"
+msgstr[0] "Wetekina te whetū o %d kōnae"
+msgstr[1] "Wetekina te whetū o %d kōnae"
+
+#: src/nautilus-file-undo-operations.c:1395
+#: src/nautilus-file-undo-operations.c:1404
+#, c-format
+msgid "Star %d file"
+msgid_plural "Star %d files"
+msgstr[0] "Whetū i %d kōnae"
+msgstr[1] "Whetū i %d kōnae"
+
+#: src/nautilus-file-undo-operations.c:1399
+msgid "_Undo Starring"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1400
+msgid "_Redo Starring"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1412
+msgid "_Undo Unstarring"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1413
+msgid "_Redo Unstarring"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1612
+#, c-format
+msgid "Move %d item to trash"
+msgid_plural "Move %d items to trash"
+msgstr[0] "Nukuhia %d tūemi ki te ipupara"
+msgstr[1] "Nukuhia %d tūemi ki te ipupara"
+
+#: src/nautilus-file-undo-operations.c:1624
+#, c-format
+msgid "Restore “%s” to “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1625
+#, c-format
+msgid "Move “%s” to trash"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1628
+msgid "_Undo Trash"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1629
+msgid "_Redo Trash"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1889
+#, c-format
+msgid "Restore original permissions of items enclosed in “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1890
+#, c-format
+msgid "Set permissions of items enclosed in “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1892
+#: src/nautilus-file-undo-operations.c:2067
+msgid "_Undo Change Permissions"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:1893
+#: src/nautilus-file-undo-operations.c:2068
+msgid "_Redo Change Permissions"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:2064
+#, c-format
+msgid "Restore original permissions of “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:2065
+#, c-format
+msgid "Set permissions of “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:2177
+#, c-format
+msgid "Restore group of “%s” to “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:2179
+#, c-format
+msgid "Set group of “%s” to “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:2182
+msgid "_Undo Change Group"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:2183
+msgid "_Redo Change Group"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:2187
+#, c-format
+msgid "Restore owner of “%s” to “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:2189
+#, c-format
+msgid "Set owner of “%s” to “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:2192
+msgid "_Undo Change Owner"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:2193
+msgid "_Redo Change Owner"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:2329
+msgid "_Undo Extract"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:2330
+msgid "_Redo Extract"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:2347
+#, c-format
+msgid "Delete %d extracted file"
+msgid_plural "Delete %d extracted files"
+msgstr[0] "Mukua %d kōnae kua unuhia"
+msgstr[1] "Mukua %d kōnae kua unuhia"
+
+#: src/nautilus-file-undo-operations.c:2361
+#, c-format
+msgid "Extract “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:2365
+#, c-format
+msgid "Extract %d file"
+msgid_plural "Extract %d files"
+msgstr[0] "Unuhia %d kōnae"
+msgstr[1] "Unuhia %d kōnae"
+
+#: src/nautilus-file-undo-operations.c:2517
+#, c-format
+msgid "Compress “%s”"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:2521
+#, c-format
+msgid "Compress %d file"
+msgid_plural "Compress %d files"
+msgstr[0] "Kōpeketia %d kōnae"
+msgstr[1] "Kōpeketia %d kōnae"
+
+#: src/nautilus-file-undo-operations.c:2527
+msgid "_Undo Compress"
+msgstr ""
+
+#: src/nautilus-file-undo-operations.c:2528
+msgid "_Redo Compress"
+msgstr ""
+
+#: src/nautilus-file-utilities.c:643
+#, c-format
+msgid "Could not determine original location of “%s” "
+msgstr ""
+
+#: src/nautilus-file-utilities.c:647
+msgid "The item cannot be restored from trash"
+msgstr ""
+
+#. translators: these describe the contents of removable media
+#: src/nautilus-file-utilities.c:769
+msgid "Photo CD"
+msgstr ""
+
+#: src/nautilus-file-utilities.c:773 src/nautilus-file-utilities.c:820
+msgid "Contains digital photos"
+msgstr ""
+
+#: src/nautilus-file-utilities.c:777
+msgid "Contains music"
+msgstr ""
+
+#: src/nautilus-file-utilities.c:781
+msgid "Contains software to run"
+msgstr ""
+
+#: src/nautilus-file-utilities.c:785
+msgid "Contains software to install"
+msgstr ""
+
+#: src/nautilus-file-utilities.c:791
+#, c-format
+msgid "Detected as “%s”"
+msgstr ""
+
+#. translators: these describe the contents of removable media
+#: src/nautilus-file-utilities.c:812
+msgid "Contains music and photos"
+msgstr ""
+
+#: src/nautilus-file-utilities.c:816
+msgid "Contains photos and music"
+msgstr ""
+
+#. Translators: This is appended to a file name when a copy of a file is created.
+#: src/nautilus-filename-utilities.c:164
+msgctxt "Noun"
+msgid "Copy"
+msgstr "Tārua"
+
+#. Translators: This is appended to a file name when a copy of an already copied file is created.
+#. * `%zu` will be replaced with a number one higher than that of the previous copy.
+#: src/nautilus-filename-utilities.c:167
+#, c-format
+msgctxt "Noun"
+msgid "Copy %zu"
+msgstr ""
+
+#. Translators: File name for new symlink. %s is target's name, %zu is number of symlink.
+#: src/nautilus-filename-utilities.c:258
+#, c-format
+msgid "Link to %s (%zu)"
+msgstr ""
+
+#: src/nautilus-filename-validator.c:136
+msgid "Folder names cannot contain “/”"
+msgstr ""
+
+#: src/nautilus-filename-validator.c:137
+msgid "File names cannot contain “/”"
+msgstr ""
+
+#: src/nautilus-filename-validator.c:142
+msgid "A folder cannot be called “.” or “..”"
+msgstr ""
+
+#: src/nautilus-filename-validator.c:143
+msgid "A file cannot be called “.” or “..”"
+msgstr ""
+
+#: src/nautilus-filename-validator.c:148
+msgid "Folder name is too long"
+msgstr ""
+
+#: src/nautilus-filename-validator.c:149
+msgid "File name is too long"
+msgstr ""
+
+#. We must warn about the side effect
+#: src/nautilus-filename-validator.c:155
+msgid "Folders with “.” at the beginning of their name are hidden"
+msgstr ""
+
+#: src/nautilus-filename-validator.c:156
+msgid "Files with “.” at the beginning of their name are hidden"
+msgstr ""
+
+#: src/nautilus-filename-validator.c:199
+msgid "A folder with that name already exists"
+msgstr ""
+
+#: src/nautilus-filename-validator.c:200
+msgid "A file with that name already exists"
+msgstr ""
+
+#: src/nautilus-files-view.c:367
+msgid "Searching…"
+msgstr ""
+
+#: src/nautilus-files-view.c:367 src/nautilus-window-slot.c:900
+#: src/resources/ui/nautilus-properties-widget.blp:12
+msgid "Loading…"
+msgstr "Uta ana…"
+
+#: src/nautilus-files-view.c:955
+msgid "Empty Text File"
+msgstr ""
+
+#: src/nautilus-files-view.c:1813
+msgid "Examples: "
+msgstr ""
+
+#: src/nautilus-files-view.c:2860 src/nautilus-files-view.c:2866
+#: src/nautilus-files-view.c:2872 src/nautilus-files-view.c:2878
+msgid "Could not paste files"
+msgstr ""
+
+#: src/nautilus-files-view.c:2861
+msgid "Cannot paste files into Starred"
+msgstr ""
+
+#: src/nautilus-files-view.c:2867
+msgid "Cannot paste files into Recent"
+msgstr ""
+
+#: src/nautilus-files-view.c:2873
+msgid "Cannot paste files into Trash"
+msgstr ""
+
+#: src/nautilus-files-view.c:2879
+msgid "Permissions do not allow pasting files in this directory"
+msgstr ""
+
+#: src/nautilus-files-view.c:3459 src/nautilus-files-view.c:3506
+#, c-format
+msgid "“%s” selected"
+msgstr ""
+
+#: src/nautilus-files-view.c:3463
+#, c-format
+msgid "%'d folder selected"
+msgid_plural "%'d folders selected"
+msgstr[0] "%'d kōpaki kua tīpakohia"
+msgstr[1] "%'d kōpaki kua tīpakohia"
+
+#: src/nautilus-files-view.c:3477
+#, c-format
+msgid "(containing %'d item)"
+msgid_plural "(containing %'d items)"
+msgstr[0] "(kei roto %'d tūemi)"
+msgstr[1] "(kei roto %'d tūemi)"
+
+#. translators: this is preceded with a string of form 'N folders' (N more than 1)
+#: src/nautilus-files-view.c:3492
+#, c-format
+msgid "(containing a total of %'d item)"
+msgid_plural "(containing a total of %'d items)"
+msgstr[0] "(kei roto te tapeke o %'d tūemi)"
+msgstr[1] "(kei roto te tapeke o %'d tūemi)"
+
+#: src/nautilus-files-view.c:3511
+#, c-format
+msgid "%'d item selected"
+msgid_plural "%'d items selected"
+msgstr[0] "%'d tūemi kua tīpakohia"
+msgstr[1] "%'d tūemi kua tīpakohia"
+
+#. Folders selected also, use "other" terminology
+#: src/nautilus-files-view.c:3520
+#, c-format
+msgid "%'d other item selected"
+msgid_plural "%'d other items selected"
+msgstr[0] "%'d tūemi anō kua tīpakohia"
+msgstr[1] "%'d tūemi anō kua tīpakohia"
+
+#. This is marked for translation in case a localiser
+#. * needs to use something other than parentheses. The
+#. * the message in parentheses is the size of the selected items.
+#.
+#: src/nautilus-files-view.c:3535
+#, c-format
+msgid "(%s)"
+msgstr ""
+
+#. This is marked for translation in case a localizer
+#. * needs to change ", " to something else. The comma
+#. * is between the message about the number of folders
+#. * and the number of items in those folders and the
+#. * message about the number of other items and the
+#. * total size of those items.
+#.
+#: src/nautilus-files-view.c:3585
+#, c-format
+msgid "%s, %s"
+msgstr "%s, %s"
+
+#: src/nautilus-files-view.c:3661
+msgid "Search _Settings"
+msgstr ""
+
+#: src/nautilus-files-view.c:3673
+msgid "Search _Everywhere"
+msgstr ""
+
+#: src/nautilus-files-view.c:3703
+msgid "More locations can be added to search in the settings"
+msgstr ""
+
+#. Translators: %s is the name of the search location formatted for display
+#: src/nautilus-files-view.c:3711
+#, c-format
+msgid "No matches in “%s”"
+msgstr ""
+
+#: src/nautilus-files-view.c:3719
+#: src/resources/ui/nautilus-search-types-dialog.blp:66
+msgid "No Results Found"
+msgstr "Kāore i kitea."
+
+#: src/nautilus-files-view.c:3724
+msgid "Trash is Empty"
+msgstr ""
+
+#: src/nautilus-files-view.c:3730
+msgid "No Starred Files"
+msgstr ""
+
+#: src/nautilus-files-view.c:3736
+msgid "No Recent Files"
+msgstr ""
+
+#: src/nautilus-files-view.c:3742
+msgid "No Known Connections"
+msgstr ""
+
+#: src/nautilus-files-view.c:3743
+msgid "Enter an address to connect to a network location."
+msgstr ""
+
+#: src/nautilus-files-view.c:3748
+msgid "Folder is Empty"
+msgstr ""
+
+#: src/nautilus-files-view.c:5861
+msgid "Select Move Destination"
+msgstr ""
+
+#: src/nautilus-files-view.c:5865
+msgid "Select Copy Destination"
+msgstr ""
+
+#: src/nautilus-files-view.c:5876 src/nautilus-files-view.c:6244
+#: src/nautilus-portal.c:478 src/nautilus-properties.c:3991
+#: src/resources/ui/nautilus-files-view-select-items.blp:24
+msgid "_Select"
+msgstr "_Tīpakohia"
+
+#: src/nautilus-files-view.c:6243
+msgid "Select Extract Destination"
+msgstr ""
+
+#: src/nautilus-files-view.c:6319
+msgid "Error sending email."
+msgstr ""
+
+#. Translators: %s is a file name formatted for display
+#: src/nautilus-files-view.c:6618
+#, c-format
+msgid "Unable to remove “%s”"
+msgstr ""
+
+#: src/nautilus-files-view.c:6661
+msgid "Unable to stop drive"
+msgstr ""
+
+#. Translators: %s is a file name formatted for display
+#: src/nautilus-files-view.c:6771 src/nautilus-sidebar.c:1728
+#: src/nautilus-sidebar.c:2608
+#, c-format
+msgid "Unable to start “%s”"
+msgstr ""
+
+#: src/nautilus-files-view.c:7879
+#, c-format
+msgid "New Folder with Selection (%'d Item)"
+msgid_plural "New Folder with Selection (%'d Items)"
+msgstr[0] "Kōpaki Hou me te Tīpakonga (%'d Tūemi)"
+msgstr[1] "Kōpaki Hou me te Tīpakonga (%'d Tūemi)"
+
+#: src/nautilus-files-view.c:7934
+#, c-format
+msgid "Open With %s"
+msgstr ""
+
+#: src/nautilus-files-view.c:7945
+msgid "Run"
+msgstr "Whakahaere"
+
+#: src/nautilus-files-view.c:7950
+#: src/resources/ui/nautilus-operations-ui-manager-request-passphrase.blp:17
+msgid "Extract"
+msgstr "Unu"
+
+#: src/nautilus-files-view.c:7951
+msgid "Extract to…"
+msgstr ""
+
+#: src/nautilus-files-view.c:7955
+#: src/resources/menu/nautilus-files-view-context-menus.ui:88
+msgid "Open"
+msgstr "Whakatuwhera"
+
+#: src/nautilus-files-view.c:8031 src/nautilus-sidebar.c:3054
+#: src/resources/menu/nautilus-files-view-context-menus.ui:154
+msgid "_Start"
+msgstr "_Tīmata"
+
+#: src/nautilus-files-view.c:8037
+msgid "_Connect"
+msgstr "_Hono"
+
+#: src/nautilus-files-view.c:8043
+msgid "_Start Multi-disk Drive"
+msgstr ""
+
+#: src/nautilus-files-view.c:8049
+msgid "U_nlock Drive"
+msgstr ""
+
+#: src/nautilus-files-view.c:8067
+msgid "Stop Drive"
+msgstr ""
+
+#: src/nautilus-files-view.c:8073 src/nautilus-sidebar.c:3085
+msgid "_Safely Remove Drive"
+msgstr ""
+
+#: src/nautilus-files-view.c:8079
+msgid "_Disconnect"
+msgstr "_Momotu"
+
+#: src/nautilus-files-view.c:8085
+msgid "_Stop Multi-disk Drive"
+msgstr ""
+
+#: src/nautilus-files-view.c:8091
+msgid "_Lock Drive"
+msgstr ""
+
+#: src/nautilus-files-view.c:9721
+msgid "View items as a grid of icons"
+msgstr ""
+
+#: src/nautilus-files-view.c:9732
+msgid "View items as a list"
+msgstr ""
+
+#. Translator: This is the filename used for when you dnd text to a directory
+#: src/nautilus-files-view-dnd.c:100
+msgid "Dropped Text.txt"
+msgstr ""
+
+#: src/nautilus-files-view-dnd.c:183
+msgid "Drag and drop is not supported."
+msgstr ""
+
+#: src/nautilus-files-view-dnd.c:184
+msgid "An invalid drag type was used."
+msgstr ""
+
+#: src/nautilus-floating-bar.c:390
+msgctxt "Stop an ongoing operation"
+msgid "Stop"
+msgstr "Kāti"
+
+#: src/nautilus-grid-view.c:514 src/nautilus-list-view.c:385
+#: src/nautilus-network-view.c:349
+msgid "Content View"
+msgstr ""
+
+#: src/nautilus-grid-view.c:516 src/nautilus-list-view.c:387
+#: src/nautilus-network-view.c:351
+msgid "View of the current location"
+msgstr ""
+
+#. Translators: this refers to captions under icons.
+#. Translators: this is referred to the permissions the user has in a directory.
+#: src/nautilus-grid-view-captions-dialog.c:36 src/nautilus-properties.c:416
+msgid "None"
+msgstr "Horekau"
+
+#: src/nautilus-internal-place-file.c:166 src/nautilus-sidebar.c:744
+msgid "Network"
+msgstr "Whatunga"
+
+#: src/nautilus-internal-place-file.c:170 src/nautilus-sidebar.c:718
+msgid "Starred"
+msgstr ""
+
+#: src/nautilus-location-banner.c:102
+msgid "Files in the trash are permanently deleted after 1 hour"
+msgstr ""
+
+#: src/nautilus-location-banner.c:107
+#, c-format
+msgid "Files in the trash are permanently deleted after %d day"
+msgid_plural "Files in the trash are permanently deleted after %d days"
+msgstr[0] "Ka mukua pūmautia ngā kōnae kei te ipupara i muri i %d rā"
+msgstr[1] "Ka mukua pūmautia ngā kōnae kei te ipupara i muri i %d rā"
+
+#: src/nautilus-location-banner.c:226
+msgid "Executable files in this folder will appear in the Scripts menu"
+msgstr ""
+
+#: src/nautilus-location-banner.c:244
+msgid "This folder is shared over the network"
+msgstr ""
+
+#: src/nautilus-location-banner.c:249
+msgid "Turn on File Sharing to share this folder over the network"
+msgstr ""
+
+#: src/nautilus-location-banner.c:251
+msgid "Sharing Settings"
+msgstr ""
+
+#: src/nautilus-location-banner.c:258
+msgid "Put files in this folder to use them as templates for new documents"
+msgstr ""
+
+#: src/nautilus-location-banner.c:259
+msgid "_Learn More"
+msgstr ""
+
+#: src/nautilus-location-banner.c:272 src/nautilus-sidebar.c:3008
+msgid "_Empty Trash…"
+msgstr ""
+
+#: src/nautilus-location-banner.c:289
+msgid "_Trash Settings"
+msgstr ""
+
+#: src/nautilus-location-entry.c:808 src/nautilus-query-editor.c:680
+msgid "Clear Entry"
+msgstr "Ūkui"
+
+#: src/nautilus-location-entry.c:817
+msgid "Go to Location"
+msgstr ""
+
+#: src/nautilus-main.c:61
+msgid ""
+"Running as root is not supported. Consider running `nautilus admin:///` "
+"instead."
+msgstr ""
+
+#: src/nautilus-mime-actions.c:97
+msgid "Anything"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:110
+msgid "Folders"
+msgstr "Ngā Kōpaki"
+
+#: src/nautilus-mime-actions.c:117
+msgid "Documents"
+msgstr "Ngā Tuhinga"
+
+#: src/nautilus-mime-actions.c:139
+msgid "Illustration"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:155
+msgid "Music"
+msgstr "Puoro"
+
+#: src/nautilus-mime-actions.c:211
+msgid "PDF / PostScript"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:222
+msgid "Picture"
+msgstr "Whakaahua"
+
+#: src/nautilus-mime-actions.c:275
+msgid "Text File"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:659
+msgid "This link cannot be used because it has no target."
+msgstr ""
+
+#: src/nautilus-mime-actions.c:663
+#, c-format
+msgid "This link cannot be used because its target “%s” doesn’t exist."
+msgstr ""
+
+#: src/nautilus-mime-actions.c:671
+#, c-format
+msgid "The link “%s” is broken. Move it to Trash?"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:675
+#: src/resources/menu/nautilus-files-view-context-menus.ui:221
+msgid "Mo_ve to Trash"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:682
+#, c-format
+msgid "The link “%s” is broken."
+msgstr ""
+
+#: src/nautilus-mime-actions.c:1104
+msgid "Are you sure you want to open all files?"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:1108
+#, c-format
+msgid "This will open %d separate tab and window."
+msgid_plural "This will open %d separate tabs and windows."
+msgstr[0] "Ka whakatuwhera tēnei i %d ripa me te matapihi motuhake."
+msgstr[1] "Ka whakatuwhera tēnei i %d ripa me te matapihi motuhake."
+
+#: src/nautilus-mime-actions.c:1113
+#, c-format
+msgid "This will open %d separate tab."
+msgid_plural "This will open %d separate tabs."
+msgstr[0] "Ka whakatuwhera tēnei i %d ripa motuhake."
+msgstr[1] "Ka whakatuwhera tēnei i %d ripa motuhake."
+
+#: src/nautilus-mime-actions.c:1118
+#, c-format
+msgid "This will open %d separate window."
+msgid_plural "This will open %d separate windows."
+msgstr[0] "Ka whakatuwhera tēnei i %d matapihi motuhake."
+msgstr[1] "Ka whakatuwhera tēnei i %d matapihi motuhake."
+
+#: src/nautilus-mime-actions.c:1125
+msgid "_Open All"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:1186
+#, c-format
+msgid "Could Not Display “%s”"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:1280
+msgid "The file is of an unknown type"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:1285
+#, c-format
+msgid "There is no app installed for “%s” files"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:1290
+msgid "_Select App"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:1326
+msgid "There was an internal error trying to search for apps:"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:1328
+msgid "Unable to search for app"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:1432
+msgid "_Search in Software"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:1435
+#, c-format
+msgid ""
+"There is no app installed for “%s” files. Do you want to search for an app "
+"to open this file?"
+msgstr ""
+
+#. if it wasn't cancelled show a dialog
+#: src/nautilus-mime-actions.c:1810 src/nautilus-mime-actions.c:2108
+#: src/nautilus-network-address-bar.c:80
+msgid "Unable to access location"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:2198
+msgid "Unable to start location"
+msgstr ""
+
+#: src/nautilus-mime-actions.c:2290
+#, c-format
+msgid "Opening “%s”."
+msgstr ""
+
+#: src/nautilus-mime-actions.c:2294
+#, c-format
+msgid "Opening %d item."
+msgid_plural "Opening %d items."
+msgstr[0] "Kei te whakatuwhera i %d tūemi."
+msgstr[1] "Kei te whakatuwhera i %d tūemi."
+
+#: src/nautilus-network-address-bar.c:47
+msgid "_Close"
+msgstr "_Kati"
+
+#. Restore from Cancel to Connect
+#: src/nautilus-network-address-bar.c:91
+#: src/resources/ui/nautilus-network-address-bar.blp:97
+msgid "Con_nect"
+msgstr "_Hono"
+
+#. Allow to cancel the operation
+#: src/nautilus-network-address-bar.c:175
+msgid "Cance_l"
+msgstr "_Whakakore"
+
+#: src/nautilus-network-address-bar.c:219
+msgid "Unable to get remote server location"
+msgstr ""
+
+#: src/nautilus-network-address-bar.c:304
+msgid "AppleTalk"
+msgstr ""
+
+#: src/nautilus-network-address-bar.c:310
+msgid "File Transfer Protocol"
+msgstr ""
+
+#. Translators: do not translate ftp:// and ftps://
+#: src/nautilus-network-address-bar.c:312
+msgid "ftp:// or ftps://"
+msgstr ""
+
+#: src/nautilus-network-address-bar.c:318
+msgid "Network File System"
+msgstr ""
+
+#: src/nautilus-network-address-bar.c:324
+msgid "Samba"
+msgstr ""
+
+#: src/nautilus-network-address-bar.c:330
+msgid "SSH File Transfer Protocol"
+msgstr ""
+
+#. Translators: do not translate sftp:// and ssh://
+#: src/nautilus-network-address-bar.c:332
+msgid "sftp:// or ssh://"
+msgstr ""
+
+#: src/nautilus-network-address-bar.c:338
+msgid "WebDAV"
+msgstr ""
+
+#. Translators: do not translate dav:// and davs://
+#: src/nautilus-network-address-bar.c:340
+msgid "dav:// or davs://"
+msgstr ""
+
+#. Online accounts do not currently have a target URI.
+#: src/nautilus-network-cell.c:44
+msgid "Online Account"
+msgstr ""
+
+#. Translators: This refers to network places which are currently mounted
+#: src/nautilus-network-view.c:263
+msgid "Connected"
+msgstr ""
+
+#. Translators: This refers to network servers the user has previously connected to
+#: src/nautilus-network-view.c:270
+msgid "Previous"
+msgstr "Tōmua"
+
+#: src/nautilus-network-view.c:276
+msgid "Available on Current Network"
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:154
+#, c-format
+msgid ""
+"You are trying to replace the destination folder “%s” with a symbolic link."
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:156
+#, c-format
+msgid ""
+"This is not allowed in order to avoid the deletion of the destination "
+"folder’s contents."
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:157
+msgid "Please rename the symbolic link or press the skip button."
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:161
+#, c-format
+msgid "Merge folder “%s”?"
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:164
+msgid ""
+"Merging will ask for confirmation before replacing any files in the folder "
+"that conflict with the files being copied."
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:169
+#, c-format
+msgid "An older folder with the same name already exists in “%s”."
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:174
+#, c-format
+msgid "A newer folder with the same name already exists in “%s”."
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:179
+#, c-format
+msgid "Another folder with the same name already exists in “%s”."
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:185
+#, c-format
+msgid "Replace folder “%s”?"
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:187
+msgid "Replacing it will remove all files in the folder."
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:188
+#, c-format
+msgid "A folder with the same name already exists in “%s”."
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:194
+#, c-format
+msgid "Replace file “%s”?"
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:197
+msgid "Replacing it will overwrite its content."
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:201
+#, c-format
+msgid "An older file with the same name already exists in “%s”."
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:206
+#, c-format
+msgid "A newer file with the same name already exists in “%s”."
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:211
+#, c-format
+msgid "Another file with the same name already exists in “%s”."
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:264
+#: src/resources/ui/nautilus-properties-widget.blp:415
+msgid "Original Folder"
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:265
+#: src/nautilus-operations-ui-manager.c:297
+msgid "Contents:"
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:269
+msgid "Original File"
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:270
+#: src/nautilus-operations-ui-manager.c:302
+msgid "Size:"
+msgstr "Rahinga:"
+
+#: src/nautilus-operations-ui-manager.c:275
+#: src/nautilus-operations-ui-manager.c:307
+msgid "Type:"
+msgstr "Momo:"
+
+#: src/nautilus-operations-ui-manager.c:278
+#: src/nautilus-operations-ui-manager.c:310
+msgid "Last modified:"
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:296
+msgid "Merge With"
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:296
+#: src/nautilus-operations-ui-manager.c:301
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:294
+msgid "Replace With"
+msgstr "Whakakapi ki"
+
+#: src/nautilus-operations-ui-manager.c:368
+msgid "Merge Folder"
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:369
+#: src/nautilus-operations-ui-manager.c:374
+msgid "File and Folder Conflict"
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:375
+msgid "File Conflict"
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:562
+msgid ""
+"Password-protected archives are not yet supported. This list contains apps "
+"that can open the archive."
+msgstr ""
+
+#: src/nautilus-operations-ui-manager.c:631
+#, c-format
+msgid "“%s” is password-protected."
+msgstr ""
+
+#: src/nautilus-pathbar.c:316
+msgid "Current Folder Menu"
+msgstr ""
+
+#. Translators: This is the label used in the pathbar when seeing
+#. * the root directory (also known as /)
+#: src/nautilus-pathbar.c:408 src/nautilus-properties.c:895
+msgid "Operating System"
+msgstr ""
+
+#. Translators: This is the filesystem root directory (also known
+#. * as /) when seen as administrator
+#: src/nautilus-pathbar.c:415
+msgid "Administrator Root"
+msgstr ""
+
+#: src/nautilus-portal.c:478 src/nautilus-sidebar.c:2836
+#: src/nautilus-sidebar.c:2949
+#: src/resources/menu/nautilus-files-view-context-menus.ui:82
+#: src/resources/ui/nautilus-app-chooser.blp:27
+msgid "_Open"
+msgstr "_Whakatuwhera"
+
+#: src/nautilus-portal.c:482
+msgid "_Save"
+msgstr "_Tiaki"
+
+#: src/nautilus-portal.c:566
+msgid "Open Read-Only"
+msgstr ""
+
+#. Translators: Both %s will be replaced with formatted timestamps.
+#: src/nautilus-preferences-dialog.c:75
+#, c-format
+msgid "Examples: “%s”, “%s”"
+msgstr ""
+
+#: src/nautilus-preferences-dialog.c:179 src/nautilus-preferences-dialog.c:181
+#: src/nautilus-preferences-dialog.c:183
+msgid "On This Device Only"
+msgstr ""
+
+#: src/nautilus-preferences-dialog.c:179
+msgid "All Locations"
+msgstr ""
+
+#: src/nautilus-preferences-dialog.c:179 src/nautilus-preferences-dialog.c:181
+#: src/nautilus-preferences-dialog.c:183
+msgid "Never"
+msgstr "Kore rawa"
+
+#: src/nautilus-preferences-dialog.c:181
+msgid "All Files"
+msgstr "Ngā Kōnae Katoa"
+
+#: src/nautilus-preferences-dialog.c:183
+msgid "All Folders"
+msgstr ""
+
+#: src/nautilus-progress-info.c:385
+msgid "Cancelled"
+msgstr ""
+
+#: src/nautilus-progress-info.c:426 src/nautilus-progress-info.c:447
+#: src/nautilus-progress-info.c:468
+msgid "Preparing"
+msgstr ""
+
+#. Translators: This describes an operation, such as copying or compressing files, as being completed.
+#: src/nautilus-progress-info-widget.c:60
+msgid "Operation Completed"
+msgstr ""
+
+#: src/nautilus-progress-persistence-handler.c:108
+#: src/nautilus-progress-persistence-handler.c:146
+msgid "File Operations"
+msgstr ""
+
+#: src/nautilus-progress-persistence-handler.c:110
+msgid "Show Details"
+msgstr "Whakaatu Taipitopito"
+
+#: src/nautilus-progress-persistence-handler.c:113
+#, c-format
+msgid "%'d file operation active"
+msgid_plural "%'d file operations active"
+msgstr[0] "%'d mahinga kōnae e kaha ana"
+msgstr[1] "%'d mahinga kōnae e kaha ana"
+
+#: src/nautilus-progress-persistence-handler.c:148
+msgid "All file operations have been completed"
+msgstr ""
+
+#: src/nautilus-properties.c:367
+msgid "Read and Write"
+msgstr ""
+
+#: src/nautilus-properties.c:371
+msgid "Create and Delete Files"
+msgstr ""
+
+#: src/nautilus-properties.c:375
+msgid "Read and Write, No Access"
+msgstr ""
+
+#: src/nautilus-properties.c:382
+msgid "Read-Only"
+msgstr ""
+
+#: src/nautilus-properties.c:386
+msgid "Access Files"
+msgstr ""
+
+#: src/nautilus-properties.c:390
+msgid "List Files Only"
+msgstr ""
+
+#: src/nautilus-properties.c:400
+msgid "Write-Only"
+msgstr ""
+
+#: src/nautilus-properties.c:404
+msgid "Write-Only, No Access"
+msgstr ""
+
+#: src/nautilus-properties.c:411
+msgid "Access-Only"
+msgstr ""
+
+#: src/nautilus-properties.c:609
+msgid "Custom icon removed"
+msgstr ""
+
+#: src/nautilus-properties.c:610 src/nautilus-window.c:848
+#: src/resources/ui/nautilus-window.blp:30
+msgid "_Undo"
+msgstr "_Wete"
+
+#: src/nautilus-properties.c:631
+msgid "Cannot Use This File"
+msgstr ""
+
+#: src/nautilus-properties.c:632 src/nautilus-properties.c:717
+msgid "You can only use local images as custom icons."
+msgstr ""
+
+#: src/nautilus-properties.c:702
+msgid "You cannot assign more than one custom icon at a time!"
+msgstr ""
+
+#: src/nautilus-properties.c:703
+msgid "Please drop just one image to set a custom icon."
+msgstr ""
+
+#: src/nautilus-properties.c:716
+msgid "The file that you dropped is not local."
+msgstr ""
+
+#. Unmarks a file as starred (starred)
+#: src/nautilus-properties.c:764 src/nautilus-star-cell.c:72
+#: src/resources/menu/nautilus-files-view-context-menus.ui:251
+msgid "Unstar"
+msgstr ""
+
+#: src/nautilus-properties.c:764 src/nautilus-star-cell.c:72
+msgctxt "Verb"
+msgid "Star"
+msgstr "Whetū"
+
+#: src/nautilus-properties.c:860
+#, c-format
+msgid "%d Selected Item"
+msgid_plural "%d Selected Items"
+msgstr[0] "%d Tuemi Kua Tīpakohia"
+msgstr[1] "%d Tuemi Kua Tīpakohia"
+
+#: src/nautilus-properties.c:1606
+msgid "Cancel Group Change?"
+msgstr ""
+
+#: src/nautilus-properties.c:1751
+msgid "Cancel Owner Change?"
+msgstr ""
+
+#: src/nautilus-properties.c:1899 src/nautilus-properties.c:1946
+msgid "Multiple"
+msgstr ""
+
+#: src/nautilus-properties.c:2080
+msgid "Empty folder"
+msgstr ""
+
+#: src/nautilus-properties.c:2084
+msgid "Contents unreadable"
+msgstr ""
+
+#: src/nautilus-properties.c:2096
+#, c-format
+msgid "%'d item, with size %s"
+msgid_plural "%'d items, totalling %s"
+msgstr[0] "%'d tūemi, te rahi %s"
+msgstr[1] "%'d tūemi, te rahi %s"
+
+#: src/nautilus-properties.c:2106
+msgid "(some contents unreadable)"
+msgstr ""
+
+#. Translators: %s will be filled with a filesystem type, such as 'ext4' or 'msdos'.
+#: src/nautilus-properties.c:2435
+#, c-format
+msgid "%s Filesystem"
+msgstr ""
+
+#: src/nautilus-properties.c:3537
+#, c-format
+msgid "The permissions of “%s” could not be determined."
+msgstr ""
+
+#: src/nautilus-properties.c:3990
+msgid "Select Custom Icon"
+msgstr ""
+
+#: src/nautilus-query-editor.c:140
+msgid "Search may be slow and will not include subfolders or file contents"
+msgstr ""
+
+#: src/nautilus-query-editor.c:147
+msgid "Search may be slow and will not include file contents"
+msgstr ""
+
+#: src/nautilus-query-editor.c:155
+msgid "Remote Location"
+msgstr ""
+
+#: src/nautilus-query-editor.c:161
+msgid "External Drive"
+msgstr ""
+
+#: src/nautilus-query-editor.c:167
+msgid "Folder Not in Search Locations"
+msgstr ""
+
+#: src/nautilus-query-editor.c:174
+msgid "Limited Search in this Folder"
+msgstr ""
+
+#: src/nautilus-query-editor.c:183
+msgid "Some subfolders will not be included in search results"
+msgstr ""
+
+#: src/nautilus-query-editor.c:190
+msgid ""
+"Search will be slower and will not include file contents for some folders"
+msgstr ""
+
+#. translators: This opens the search panel in the Settings app.
+#: src/nautilus-query-editor.c:700
+msgid "_Search Settings"
+msgstr ""
+
+#: src/nautilus-query-editor.c:713
+msgid "Filter Search Results"
+msgstr ""
+
+#: src/nautilus-query-editor.c:720
+msgid "Search Information"
+msgstr ""
+
+#: src/nautilus-query-editor.c:800
+msgid "Search current folder"
+msgstr ""
+
+#: src/nautilus-query-editor.c:801
+msgid "Search everywhere"
+msgstr ""
+
+#: src/nautilus-rename-file-popover.c:223
+msgid "Rename Folder"
+msgstr ""
+
+#: src/nautilus-rename-file-popover.c:224
+msgid "Rename File"
+msgstr ""
+
+#: src/nautilus-search-directory-file.c:223
+#, c-format
+msgid "Search for “%s”"
+msgstr ""
+
+#: src/nautilus-search-popover.c:632
+msgid "Date Used"
+msgstr ""
+
+#: src/nautilus-search-popover.c:636
+msgid "Date Created"
+msgstr ""
+
+#: src/nautilus-search-popover.c:640
+msgid "Date Modified"
+msgstr ""
+
+#. trash
+#: src/nautilus-shell-search-provider.c:282 src/nautilus-sidebar.c:755
+msgid "Trash"
+msgstr "Ipupara"
+
+#: src/nautilus-sidebar.c:392 src/resources/ui/nautilus-network-cell.blp:55
+msgid "Disconnect"
+msgstr "Momotu"
+
+#: src/nautilus-sidebar.c:396
+msgid "Eject"
+msgstr "Panā"
+
+#: src/nautilus-sidebar.c:400
+msgid "Unmount"
+msgstr "Wewete"
+
+#. translators: %s is the name of a cloud provider for files
+#: src/nautilus-sidebar.c:606
+#, c-format
+msgid "Open %s"
+msgstr "Whakatuwhera %s"
+
+#: src/nautilus-sidebar.c:700
+msgid "Open Personal Folder"
+msgstr ""
+
+#: src/nautilus-sidebar.c:709
+msgid "Recent"
+msgstr "Nō tata"
+
+#: src/nautilus-sidebar.c:711
+msgid "Recent Files"
+msgstr ""
+
+#: src/nautilus-sidebar.c:720
+msgid "Starred Files"
+msgstr ""
+
+#: src/nautilus-sidebar.c:732
+msgid "Desktop"
+msgstr "Papamahi"
+
+#: src/nautilus-sidebar.c:734
+msgid "Open the contents of your desktop in a folder"
+msgstr ""
+
+#: src/nautilus-sidebar.c:746
+msgid "Open Network Locations"
+msgstr ""
+
+#: src/nautilus-sidebar.c:757
+msgid "Open Trash"
+msgstr ""
+
+#: src/nautilus-sidebar.c:859 src/nautilus-sidebar.c:889
+#: src/nautilus-sidebar.c:1067
+#, c-format
+msgid "Mount and Open “%s”"
+msgstr ""
+
+#: src/nautilus-sidebar.c:1045
+msgid "New bookmark"
+msgstr ""
+
+#: src/nautilus-sidebar.c:1047
+msgid "Add a new bookmark"
+msgstr ""
+
+#. Translators: This means that unlocking an encrypted storage
+#. * device failed. %s is the name of the device.
+#.
+#: src/nautilus-sidebar.c:1773
+#, c-format
+msgid "Error unlocking “%s”"
+msgstr ""
+
+#: src/nautilus-sidebar.c:1927
+msgid "This name is already taken"
+msgstr ""
+
+#: src/nautilus-sidebar.c:2008 src/nautilus-sidebar.c:2983
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:147
+#: src/resources/ui/nautilus-file-conflict-dialog.blp:31
+#: src/resources/ui/nautilus-rename-file-popover.blp:44
+msgid "_Rename"
+msgstr "Whakai_ngoa Anō"
+
+#: src/nautilus-sidebar.c:2335
+#, c-format
+msgid "Unable to stop “%s”"
+msgstr ""
+
+#: src/nautilus-sidebar.c:2560
+#, c-format
+msgid "Unable to poll “%s” for media changes"
+msgstr ""
+
+#: src/nautilus-sidebar.c:2844 src/nautilus-sidebar.c:2957
+#: src/resources/menu/nautilus-files-view-context-menus.ui:93
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:10
+msgid "Open in New _Tab"
+msgstr "Whakatuwhera ki te Ripa _Hōu"
+
+#: src/nautilus-sidebar.c:2851 src/nautilus-sidebar.c:2966
+#: src/resources/menu/nautilus-files-view-context-menus.ui:98
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:6
+msgid "Open in New _Window"
+msgstr "Whakatuwhera ki te Matapihi _Hōu"
+
+#: src/nautilus-sidebar.c:2978
+msgid "_Remove from Bookmarks"
+msgstr ""
+
+#: src/nautilus-sidebar.c:2996
+msgid "File History _Settings…"
+msgstr ""
+
+#: src/nautilus-sidebar.c:3006
+msgid "Trash _Settings…"
+msgstr ""
+
+#: src/nautilus-sidebar.c:3019
+#: src/resources/menu/nautilus-files-view-context-menus.ui:139
+msgid "_Mount"
+msgstr "_Whakauru"
+
+#: src/nautilus-sidebar.c:3028
+#: src/resources/menu/nautilus-files-view-context-menus.ui:144
+msgid "_Unmount"
+msgstr "_Wewete"
+
+#: src/nautilus-sidebar.c:3035
+#: src/resources/menu/nautilus-files-view-context-menus.ui:149
+msgid "_Eject"
+msgstr "_Panā"
+
+#: src/nautilus-sidebar.c:3045
+#: src/resources/menu/nautilus-files-view-context-menus.ui:164
+msgid "_Detect Media"
+msgstr ""
+
+#: src/nautilus-sidebar.c:3058
+msgid "_Power On"
+msgstr ""
+
+#: src/nautilus-sidebar.c:3062
+msgid "_Connect Drive"
+msgstr ""
+
+#: src/nautilus-sidebar.c:3066
+msgid "_Start Multi-disk Device"
+msgstr ""
+
+#: src/nautilus-sidebar.c:3070
+msgid "_Unlock Device"
+msgstr ""
+
+#: src/nautilus-sidebar.c:3081
+#: src/resources/menu/nautilus-files-view-context-menus.ui:159
+msgid "_Stop"
+msgstr "_Whakamutua"
+
+#: src/nautilus-sidebar.c:3089
+msgid "_Disconnect Drive"
+msgstr ""
+
+#: src/nautilus-sidebar.c:3093
+msgid "_Stop Multi-disk Device"
+msgstr ""
+
+#: src/nautilus-sidebar.c:3097
+msgid "_Lock Device"
+msgstr ""
+
+#: src/nautilus-sidebar.c:3107
+msgid "Format…"
+msgstr "Hōputu…"
+
+#: src/nautilus-sidebar.c:3118
+#: src/resources/ui/nautilus-properties-widget.blp:37
+msgid "Properties"
+msgstr "Ngā Āhuatanga"
+
+#: src/nautilus-sidebar.c:3646
+msgid "Device"
+msgstr "Pūrere"
+
+#: src/nautilus-sidebar.c:3688
+msgid "Sidebar"
+msgstr ""
+
+#: src/nautilus-sidebar.c:3690
+msgid "List of common shortcuts, mountpoints, and bookmarks."
+msgstr ""
+
+#: src/nautilus-tag-manager.c:216
+msgid "starred"
+msgstr ""
+
+#: src/nautilus-tag-manager.c:226
+msgid "unstarred"
+msgstr ""
+
+#: src/nautilus-ui-utilities.c:537
+msgid "You can stop this operation by clicking cancel."
+msgstr ""
+
+#. Translators: This refers to a capped amount of items
+#: src/nautilus-ui-utilities.c:973
+#, c-format
+msgctxt "badge_count"
+msgid "%u+"
+msgstr ""
+
+#: src/nautilus-window.c:149
+msgid "New tab"
+msgstr ""
+
+#: src/nautilus-window.c:150
+msgid "Close current view"
+msgstr ""
+
+#. Translators: only one item has been moved to trash and %s is its name.
+#: src/nautilus-window.c:772
+#, c-format
+msgid "“%s” moved to trash"
+msgstr ""
+
+#. Translators: one or more items might have been moved to trash, and %d
+#. * is the count.
+#: src/nautilus-window.c:779
+#, c-format
+msgid "%d file moved to trash"
+msgid_plural "%d files moved to trash"
+msgstr[0] "%d kōnae kua nukuhia ki te ipupara"
+msgstr[1] "%d kōnae kua nukuhia ki te ipupara"
+
+#. Translators: one item has been unstarred and %s is its name.
+#: src/nautilus-window.c:798
+#, c-format
+msgid "“%s” unstarred"
+msgstr ""
+
+#. Translators: one or more items have been unstarred, and %d
+#. * is the count.
+#: src/nautilus-window.c:804
+#, c-format
+msgid "%d file unstarred"
+msgid_plural "%d files unstarred"
+msgstr[0] "%d kōnae kua wetekina te whetū"
+msgstr[1] "%d kōnae kua wetekina te whetū"
+
+#: src/nautilus-window.c:857 src/resources/ui/nautilus-window.blp:35
+msgid "_Redo"
+msgstr "_Mahi anō"
+
+#: src/nautilus-window.c:1746
+msgid "No plugins currently installed."
+msgstr ""
+
+#: src/nautilus-window.c:1750
+msgid "Currently installed plugins:"
+msgstr ""
+
+#: src/nautilus-window.c:1752
+msgid "For bug testing only, the following command can be used:"
+msgstr ""
+
+#. Translators should localize the following string which will be displayed at the bottom of
+#. * the about box to give credit to the translator(s).
+#: src/nautilus-window.c:1767
+msgid "translator-credits"
+msgstr ""
+"Arlewatyerre Tuhoro-Bell <aidan@ursa.nz>\n"
+"Te Rōpū Whakamāori GNOME https://gitlab.gnome.org/Teams/Translation/mi"
+
+#: src/nautilus-window-slot.c:164
+msgid "Parent folder"
+msgstr ""
+
+#: src/nautilus-window-slot.c:165
+#: src/resources/ui/nautilus-history-controls.blp:13
+msgid "Back"
+msgstr "Hoki"
+
+#: src/nautilus-window-slot.c:166
+#: src/resources/ui/nautilus-history-controls.blp:20
+msgid "Forward"
+msgstr "Whakamua"
+
+#: src/nautilus-window-slot.c:886 src/resources/ui/nautilus-file-chooser.blp:23
+#: src/resources/ui/nautilus-window.blp:154
+msgid "Search Everywhere"
+msgstr ""
+
+#: src/nautilus-window-slot.c:887
+msgid "Find files and folders in all search locations"
+msgstr ""
+
+#: src/nautilus-window-slot.c:890
+msgid "Search Settings"
+msgstr ""
+
+#: src/nautilus-window-slot.c:1727
+msgid "Unable to display the contents of this folder."
+msgstr ""
+
+#: src/nautilus-window-slot.c:1731
+msgid "This location doesn’t appear to be a folder."
+msgstr ""
+
+#: src/nautilus-window-slot.c:1744
+#, c-format
+msgid "Unable to find “%s”. Please check the spelling and try again."
+msgstr ""
+
+#: src/nautilus-window-slot.c:1749
+msgid ""
+"Unable to find the requested file. Please check the spelling and try again."
+msgstr ""
+
+#: src/nautilus-window-slot.c:1760
+#, c-format
+msgid "“%s” locations are not supported."
+msgstr ""
+
+#: src/nautilus-window-slot.c:1765
+msgid "Unable to handle this kind of location."
+msgstr ""
+
+#: src/nautilus-window-slot.c:1772
+msgid "Unable to access the requested location."
+msgstr ""
+
+#: src/nautilus-window-slot.c:1778
+msgid "Don’t have permission to access the requested location."
+msgstr ""
+
+#. This case can be hit for user-typed strings like "foo" due to
+#. * the code that guesses web addresses when there's no initial "/".
+#. * But this case is also hit for legitimate web addresses when
+#. * the proxy is set up wrong.
+#.
+#: src/nautilus-window-slot.c:1789
+msgid ""
+"Unable to find the requested location. Please check the spelling or the "
+"network settings."
+msgstr ""
+
+#. This case can be hit when server application is not installed
+#. * or is inactive in the system user is trying to connect to.
+#.
+#: src/nautilus-window-slot.c:1798
+msgid ""
+"The server has refused the connection. Typically this means that the "
+"firewall is blocking access or that the remote service is not running."
+msgstr ""
+
+#: src/nautilus-window-slot.c:1810 src/nautilus-window-slot.c:1818
+#, c-format
+msgid "Unhandled error message: %s"
+msgstr ""
+
+#: src/nautilus-x-content-bar.c:144
+msgid "Open with:"
+msgstr ""
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:6
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:20
+msgid "New _Folder…"
+msgstr "Kōpaki _Hōu…"
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:10
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:25
+msgid "New _Document"
+msgstr "_Tuhinga hou"
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:16
+#: src/resources/menu/nautilus-files-view-context-menus.ui:71
+#: src/resources/menu/nautilus-files-view-context-menus.ui:105
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:30
+msgid "Open _With…"
+msgstr "Whakatuwhera _Mā…"
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:21
+#: src/resources/menu/nautilus-files-view-context-menus.ui:110
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:34
+msgid "Open in Consol_e"
+msgstr ""
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:27
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:83
+msgid "_Paste"
+msgstr "_Whakapiri"
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:32
+msgid "Paste as _Link"
+msgstr ""
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:37
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:92
+msgid "Select _All"
+msgstr "Tīpako _Tukupū"
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:43
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:99
+msgid "Empty _Trash…"
+msgstr ""
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:51
+#: src/resources/menu/nautilus-files-view-context-menus.ui:271
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:106
+msgid "P_roperties"
+msgstr "Ngā Ā_huatanga"
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:61
+msgid "_Extract"
+msgstr "_Unu"
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:66
+msgid "E_xtract to…"
+msgstr "_Unu ki…"
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:77
+msgid "_Run as a Program"
+msgstr ""
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:118
+msgid "_Open Item Location"
+msgstr ""
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:125
+msgid "_Scripts"
+msgstr ""
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:130
+msgid "_Open Scripts Folder"
+msgstr ""
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:173
+msgid "Cu_t"
+msgstr "_Tapahi"
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:177
+msgid "_Copy"
+msgstr "_Tārua"
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:181
+msgid "Move to…"
+msgstr "Nuku ki…"
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:185
+msgid "Copy to…"
+msgstr "Tārua ki…"
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:192
+msgid "Rena_me…"
+msgstr "_Tapaina anō…"
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:196
+msgid "_Paste Into Folder"
+msgstr ""
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:201
+#: src/resources/ui/nautilus-preferences-dialog.blp:51
+msgid "Create _Link"
+msgstr ""
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:206
+msgid "C_ompress…"
+msgstr "_Kōpeke…"
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:211
+msgid "Set as Background…"
+msgstr "Tautuhi hei Papamuri…"
+
+#. Translators: This is the transitive verb meaning 'to send via email' (e.g. 'email this document to Angela).
+#: src/resources/menu/nautilus-files-view-context-menus.ui:216
+msgid "Email…"
+msgstr "Īmēra…"
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:226
+msgid "_Delete From Trash…"
+msgstr ""
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:231
+#: src/resources/menu/nautilus-files-view-context-menus.ui:236
+msgid "_Delete Permanently…"
+msgstr ""
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:241
+msgid "_Restore From Trash"
+msgstr ""
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:246
+msgid "_Remove From Recent"
+msgstr "_Tango mai i Nōnākuanei"
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:259
+msgid "_Copy Address"
+msgstr ""
+
+#: src/resources/menu/nautilus-files-view-context-menus.ui:263
+msgid "_Remove"
+msgstr "_Tango"
+
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:14
+msgid "_Properties"
+msgstr "Ngā Ā_huatanga"
+
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:40
+msgid "R_eload"
+msgstr "_Uta anō"
+
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:46
+msgid "St_op"
+msgstr "_Kāti"
+
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:51
+msgid "Add to _Bookmarks"
+msgstr "Tāpiri ki ngā _Tohuwāhi"
+
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:57
+msgid "Remove from _Bookmarks"
+msgstr ""
+
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:62
+msgid "_Star Folder"
+msgstr ""
+
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:67
+msgid "_Unstar Folder"
+msgstr ""
+
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:72
+msgid "_Copy Location"
+msgstr ""
+
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:76
+msgid "_Open in File Manager"
+msgstr ""
+
+#: src/resources/menu/nautilus-pathbar-context-menu.ui:87
+msgid "Paste as Lin_k"
+msgstr ""
+
+#. This is used to sort by name in the toolbar view menu
+#: src/resources/menu/nautilus-toolbar-view-menu.ui:8
+msgctxt "Sort Criterion"
+msgid "_A-Z"
+msgstr ""
+
+#. This is used to sort by name, in descending order in the toolbar view menu
+#: src/resources/menu/nautilus-toolbar-view-menu.ui:14
+msgctxt "Sort Criterion"
+msgid "_Z-A"
+msgstr ""
+
+#: src/resources/menu/nautilus-toolbar-view-menu.ui:20
+msgid "Last _Modified"
+msgstr "Whakakētanga _Whakamutunga"
+
+#: src/resources/menu/nautilus-toolbar-view-menu.ui:26
+msgid "_First Modified"
+msgstr ""
+
+#: src/resources/menu/nautilus-toolbar-view-menu.ui:32
+msgid "_Size"
+msgstr "_Rahi"
+
+#: src/resources/menu/nautilus-toolbar-view-menu.ui:38
+msgid "_Type"
+msgstr "_Momo"
+
+#: src/resources/menu/nautilus-toolbar-view-menu.ui:44
+msgid "Last _Trashed"
+msgstr ""
+
+#: src/resources/ui/nautilus-app-chooser.blp:66
+msgid "Choose an app to open the selected files"
+msgstr ""
+
+#: src/resources/ui/nautilus-app-chooser.blp:76
+msgid "Always use for this file type"
+msgstr "Whakamahia i ngā wā katoa mō tēnei momo kōnae"
+
+#: src/resources/ui/nautilus-app-chooser-widget.blp:43
+msgid "No applications found"
+msgstr ""
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:7
+msgid "Automatic Numbers"
+msgstr "Ngā Tau Aunoa"
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:10
+msgid "1, 2, 3, 4"
+msgstr ""
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:15
+msgid "01, 02, 03, 04"
+msgstr ""
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:20
+msgid "001, 002, 003, 004"
+msgstr ""
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:26
+msgid "Metadata"
+msgstr "Raraungameta"
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:29
+msgid "Creation Date"
+msgstr "Rā waihanga"
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:41
+msgid "Season Number"
+msgstr ""
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:47
+msgid "Episode Number"
+msgstr ""
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:53
+msgid "Track Number"
+msgstr "Tau Riu"
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:59
+msgid "Artist Name"
+msgstr "Ingoa kaituhi puoro"
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:71
+msgid "Album Name"
+msgstr "Ingoa rārangi puoro"
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:79
+msgid "Original File Name"
+msgstr ""
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:174
+msgid "Rename _using a template"
+msgstr ""
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:181
+msgid "Find and replace _text"
+msgstr ""
+
+#. Translators: Translators: This is a noun, not a verb
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:198
+msgid "Format"
+msgstr "Hōputu"
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:220
+msgid "Add"
+msgstr "Tāpiri"
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:238
+msgid "Automatic Numbering Order"
+msgstr "Raupapa Tatau Aunoa"
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:253
+msgctxt "title"
+msgid "Replace"
+msgstr "Whakakapi"
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:265
+msgid "Existing Text"
+msgstr ""
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:416
+msgid "Next Conflict"
+msgstr ""
+
+#: src/resources/ui/nautilus-batch-rename-dialog.blp:426
+msgid "Previous Conflict"
+msgstr ""
+
+#: src/resources/ui/nautilus-column-chooser.blp:13
+msgid "Visible Columns"
+msgstr ""
+
+#: src/resources/ui/nautilus-column-chooser.blp:21
+msgid "This folder uses custom settings"
+msgstr ""
+
+#: src/resources/ui/nautilus-column-chooser.blp:22
+msgid "_Revert"
+msgstr "_Whakahoki"
+
+#: src/resources/ui/nautilus-column-chooser.blp:46
+msgid "_Only Apply to Current Folder"
+msgstr ""
+
+#: src/resources/ui/nautilus-column-chooser.blp:60
+msgid "Move _Up"
+msgstr "Nu_ku whakarunga"
+
+#: src/resources/ui/nautilus-column-chooser.blp:65
+msgid "Move _Down"
+msgstr "Nuku whakarar_o"
+
+#: src/resources/ui/nautilus-compress-dialog.blp:5
+msgid "Compress Files and Folders"
+msgstr "Whakahehi"
+
+#: src/resources/ui/nautilus-compress-dialog.blp:26
+msgid "C_ompress"
+msgstr "_Kōpeke"
+
+#: src/resources/ui/nautilus-compress-dialog.blp:45
+msgid "Archive _Name"
+msgstr "_Ingoa Pātaka"
+
+#: src/resources/ui/nautilus-compress-dialog.blp:69
+msgid "Co_mpression Method"
+msgstr "Tikanga _Pehanga"
+
+#: src/resources/ui/nautilus-compress-dialog.blp:76
+msgid "Encryption"
+msgstr ""
+
+#: src/resources/ui/nautilus-compress-dialog.blp:78
+msgid ""
+"Encrypt contents of the archive with a password when the compression method "
+"supports password-protection."
+msgstr ""
+
+#: src/resources/ui/nautilus-compress-dialog.blp:82
+msgid "_Password"
+msgstr "_Kupuhuna"
+
+#: src/resources/ui/nautilus-compress-dialog.blp:88
+msgid "_Confirm Password"
+msgstr "_Whakaū kupuhuna"
+
+#: src/resources/ui/nautilus-date-entry-row.blp:10
+msgid "Pick Date"
+msgstr ""
+
+#: src/resources/ui/nautilus-date-range-dialog.blp:5
+msgid "Add Date Filter"
+msgstr "Tāpiri Tātari Rā"
+
+#: src/resources/ui/nautilus-date-range-dialog.blp:14
+msgid "Filter by Date"
+msgstr ""
+
+#: src/resources/ui/nautilus-date-range-dialog.blp:21
+msgid "_Date Range"
+msgstr ""
+
+#: src/resources/ui/nautilus-date-range-dialog.blp:27
+msgid "Single Day"
+msgstr ""
+
+#: src/resources/ui/nautilus-date-range-dialog.blp:28
+msgid "± 1 day"
+msgstr ""
+
+#: src/resources/ui/nautilus-date-range-dialog.blp:29
+msgid "± 3 days"
+msgstr ""
+
+#: src/resources/ui/nautilus-date-range-dialog.blp:30
+msgid "± 7 days"
+msgstr ""
+
+#: src/resources/ui/nautilus-date-range-dialog.blp:31
+msgid "± 14 days"
+msgstr ""
+
+#: src/resources/ui/nautilus-date-range-dialog.blp:32
+msgid "Specify Range"
+msgstr ""
+
+#: src/resources/ui/nautilus-date-range-dialog.blp:42
+msgid "_Date"
+msgstr "_Teiti"
+
+#: src/resources/ui/nautilus-date-range-dialog.blp:49
+msgid "Fro_m"
+msgstr "Mai _i"
+
+#: src/resources/ui/nautilus-date-range-dialog.blp:57
+msgid "_To"
+msgstr "_Ki"
+
+#: src/resources/ui/nautilus-date-range-dialog.blp:67
+msgid "_Filter"
+msgstr "_Tātari"
+
+#: src/resources/ui/nautilus-file-chooser.blp:124
+#: src/resources/ui/nautilus-toolbar.blp:72
+msgid "Show Sidebar"
+msgstr ""
+
+#: src/resources/ui/nautilus-file-chooser.blp:159
+#: src/resources/ui/nautilus-new-folder-dialog.blp:5
+#: src/resources/ui/nautilus-toolbar.blp:99
+msgid "New Folder"
+msgstr "Kōpaki Hōu"
+
+#: src/resources/ui/nautilus-file-chooser.blp:183
+msgid "Edit File Name"
+msgstr ""
+
+#: src/resources/ui/nautilus-file-chooser.blp:215
+msgid "Reset File Name"
+msgstr ""
+
+#: src/resources/ui/nautilus-file-chooser.blp:228
+msgid "File Name"
+msgstr "Ingoa kōnae"
+
+#. Translators: 'Show' is a verb
+#: src/resources/ui/nautilus-file-chooser.blp:261
+msgctxt "File Chooser tooltips"
+msgid "Show Options"
+msgstr "Whakaaturia Ngā Kōwhiringa"
+
+#: src/resources/ui/nautilus-file-chooser.blp:267
+msgid "Visible Files Filter"
+msgstr ""
+
+#: src/resources/ui/nautilus-file-conflict-dialog.blp:120
+msgid "Select a _new name for the destination"
+msgstr ""
+
+#: src/resources/ui/nautilus-file-conflict-dialog.blp:138
+msgid "R_eset"
+msgstr "_Tautuhi anō"
+
+#: src/resources/ui/nautilus-file-conflict-dialog.blp:147
+msgid "_Apply this action to all files and folders"
+msgstr ""
+
+#: src/resources/ui/nautilus-file-properties-change-permissions.blp:5
+msgid "Change Permissions for Enclosed Files"
+msgstr ""
+
+#: src/resources/ui/nautilus-file-properties-change-permissions.blp:22
+msgid "C_hange"
+msgstr "_Huri"
+
+#: src/resources/ui/nautilus-file-properties-change-permissions.blp:37
+msgid "_Files"
+msgstr "Ngā _Kōnae"
+
+#: src/resources/ui/nautilus-file-properties-change-permissions.blp:42
+msgid "F_olders"
+msgstr "Ngā _Kōpaki"
+
+#: src/resources/ui/nautilus-file-properties-change-permissions.blp:51
+msgid "Fi_les"
+msgstr "Ngā _Kōnae"
+
+#: src/resources/ui/nautilus-file-properties-change-permissions.blp:56
+msgid "Fol_ders"
+msgstr "Ngā _Kōpaki"
+
+#: src/resources/ui/nautilus-file-properties-change-permissions.blp:62
+msgid "Others"
+msgstr ""
+
+#: src/resources/ui/nautilus-file-properties-change-permissions.blp:65
+msgid "Fil_es"
+msgstr "Ngā _Kōnae"
+
+#: src/resources/ui/nautilus-file-properties-change-permissions.blp:70
+msgid "Folde_rs"
+msgstr "Ngā _Kōpaki"
+
+#: src/resources/ui/nautilus-files-view-select-items.blp:5
+msgid "Select Items Matching"
+msgstr ""
+
+#: src/resources/ui/nautilus-files-view-select-items.blp:44
+msgid "Pattern"
+msgstr ""
+
+#: src/resources/ui/nautilus-grid-view-captions-dialog.blp:13
+msgid "Grid View Captions"
+msgstr ""
+
+#: src/resources/ui/nautilus-grid-view-captions-dialog.blp:20
+msgid ""
+"Add information to be displayed beneath file and folder names. More "
+"information will appear when zooming closer."
+msgstr ""
+
+#. Translators: This is an ordinal number
+#: src/resources/ui/nautilus-grid-view-captions-dialog.blp:25
+msgctxt "the n-th position of an icon caption"
+msgid "Fi_rst"
+msgstr "Tuata_hi"
+
+#. Translators: This is an ordinal number
+#: src/resources/ui/nautilus-grid-view-captions-dialog.blp:32
+msgctxt "the n-th position of an icon caption"
+msgid "Seco_nd"
+msgstr "_Tuarua"
+
+#. Translators: This is an ordinal number
+#: src/resources/ui/nautilus-grid-view-captions-dialog.blp:39
+msgctxt "the n-th position of an icon caption"
+msgid "T_hird"
+msgstr "_Tuatoru"
+
+#: src/resources/ui/nautilus-name-cell.blp:95
+msgid "Full Text Match"
+msgstr ""
+
+#: src/resources/ui/nautilus-network-address-bar.blp:16
+msgid "Server Addresses"
+msgstr ""
+
+#: src/resources/ui/nautilus-network-address-bar.blp:25
+msgid ""
+"Server addresses are made up of a protocol prefix and an address. Examples:"
+msgstr ""
+
+#: src/resources/ui/nautilus-network-address-bar.blp:49
+msgid "Available Protocols"
+msgstr "Ngā marau Wātea"
+
+#: src/resources/ui/nautilus-network-address-bar.blp:63
+msgid "Prefix"
+msgstr ""
+
+#: src/resources/ui/nautilus-network-address-bar.blp:91
+msgid "Server address"
+msgstr ""
+
+#: src/resources/ui/nautilus-network-address-bar.blp:106
+msgid "Server Address Information"
+msgstr ""
+
+#: src/resources/ui/nautilus-new-folder-dialog.blp:16
+msgid "_Folder Name"
+msgstr "_Ingoa Kōpaki"
+
+#: src/resources/ui/nautilus-new-folder-dialog.blp:39
+msgid "_Create"
+msgstr "_Waihanga"
+
+#: src/resources/ui/nautilus-operations-ui-manager-request-passphrase.blp:5
+msgid "Password Required"
+msgstr "Ka Hiahiatia He Kupuhipa"
+
+#: src/resources/ui/nautilus-operations-ui-manager-request-passphrase.blp:11
+msgid "Enter password…"
+msgstr "Tāurua te kupuhipa…"
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:8
+#: src/resources/ui/nautilus-preferences-dialog.blp:11
+msgid "General"
+msgstr "Ahuwhānui"
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:14
+msgid "Sort _Folders Before Files"
+msgstr ""
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:19
+msgid "_Expandable Folders in List View"
+msgstr ""
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:24
+msgid "_Action to Open Items"
+msgstr ""
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:32
+msgid "Single-Click"
+msgstr "Pāwhiri-Takitahi"
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:37
+msgid "Double-Click"
+msgstr "Pāwhiri-Taurua"
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:45
+msgid "Optional Context Menu Actions"
+msgstr ""
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:47
+msgid ""
+"Show more actions in the menus. Keyboard shortcuts can be used even if the "
+"actions are not shown."
+msgstr ""
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:56
+msgid "_Delete Permanently"
+msgstr ""
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:62
+msgid "Performance"
+msgstr "Mahinga"
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:64
+msgid ""
+"These features may cause slowdowns and excess network usage, especially when "
+"browsing files outside this device, such as on a remote server."
+msgstr ""
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:68
+msgid "Search in Su_bfolders"
+msgstr ""
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:73
+msgid "Show _Thumbnails"
+msgstr ""
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:78
+msgid "_Count Number of Files in Folders"
+msgstr ""
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:84
+msgid "Date and Time Format"
+msgstr ""
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:85
+msgid "Choose how dates and times are displayed in list and grid views."
+msgstr ""
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:88
+msgid "_Simple"
+msgstr "_Māmā"
+
+#: src/resources/ui/nautilus-preferences-dialog.blp:102
+msgid "Deta_iled"
+msgstr ""
+
+#: src/resources/ui/nautilus-progress-indicator.blp:8
+msgid "Show File Operations"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:60
+msgid "Detach Window"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:132
+msgid "Set Custom Icon"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:154
+msgid "Remove Custom Icon"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:195
+msgid "Unknown Filesystem"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:273
+msgid "total"
+msgstr "tapeke"
+
+#. Translators: Refers to the capacity of the filesystem
+#: src/resources/ui/nautilus-properties-widget.blp:302
+msgid "used"
+msgstr "kua whakamahia"
+
+#. Translators: Refers to the capacity of the filesystem
+#: src/resources/ui/nautilus-properties-widget.blp:332
+msgid "free"
+msgstr "wātea"
+
+#. Translators: Disks refers to GNOME Disks.
+#: src/resources/ui/nautilus-properties-widget.blp:346
+msgid "_Open in Disks"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:357
+msgid "_Link Target"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:372
+msgid "Open the Target's Location"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:384
+msgid "Parent _Folder"
+msgstr "Kōpaki _Matua"
+
+#: src/resources/ui/nautilus-properties-widget.blp:399
+msgid "Open Parent Folder"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:489
+msgid "_Permissions"
+msgstr "_Whakaaetanga"
+
+#: src/resources/ui/nautilus-properties-widget.blp:509
+msgid "_Executable as Program"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:531
+msgid "Set Custom Permissions"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:543
+msgid "Unknown Permissions"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:544
+msgid "The permissions of the selected files could not be determined"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:555
+msgid "Only the owner can edit these permissions"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:562
+msgid "_Owner"
+msgstr "_Kaipupuri"
+
+#: src/resources/ui/nautilus-properties-widget.blp:571
+#: src/resources/ui/nautilus-properties-widget.blp:603
+#: src/resources/ui/nautilus-properties-widget.blp:628
+msgid "Access"
+msgstr "Uru"
+
+#: src/resources/ui/nautilus-properties-widget.blp:578
+#: src/resources/ui/nautilus-properties-widget.blp:610
+#: src/resources/ui/nautilus-properties-widget.blp:635
+msgid "Folder Access"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:585
+#: src/resources/ui/nautilus-properties-widget.blp:617
+#: src/resources/ui/nautilus-properties-widget.blp:642
+msgid "File Access"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:594
+msgid "_Group"
+msgstr "_Rōpū"
+
+#: src/resources/ui/nautilus-properties-widget.blp:623
+msgid "Other Users"
+msgstr "Ētahi Atu Kaiwhakamahi"
+
+#: src/resources/ui/nautilus-properties-widget.blp:651
+msgid "Security Context"
+msgstr ""
+
+#: src/resources/ui/nautilus-properties-widget.blp:667
+msgid "Change Permissions for _Enclosed Files…"
+msgstr ""
+
+#: src/resources/ui/nautilus-rename-file-popover.blp:23
+msgid "New Filename"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-popover.blp:23
+msgid "File Types"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-popover.blp:45
+msgid "_Audio"
+msgstr "_Oro"
+
+#: src/resources/ui/nautilus-search-popover.blp:57
+msgid "_Documents"
+msgstr "Ngā _Tuhinga"
+
+#: src/resources/ui/nautilus-search-popover.blp:69
+msgid "_Folders"
+msgstr "Ngā _Kōpaki"
+
+#: src/resources/ui/nautilus-search-popover.blp:81
+msgid "_Images"
+msgstr "Ngā _Atahanga"
+
+#: src/resources/ui/nautilus-search-popover.blp:93
+msgid "_PDF"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-popover.blp:105
+msgid "_Spreadsheets"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-popover.blp:117
+msgid "Te_xt"
+msgstr "_Kuputuhi"
+
+#: src/resources/ui/nautilus-search-popover.blp:129
+msgid "_Videos"
+msgstr "Ngā _Ataata"
+
+#: src/resources/ui/nautilus-search-popover.blp:144
+msgid "Specific Type"
+msgstr ""
+
+#. Translators: This refers to a date time
+#: src/resources/ui/nautilus-search-popover.blp:183
+msgid "Used"
+msgstr "Kua Whakamahia"
+
+#: src/resources/ui/nautilus-search-popover.blp:212
+msgid "_Today"
+msgstr "_Tēnei rā"
+
+#: src/resources/ui/nautilus-search-popover.blp:218
+msgid "_Yesterday"
+msgstr "_Inanahi"
+
+#: src/resources/ui/nautilus-search-popover.blp:224
+msgid "Past _Week"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-popover.blp:230
+msgid "Past _Month"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-popover.blp:236
+msgid "Past Y_ear"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-popover.blp:248
+msgid "Custom Date Range"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-popover.blp:265
+msgid "Text Matching"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-popover.blp:280
+msgid "_Content & Filename"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-popover.blp:281
+msgid "Search Inside Files"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-popover.blp:288
+msgid "_Only Filename"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-popover.blp:289
+msgid "Don't Search Inside Files"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-popover.blp:298
+msgid "Only Co_ntents"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-types-dialog.blp:5
+msgid "Add File Type Filter"
+msgstr "Tāpiri Tātari Momo Kōnae"
+
+#: src/resources/ui/nautilus-search-types-dialog.blp:27
+msgid "_Add"
+msgstr "_Tāpiri"
+
+#: src/resources/ui/nautilus-search-types-dialog.blp:45
+msgid "Search for file types"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-types-dialog.blp:56
+msgid "Search File Types"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-types-dialog.blp:57
+msgid "Search by type, name, or description"
+msgstr ""
+
+#: src/resources/ui/nautilus-search-types-dialog.blp:67
+msgid "Try a different search"
+msgstr "Whakamātauria tētahi rapu rerekē"
+
+#: src/resources/ui/nautilus-toolbar.blp:56
+msgid "Search Current Folder"
+msgstr ""
+
+#: src/resources/ui/nautilus-view-controls.blp:6
+msgid "Icon Size"
+msgstr ""
+
+#. Sort section. The toolbar code assumes this is the second item of this
+#. * menu model. Its contents is provided by the view.
+#.
+#. Translators: a menu item in a group of sorting options in a toolbar menu, with criterions such as "A-Z" or "Last Modified".
+#: src/resources/ui/nautilus-view-controls.blp:23
+msgctxt "menu item"
+msgid "Sort"
+msgstr "Kōmaka"
+
+#: src/resources/ui/nautilus-view-controls.blp:28
+msgid "Show _Hidden Files"
+msgstr ""
+
+#: src/resources/ui/nautilus-view-controls.blp:36
+msgid "_Visible Columns…"
+msgstr ""
+
+#: src/resources/ui/nautilus-view-controls.blp:44
+msgid "Captions…"
+msgstr "Kupu ā-kākā…"
+
+#. Translators: This is a noun, meaning the options pertaining to the view.
+#: src/resources/ui/nautilus-view-controls.blp:57
+msgid "View Options"
+msgstr ""
+
+#: src/resources/ui/nautilus-view-controls.blp:67
+msgid "Zoom Out"
+msgstr "Topa atu"
+
+#: src/resources/ui/nautilus-view-controls.blp:78
+msgid "Zoom In"
+msgstr "Topa mai"
+
+#: src/resources/ui/nautilus-window.blp:7
+#: src/resources/ui/nautilus-window.blp:111
+msgid "New _Window"
+msgstr "Matapihi _Hōu"
+
+#: src/resources/ui/nautilus-window.blp:13
+msgid "New _Tab"
+msgstr "Ripa _Hōu"
+
+#: src/resources/ui/nautilus-window.blp:19
+msgid "Show All Ta_bs"
+msgstr ""
+
+#: src/resources/ui/nautilus-window.blp:42
+msgid "_Preferences"
+msgstr "_Tina"
+
+#: src/resources/ui/nautilus-window.blp:47
+msgid "_Keyboard Shortcuts"
+msgstr "Ngā Pokatata _Papapātuhi"
+
+#: src/resources/ui/nautilus-window.blp:52
+msgid "_Help"
+msgstr "Ā_whina"
+
+#: src/resources/ui/nautilus-window.blp:57
+msgid "_About Files"
+msgstr ""
+
+#: src/resources/ui/nautilus-window.blp:66
+msgid "_New Tab"
+msgstr "Ripa _Hōu"
+
+#: src/resources/ui/nautilus-window.blp:71
+#: src/resources/ui/nautilus-window.blp:116
+msgid "Re_store Closed Tab"
+msgstr ""
+
+#: src/resources/ui/nautilus-window.blp:78
+msgid "Move Tab to New _Window"
+msgstr ""
+
+#. Translators: use “Move Tab _Right” for RTL languages
+#: src/resources/ui/nautilus-window.blp:84
+msgid "Move Tab _Left"
+msgstr ""
+
+#. Translators: use “Move Tab _Left” for RTL languages
+#: src/resources/ui/nautilus-window.blp:90
+msgid "Move Tab _Right"
+msgstr ""
+
+#: src/resources/ui/nautilus-window.blp:97
+msgid "_Close Tab"
+msgstr "_Kati Ripa"
+
+#: src/resources/ui/nautilus-window.blp:102
+msgid "Close _Other Tabs"
+msgstr "Kati i Ē_rā Atu Ripa"
+
+#: src/resources/ui/nautilus-window.blp:165
+msgid "Main Menu"
+msgstr "Tahua Matua"
+
+#: src/resources/ui/shortcuts-dialog.blp:6
+msgctxt "shortcuts dialog"
+msgid "Actions"
+msgstr "Ngā Mahi"
+
+#: src/resources/ui/shortcuts-dialog.blp:9
+msgctxt "shortcuts dialog"
+msgid "Open"
+msgstr "Whakatuwhera"
+
+#: src/resources/ui/shortcuts-dialog.blp:14
+msgctxt "shortcuts dialog"
+msgid "Open in New Tab"
+msgstr "Whakatuwhera ki te Ripa Hōu"
+
+#: src/resources/ui/shortcuts-dialog.blp:19
+msgctxt "shortcuts dialog"
+msgid "Open in New Window"
+msgstr "Whakatuwhera ki te Matapihi Hōu"
+
+#: src/resources/ui/shortcuts-dialog.blp:24
+msgctxt "shortcuts dialog"
+msgid "Open Item Location (Search and Recent Only)"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:29
+msgctxt "shortcuts dialog"
+msgid "Open With Default App"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:34
+msgctxt "shortcuts dialog"
+msgid "Open Current Directory in Console"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:39
+msgctxt "shortcuts dialog"
+msgid "Open Current Folder Menu"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:44
+msgctxt "shortcuts dialog"
+msgid "Open Context Menu"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:51
+msgctxt "shortcuts dialog"
+msgid "Create Folder"
+msgstr "Waihanga Kōpaki"
+
+#: src/resources/ui/shortcuts-dialog.blp:58
+msgctxt "shortcuts dialog"
+msgid "Cut"
+msgstr "Tapahi"
+
+#: src/resources/ui/shortcuts-dialog.blp:63
+msgctxt "shortcuts dialog"
+msgid "Copy"
+msgstr "Tārua"
+
+#: src/resources/ui/shortcuts-dialog.blp:68
+msgctxt "shortcuts dialog"
+msgid "Paste"
+msgstr "Whakapiri"
+
+#: src/resources/ui/shortcuts-dialog.blp:75
+msgctxt "shortcuts dialog"
+msgid "Rename"
+msgstr "Whakaingoa Anō"
+
+#: src/resources/ui/shortcuts-dialog.blp:82
+msgctxt "shortcuts dialog"
+msgid "Undo"
+msgstr "Wete"
+
+#: src/resources/ui/shortcuts-dialog.blp:87
+msgctxt "shortcuts dialog"
+msgid "Redo"
+msgstr "Mahi anō"
+
+#: src/resources/ui/shortcuts-dialog.blp:94
+msgctxt "shortcuts dialog"
+msgid "Move to Trash"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:99
+msgctxt "shortcuts dialog"
+msgid "Delete Permanently"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:106
+msgctxt "shortcuts dialog"
+msgid "Create Link to Copied Item"
+msgstr "Waihanga Hono ki te Tūemi Kua Tāruatia"
+
+#: src/resources/ui/shortcuts-dialog.blp:111
+msgctxt "shortcuts dialog"
+msgid "Create Link to Selected Item"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:118
+msgctxt "shortcuts dialog"
+msgid "Show Item Properties"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:125
+msgctxt "shortcuts dialog"
+msgid "Bookmark Current Location"
+msgstr "Tohuwāhi i te Tauwāhi Onāianei"
+
+#: src/resources/ui/shortcuts-dialog.blp:131
+msgctxt "shortcuts dialog"
+msgid "View"
+msgstr "Tiro"
+
+#: src/resources/ui/shortcuts-dialog.blp:134
+msgctxt "shortcuts dialog"
+msgid "Zoom In"
+msgstr "Topa ki tata"
+
+#: src/resources/ui/shortcuts-dialog.blp:139
+msgctxt "shortcuts dialog"
+msgid "Zoom Out"
+msgstr "Topa atu"
+
+#: src/resources/ui/shortcuts-dialog.blp:144
+msgctxt "shortcuts dialog"
+msgid "Reset Zoom"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:151
+msgctxt "shortcuts dialog"
+msgid "List View"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:156
+msgctxt "shortcuts dialog"
+msgid "Grid View"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:161
+msgctxt "shortcuts dialog"
+msgid "Refresh View"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:168
+#: src/resources/ui/shortcuts-dialog.blp:174
+msgctxt "shortcuts dialog"
+msgid "Expand Folder"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:180
+#: src/resources/ui/shortcuts-dialog.blp:186
+msgctxt "shortcuts dialog"
+msgid "Collapse Folder"
+msgstr "Whakaiti kōpaki"
+
+#: src/resources/ui/shortcuts-dialog.blp:194
+msgctxt "shortcuts dialog"
+msgid "Show/Hide Hidden Files"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:199
+msgctxt "shortcuts dialog"
+msgid "Show/Hide Sidebar"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:205
+msgctxt "shortcuts dialog"
+msgid "Select"
+msgstr "Tīpakohia"
+
+#: src/resources/ui/shortcuts-dialog.blp:208
+msgctxt "shortcuts dialog"
+msgid "Select All"
+msgstr "Tīpako Tukupū"
+
+#: src/resources/ui/shortcuts-dialog.blp:213
+msgctxt "shortcuts dialog"
+msgid "Invert Selection"
+msgstr "Huripokia te Tīpakonga"
+
+#: src/resources/ui/shortcuts-dialog.blp:218
+msgctxt "shortcuts dialog"
+msgid "Select Items Matching"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:224
+msgctxt "shortcuts dialog"
+msgid "Navigation"
+msgstr "Whakaterenga"
+
+#: src/resources/ui/shortcuts-dialog.blp:227
+#: src/resources/ui/shortcuts-dialog.blp:233
+msgctxt "shortcuts dialog"
+msgid "Go Back"
+msgstr "Hoki Whakamuri"
+
+#: src/resources/ui/shortcuts-dialog.blp:239
+#: src/resources/ui/shortcuts-dialog.blp:245
+msgctxt "shortcuts dialog"
+msgid "Go Forward"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:251
+msgctxt "shortcuts dialog"
+msgid "Go Up"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:256
+msgctxt "shortcuts dialog"
+msgid "Go Down"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:261
+msgctxt "shortcuts dialog"
+msgid "Go to Home Folder"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:268
+msgctxt "shortcuts dialog"
+msgid "Enter Location"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:273
+msgctxt "shortcuts dialog"
+msgid "Location Bar With Root Location"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:278
+msgctxt "shortcuts dialog"
+msgid "Location Bar With Home Location"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:284
+msgctxt "shortcuts dialog"
+msgid "Search"
+msgstr "Rapu"
+
+#: src/resources/ui/shortcuts-dialog.blp:287
+msgctxt "shortcuts dialog"
+msgid "Search Everywhere"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:292
+msgctxt "shortcuts dialog"
+msgid "Search Current Folder"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:298
+msgctxt "shortcuts dialog"
+msgid "Windows & Tabs"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:301
+msgctxt "shortcuts dialog"
+msgid "New Window"
+msgstr "Matapihi Hōu"
+
+#: src/resources/ui/shortcuts-dialog.blp:306
+msgctxt "shortcuts dialog"
+msgid "New Tab"
+msgstr "Ripa Hōu"
+
+#: src/resources/ui/shortcuts-dialog.blp:311
+msgctxt "shortcuts dialog"
+msgid "Close Window or Tab"
+msgstr "Kati Matapihi, Ripa rānei"
+
+#: src/resources/ui/shortcuts-dialog.blp:316
+msgctxt "shortcuts dialog"
+msgid "Show All Tabs"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:321
+msgctxt "shortcuts dialog"
+msgid "Restore Closed Tab"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:328
+msgctxt "shortcuts dialog"
+msgid "Go to Previous Tab"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:333
+msgctxt "shortcuts dialog"
+msgid "Go to Next Tab"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:338
+msgctxt "shortcuts dialog"
+msgid "Open Tab"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:345
+msgctxt "shortcuts dialog"
+msgid "Move Tab Left"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:350
+msgctxt "shortcuts dialog"
+msgid "Move Tab Right"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:356
+msgctxt "shortcuts dialog"
+msgid "App"
+msgstr "Taupānga"
+
+#: src/resources/ui/shortcuts-dialog.blp:359
+msgctxt "shortcuts dialog"
+msgid "Show Preferences"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:364
+msgctxt "shortcuts dialog"
+msgid "Shortcuts"
+msgstr "Ngā Pokatata"
+
+#: src/resources/ui/shortcuts-dialog.blp:369
+msgctxt "shortcuts dialog"
+msgid "Show Help"
+msgstr ""
+
+#: src/resources/ui/shortcuts-dialog.blp:374
+msgctxt "shortcuts dialog"
+msgid "Quit"
+msgstr "Whakamutu"

@@ -1,0 +1,116 @@
+/*
+ * SPDX-FileCopyrightText: 1999, 2000 Free Software Foundaton
+ * SPDX-FileCopyrightText: 2000, 2001 Eazel, Inc.
+ *
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ *
+ * Authors: Ettore Perazzoli
+ *          Darin Adler <darin@bentspoon.com>
+ *          John Sullivan <sullivan@eazel.com>
+ *          Pavel Cisler <pavel@eazel.com>
+ */
+
+#pragma once
+
+#include "nautilus-types.h"
+
+#include <adwaita.h>
+#include <gtk/gtk.h>
+#include <gio/gio.h>
+
+G_BEGIN_DECLS
+
+#define NAUTILUS_TYPE_FILES_VIEW nautilus_files_view_get_type()
+G_DECLARE_FINAL_TYPE (NautilusFilesView, nautilus_files_view, NAUTILUS, FILES_VIEW, AdwBin)
+
+NautilusFilesView *      nautilus_files_view_new                         (guint               id,
+                                                                          NautilusWindowSlot *slot);
+
+guint
+nautilus_files_view_get_view_id (NautilusFilesView *self);
+void                nautilus_files_view_change                           (NautilusFilesView  *self,
+                                                                          guint               id);
+
+const char *
+nautilus_files_view_get_toggle_icon_name (NautilusFilesView *self);
+const char *
+nautilus_files_view_get_toggle_tooltip (NautilusFilesView  *self,
+                                        const char        **description);
+
+GFile *
+nautilus_files_view_get_location (NautilusFilesView *self);
+void
+nautilus_files_view_set_location (NautilusFilesView *self,
+                                  GFile             *location);
+
+NautilusQuery *
+nautilus_files_view_get_search_query (NautilusFilesView *self);
+void
+nautilus_files_view_set_search_query (NautilusFilesView *self,
+                                      NautilusQuery     *query);
+
+NautilusFileList *
+nautilus_files_view_get_selection (NautilusFilesView *self);
+NautilusSelectionSource
+nautilus_files_view_get_selection_source (NautilusFilesView *self);
+void
+nautilus_files_view_set_selection (NautilusFilesView       *self,
+                                   NautilusFileList        *selection,
+                                   NautilusSelectionSource  selection_source);
+
+gboolean
+nautilus_files_view_is_loading (NautilusFilesView *self);
+gboolean
+nautilus_files_view_is_searching (NautilusFilesView *self);
+
+/* Wrappers for signal emitters. These are normally called
+ * only by NautilusFilesView itself. They have corresponding signals
+ * that observers might want to connect with.
+ */
+gboolean            nautilus_files_view_get_loading                      (NautilusFilesView *view);
+
+/* Hooks for subclasses to call. These are normally called only by
+ * NautilusFilesView and its subclasses
+ */
+void                nautilus_files_view_activate_file                    (NautilusFilesView *view,
+                                                                          NautilusFile      *file,
+                                                                          NautilusOpenFlags  flags);
+
+gboolean            nautilus_files_view_has_subdirectory                (NautilusFilesView *view,
+                                                                         NautilusDirectory *directory);
+void                nautilus_files_view_add_subdirectory                (NautilusFilesView *view,
+                                                                         NautilusDirectory *directory);
+void                nautilus_files_view_remove_subdirectory             (NautilusFilesView *view,
+                                                                         NautilusDirectory *directory);
+
+/* file operations */
+char *            nautilus_files_view_get_backing_uri            (NautilusFilesView      *view);
+void              nautilus_files_view_move_copy_items            (NautilusFilesView      *view,
+                                                                  const GList            *item_uris,
+                                                                  const char             *target_uri,
+                                                                  int                     copy_action);
+void              nautilus_file_view_save_image_from_texture    (NautilusFilesView       *view,
+                                                                 GdkTexture              *texture,
+                                                                 const char              *target_uri,
+                                                                 const char              *base_name);
+void              nautilus_files_view_new_file_with_initial_contents (NautilusFilesView  *view,
+                                                                      const char         *parent_uri,
+                                                                      const char         *filename,
+                                                                      const void         *initial_contents,
+                                                                      gsize               length);
+/* selection handling */
+void              nautilus_files_view_activate_selection         (NautilusFilesView      *view,
+                                                                  NautilusOpenFlags       flags);
+void              nautilus_files_view_preview_selection_event    (NautilusFilesView      *view,
+                                                                  GtkDirectionType        direction);
+void              nautilus_files_view_stop_loading               (NautilusFilesView      *view);
+
+/* testing-only */
+NautilusViewModel *
+nautilus_files_view_get_private_model (NautilusFilesView *self);
+GActionGroup *
+nautilus_files_view_get_private_action_group (NautilusFilesView *self);
+NautilusListBase *
+nautilus_files_view_get_private_list_base (NautilusFilesView *self);
+
+G_END_DECLS

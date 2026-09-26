@@ -1,0 +1,27 @@
+/*
+ * SPDX-FileCopyrightText: 2007 Red Hat, Inc.
+ * SPDX-FileCopyrightText: 2007 Alexander Larsson <alexl@redhat.com>
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+#pragma once
+
+#include <gio/gio.h>
+#include <gtk/gtk.h>
+
+G_BEGIN_DECLS
+
+#define NAUTILUS_TYPE_ICON_INFO (nautilus_icon_info_get_type ())
+G_DECLARE_FINAL_TYPE (NautilusIconInfo, nautilus_icon_info, NAUTILUS, ICON_INFO, GObject)
+
+GIcon *
+nautilus_icon_info_get_default_file_icon (void);
+
+GdkPaintable *        nautilus_icon_info_lookup                       (GIcon             *icon,
+								       int                size,
+								       int                scale);
+
+void                  nautilus_icon_info_clear_caches                 (void);
+
+G_END_DECLS

@@ -1,0 +1,283 @@
+{
+  "app-id": "org.gnome.Nautilus.Custom",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "50",
+  "sdk": "org.gnome.Sdk",
+  "command": "nautilus",
+  "finish-args": [
+    "--device=dri",
+    "--device=all",
+    "--share=ipc",
+    "--socket=x11",
+    "--socket=wayland",
+    "--talk-name=org.gnome.OnlineAccounts",
+    "--filesystem=host",
+    "--filesystem=/tmp",
+    "--talk-name=org.gtk.vfs.*",
+    "--talk-name=org.gtk.MountOperationHandler",
+    "--talk-name=org.freedesktop.Flatpak",
+    "--filesystem=xdg-run/gvfsd",
+    "--filesystem=xdg-run/dconf",
+    "--filesystem=~/.config/dconf:ro",
+    "--talk-name=ca.desrt.dconf",
+    "--talk-name=org.gnome.NautilusPreviewer",
+    "--talk-name=org.gnome.DiskUtility",
+    "--talk-name=org.gnome.Settings",
+    "--talk-name=org.gnome.Console",
+    "--talk-name=org.gnome.Mutter.ServiceChannel",
+    "--env=DCONF_USER_CONFIG_DIR=.config/dconf",
+    "--add-policy=LocalSearch3.dbus:org.freedesktop.Tracker3.Miner.Files=tracker:Audio",
+    "--add-policy=LocalSearch3.dbus:org.freedesktop.Tracker3.Miner.Files=tracker:Documents",
+    "--add-policy=LocalSearch3.dbus:org.freedesktop.Tracker3.Miner.Files=tracker:FileSystem",
+    "--add-policy=LocalSearch3.dbus:org.freedesktop.Tracker3.Miner.Files=tracker:Pictures",
+    "--add-policy=LocalSearch3.dbus:org.freedesktop.Tracker3.Miner.Files=tracker:Music",
+    "--add-policy=LocalSearch3.dbus:org.freedesktop.Tracker3.Miner.Files=tracker:Video",
+    "--add-policy=LocalSearch3.dbus:org.gnome.Nautilus.Custom.Tracker3.Miner.Files=tracker:Audio",
+    "--add-policy=LocalSearch3.dbus:org.gnome.Nautilus.Custom.Tracker3.Miner.Files=tracker:Documents",
+    "--add-policy=LocalSearch3.dbus:org.gnome.Nautilus.Custom.Tracker3.Miner.Files=tracker:FileSystem",
+    "--add-policy=LocalSearch3.dbus:org.gnome.Nautilus.Custom.Tracker3.Miner.Files=tracker:Pictures",
+    "--add-policy=LocalSearch3.dbus:org.gnome.Nautilus.Custom.Tracker3.Miner.Files=tracker:Music",
+    "--add-policy=LocalSearch3.dbus:org.gnome.Nautilus.Custom.Tracker3.Miner.Files=tracker:Video"
+  ],
+  "modules": [
+    {
+      "name": "inih",
+      "buildsystem": "meson",
+      "config-opts": [
+        "-Ddefault_library=shared",
+        "-Ddistro_install=true",
+        "-Dwith_INIReader=true",
+        "-Dtests=false"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://github.com/benhoyt/inih/archive/refs/tags/r62.tar.gz",
+          "sha256": "9c15fa751bb8093d042dae1b9f125eb45198c32c6704cd5481ccde460d4f8151"
+        }
+      ]
+    },
+    {
+      "name": "exiv2",
+      "config-opts": [
+        "-DCMAKE_INSTALL_PREFIX=/app",
+        "-DCMAKE_INSTALL_LIBDIR=/app/lib"
+      ],
+      "buildsystem": "cmake-ninja",
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/Exiv2/exiv2.git",
+          "branch": "0.28.x"
+        }
+      ]
+    },
+    {
+      "name": "gexiv2",
+      "buildsystem": "meson",
+      "builddir": true,
+      "config-opts": [
+        "--libdir=/app/lib",
+        "-Dintrospection=false",
+        "-Dvapi=false",
+        "-Dtools=false",
+        "-Dpython3=false"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.gnome.org/GNOME/gexiv2.git",
+          "tag": "0.16.0"
+        }
+      ]
+    },
+    {
+      "name": "localsearch",
+      "buildsystem": "meson",
+      "cleanup": [
+        "/bin",
+        "/etc"
+      ],
+      "config-opts": [
+        "-Dfunctional_tests=false",
+        "-Dsandbox_tests=false",
+        "-Ddomain_prefix=org.gnome.Nautilus.Custom",
+        "-Dextract=true",
+        "-Dlandlock=disabled",
+        "-Dman=false",
+        "-Dminer_fs=true",
+        "-Dminer_fs_cache_location=$XDG_CACHE_HOME/nautilus/miner/files",
+        "-Dsystemd_user_services=false",
+        "-Dwriteback=false",
+        "-Dbattery_detection=none"
+      ],
+      "post-install": [
+        "echo 'Removing quotations from DBus service files'",
+        "ls -alh /app/share/dbus-1/services/org.*",
+        "sed -i 's/\"//g' /app/share/dbus-1/services/org.*"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.gnome.org/GNOME/localsearch.git",
+          "branch": "main"
+        }
+      ]
+    },
+    {
+      "name": "gnome-desktop",
+      "buildsystem": "meson",
+      "config-opts": [
+        "-Ddebug_tools=false",
+        "-Ddesktop_docs=false",
+        "-Dlegacy_library=false",
+        "-Dsystemd=disabled",
+        "-Dudev=disabled",
+        "-Dqr=disabled"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.gnome.org/GNOME/gnome-desktop.git"
+        }
+      ]
+    },
+    {
+      "name": "gnome-autoar",
+      "buildsystem": "meson",
+      "builddir": true,
+      "config-opts": [
+        "-Dintrospection=disabled"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.gnome.org/GNOME/gnome-autoar.git"
+        }
+      ]
+    },
+    {
+      "name": "libportal",
+      "buildsystem": "meson",
+      "builddir": true,
+      "config-opts": [
+        "-Dbackend-gtk4=enabled",
+        "-Dbackend-gtk3=disabled",
+        "-Ddocs=false",
+        "-Dintrospection=false",
+        "-Dtests=false",
+        "-Dvapi=false",
+        "--libdir=/app/lib",
+        "--buildtype=debugoptimized"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/flatpak/libportal.git",
+          "branch": "main"
+        }
+      ]
+    },
+    {
+      "name": "libcloudproviders",
+      "buildsystem": "meson",
+      "builddir": true,
+      "config-opts": [
+        "-Dintrospection=false",
+        "-Dvapigen=false"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.gnome.org/GNOME/libcloudproviders.git"
+        }
+      ]
+    },
+    {
+      "name": "simdutf",
+      "buildsystem": "cmake-ninja",
+      "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DBUILD_SHARED_LIBS=ON",
+        "-DSIMDUTF_TESTS=OFF"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/simdutf/simdutf.git",
+          "tag": "v6.2.0"
+        }
+      ]
+    },
+    {
+      "name": "fast_float",
+      "buildsystem": "cmake-ninja",
+      "config-opts": [
+        "-DCMAKE_BUILD_TYPE=Release",
+        "-DFASTFLOAT_TEST=OFF"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/fastfloat/fast_float.git",
+          "tag": "v8.3.0"
+        }
+      ]
+    },
+    {
+      "name": "vte",
+      "buildsystem": "meson",
+      "config-opts": [
+        "-Dgtk4=true",
+        "-Dgtk3=false",
+        "-Dgir=false",
+        "-Dvapi=false",
+        "-Ddocs=false"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://gitlab.gnome.org/GNOME/vte.git",
+          "tag": "0.78.7"
+        }
+      ]
+    },
+    {
+      "buildsystem": "meson",
+      "builddir": true,
+      "name": "nautilus",
+      "build-options": {
+        "test-args": [
+          "--device=dri",
+          "--share=ipc",
+          "--socket=fallback-x11",
+          "--socket=wayland",
+          "--talk-name=org.gtk.vfs.*",
+          "--talk-name=org.gtk.MountOperationHandler",
+          "--filesystem=xdg-run/gvfsd",
+          "--add-policy=LocalSearch3.dbus:org.freedesktop.Tracker3.Miner.Files=tracker:FileSystem"
+        ]
+      },
+      "config-opts": [
+        "--libdir=/app/lib",
+        "-Dtests=none",
+        "-Dprofile=Custom",
+        "-Dselinux=false"
+      ],
+      "sources": [
+        {
+          "type": "dir",
+          "path": "../..",
+          "skip": [
+            ".git",
+            ".flatpak-builder",
+            "build",
+            "build-check",
+            "flatpak-build",
+            "flatpak-repo"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+# Meson build output
+/build/
+/build-check/
+/_build/
+/compile_commands.json
+
+# Flatpak build output and caches
+/.flatpak-builder/
+/flatpak-build/
+/flatpak-repo/
+/repo/
+/*.flatpak
+/subprojects/.wraplock
+
+# Editor and OS files
+/.cache/
+/.idea/
+/.vscode/
+*~
+.DS_Store
