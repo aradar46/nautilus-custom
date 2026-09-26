@@ -2,15 +2,10 @@
 
 set -eu
 
-repository="@GITHUB_REPOSITORY@"
+repository="aradar46/nautilus-custom"
 app_id="org.gnome.Nautilus.Custom"
 bundle_name="nautilus-custom.flatpak"
 bundle_url="https://github.com/${repository}/releases/latest/download/${bundle_name}"
-
-if [ "$repository" = "@GITHUB_REPOSITORY@" ]; then
-    echo "This installer must come from a GitHub release build."
-    exit 1
-fi
 
 if [ -r /etc/os-release ]; then
     . /etc/os-release

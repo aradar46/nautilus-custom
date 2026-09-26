@@ -14,7 +14,7 @@ A modified version of GNOME Files (Nautilus) for GNOME desktops.
 Works on Arch Linux and Debian-based distributions. Download and run the installer:
 
 ```bash
-curl -fLO https://github.com/aradar46/nautilus-custom/releases/latest/download/install.sh
+curl -fLO https://raw.githubusercontent.com/aradar46/nautilus-custom/main/install.sh
 chmod +x install.sh
 ./install.sh
 ```
