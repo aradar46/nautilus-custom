@@ -13,7 +13,7 @@ struct _NautilusTerminalPanel
 {
     AdwBin parent_instance;
 
-    VteTerminal *terminal;
+    AdwTabView *tab_view;
     GtkWidget *title_label;
     GtkWidget *close_button;
     char *current_dir;
@@ -21,7 +21,17 @@ struct _NautilusTerminalPanel
 
 G_DEFINE_FINAL_TYPE (NautilusTerminalPanel, nautilus_terminal_panel, ADW_TYPE_BIN)
 
-static void spawn_shell (NautilusTerminalPanel *self);
+static VteTerminal *add_terminal_tab (NautilusTerminalPanel *self);
+static void spawn_shell (NautilusTerminalPanel *self,
+                         VteTerminal          *terminal);
+
+static VteTerminal *
+get_selected_terminal (NautilusTerminalPanel *self)
+{
+    AdwTabPage *page = adw_tab_view_get_selected_page (self->tab_view);
+
+    return page != NULL ? VTE_TERMINAL (adw_tab_page_get_child (page)) : NULL;
+}
 
 static void
 on_child_exited (VteTerminal *terminal,
@@ -29,7 +39,7 @@ on_child_exited (VteTerminal *terminal,
                  gpointer     user_data)
 {
     NautilusTerminalPanel *self = NAUTILUS_TERMINAL_PANEL (user_data);
-    spawn_shell (self);
+    spawn_shell (self, terminal);
 }
 
 static void
@@ -41,7 +51,8 @@ on_close_clicked (GtkButton *button,
 }
 
 static void
-spawn_shell (NautilusTerminalPanel *self)
+spawn_shell (NautilusTerminalPanel *self,
+             VteTerminal          *terminal)
 {
     const char *shell = g_getenv ("SHELL");
     if (shell == NULL || *shell == '\0')
@@ -67,7 +78,7 @@ spawn_shell (NautilusTerminalPanel *self)
             NULL
         };
 
-        vte_terminal_spawn_async (self->terminal,
+        vte_terminal_spawn_async (terminal,
                                   VTE_PTY_DEFAULT,
                                   working_dir,
                                   argv,
@@ -83,7 +94,7 @@ spawn_shell (NautilusTerminalPanel *self)
         char *argv[] = { (char *) shell, NULL };
         char **envp = g_get_environ ();
 
-        vte_terminal_spawn_async (self->terminal,
+        vte_terminal_spawn_async (terminal,
                                   VTE_PTY_DEFAULT,
                                   working_dir,
                                   argv,
@@ -101,24 +112,24 @@ static void
 on_copy_action (GtkWidget *widget,
                 gpointer   user_data)
 {
-    NautilusTerminalPanel *self = NAUTILUS_TERMINAL_PANEL (user_data);
-    vte_terminal_copy_clipboard_format (self->terminal, VTE_FORMAT_TEXT);
+    VteTerminal *terminal = VTE_TERMINAL (user_data);
+    vte_terminal_copy_clipboard_format (terminal, VTE_FORMAT_TEXT);
 }
 
 static void
 on_paste_action (GtkWidget *widget,
                  gpointer   user_data)
 {
-    NautilusTerminalPanel *self = NAUTILUS_TERMINAL_PANEL (user_data);
-    vte_terminal_paste_clipboard (self->terminal);
+    VteTerminal *terminal = VTE_TERMINAL (user_data);
+    vte_terminal_paste_clipboard (terminal);
 }
 
 static void
 on_select_all_action (GtkWidget *widget,
                       gpointer   user_data)
 {
-    NautilusTerminalPanel *self = NAUTILUS_TERMINAL_PANEL (user_data);
-    vte_terminal_select_all (self->terminal);
+    VteTerminal *terminal = VTE_TERMINAL (user_data);
+    vte_terminal_select_all (terminal);
 }
 
 static void
@@ -128,10 +139,11 @@ on_right_click_pressed (GtkGestureClick *gesture,
                         gdouble          y,
                         gpointer         user_data)
 {
-    NautilusTerminalPanel *self = NAUTILUS_TERMINAL_PANEL (user_data);
+    VteTerminal *terminal = VTE_TERMINAL (
+        gtk_event_controller_get_widget (GTK_EVENT_CONTROLLER (gesture)));
 
     GtkWidget *popover = gtk_popover_new ();
-    gtk_widget_set_parent (popover, GTK_WIDGET (self->terminal));
+    gtk_widget_set_parent (popover, GTK_WIDGET (terminal));
 
     GtkWidget *box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 2);
     gtk_widget_set_margin_top (box, 4);
@@ -141,21 +153,21 @@ on_right_click_pressed (GtkGestureClick *gesture,
 
     GtkWidget *btn_copy = gtk_button_new_with_label (_("Copy"));
     gtk_button_set_has_frame (GTK_BUTTON (btn_copy), FALSE);
-    gtk_widget_set_sensitive (btn_copy, vte_terminal_get_has_selection (self->terminal));
+    gtk_widget_set_sensitive (btn_copy, vte_terminal_get_has_selection (terminal));
     g_signal_connect_swapped (btn_copy, "clicked", G_CALLBACK (gtk_popover_popdown), popover);
-    g_signal_connect (btn_copy, "clicked", G_CALLBACK (on_copy_action), self);
+    g_signal_connect (btn_copy, "clicked", G_CALLBACK (on_copy_action), terminal);
     gtk_box_append (GTK_BOX (box), btn_copy);
 
     GtkWidget *btn_paste = gtk_button_new_with_label (_("Paste"));
     gtk_button_set_has_frame (GTK_BUTTON (btn_paste), FALSE);
     g_signal_connect_swapped (btn_paste, "clicked", G_CALLBACK (gtk_popover_popdown), popover);
-    g_signal_connect (btn_paste, "clicked", G_CALLBACK (on_paste_action), self);
+    g_signal_connect (btn_paste, "clicked", G_CALLBACK (on_paste_action), terminal);
     gtk_box_append (GTK_BOX (box), btn_paste);
 
     GtkWidget *btn_select_all = gtk_button_new_with_label (_("Select All"));
     gtk_button_set_has_frame (GTK_BUTTON (btn_select_all), FALSE);
     g_signal_connect_swapped (btn_select_all, "clicked", G_CALLBACK (gtk_popover_popdown), popover);
-    g_signal_connect (btn_select_all, "clicked", G_CALLBACK (on_select_all_action), self);
+    g_signal_connect (btn_select_all, "clicked", G_CALLBACK (on_select_all_action), terminal);
     gtk_box_append (GTK_BOX (box), btn_select_all);
 
     gtk_popover_set_child (GTK_POPOVER (popover), box);
@@ -173,33 +185,131 @@ on_key_pressed (GtkEventControllerKey *controller,
                 gpointer               user_data)
 {
     NautilusTerminalPanel *self = NAUTILUS_TERMINAL_PANEL (user_data);
+    VteTerminal *terminal = VTE_TERMINAL (
+        gtk_event_controller_get_widget (GTK_EVENT_CONTROLLER (controller)));
     GdkModifierType mods = state & (GDK_CONTROL_MASK | GDK_SHIFT_MASK | GDK_ALT_MASK);
 
     if (mods == (GDK_CONTROL_MASK | GDK_SHIFT_MASK))
     {
-        if (keyval == GDK_KEY_C || keyval == GDK_KEY_c)
+        if (keyval == GDK_KEY_T || keyval == GDK_KEY_t)
         {
-            vte_terminal_copy_clipboard_format (self->terminal, VTE_FORMAT_TEXT);
+            add_terminal_tab (self);
+            return GDK_EVENT_STOP;
+        }
+        else if (keyval == GDK_KEY_W || keyval == GDK_KEY_w)
+        {
+            AdwTabPage *page = adw_tab_view_get_page (self->tab_view, GTK_WIDGET (terminal));
+            adw_tab_view_close_page (self->tab_view, page);
+            return GDK_EVENT_STOP;
+        }
+        else if (keyval == GDK_KEY_C || keyval == GDK_KEY_c)
+        {
+            vte_terminal_copy_clipboard_format (terminal, VTE_FORMAT_TEXT);
             return GDK_EVENT_STOP;
         }
         else if (keyval == GDK_KEY_V || keyval == GDK_KEY_v)
         {
-            vte_terminal_paste_clipboard (self->terminal);
+            vte_terminal_paste_clipboard (terminal);
             return GDK_EVENT_STOP;
         }
     }
+    else if (mods == GDK_CONTROL_MASK && keyval == GDK_KEY_Page_Up)
+    {
+        adw_tab_view_select_previous_page (self->tab_view);
+        return GDK_EVENT_STOP;
+    }
+    else if (mods == GDK_CONTROL_MASK && keyval == GDK_KEY_Page_Down)
+    {
+        adw_tab_view_select_next_page (self->tab_view);
+        return GDK_EVENT_STOP;
+    }
     else if (mods == GDK_SHIFT_MASK && keyval == GDK_KEY_Insert)
     {
-        vte_terminal_paste_clipboard (self->terminal);
+        vte_terminal_paste_clipboard (terminal);
         return GDK_EVENT_STOP;
     }
     else if (mods == GDK_CONTROL_MASK && keyval == GDK_KEY_Insert)
     {
-        vte_terminal_copy_clipboard_format (self->terminal, VTE_FORMAT_TEXT);
+        vte_terminal_copy_clipboard_format (terminal, VTE_FORMAT_TEXT);
         return GDK_EVENT_STOP;
     }
 
     return GDK_EVENT_PROPAGATE;
+}
+
+static void
+set_tab_title (NautilusTerminalPanel *self,
+               AdwTabPage           *page)
+{
+    const char *path = self->current_dir ? self->current_dir : g_get_home_dir ();
+    g_autofree char *basename = g_path_get_basename (path);
+
+    adw_tab_page_set_title (page, basename);
+}
+
+static VteTerminal *
+add_terminal_tab (NautilusTerminalPanel *self)
+{
+    VteTerminal *terminal = VTE_TERMINAL (vte_terminal_new ());
+    AdwTabPage *page;
+    GdkRGBA bg_color, fg_color;
+    GdkRGBA palette[16];
+    static const char *color_palette_hex[16] = {
+        "#242424", "#f66151", "#57e389", "#f6d32d",
+        "#62a0ea", "#c061cb", "#4cd9e4", "#deddda",
+        "#5e5c64", "#ed333b", "#57e389", "#f8e45c",
+        "#78aeed", "#dc8add", "#6be5ee", "#ffffff"
+    };
+
+    gtk_widget_set_vexpand (GTK_WIDGET (terminal), TRUE);
+    gtk_widget_set_hexpand (GTK_WIDGET (terminal), TRUE);
+    vte_terminal_set_scrollback_lines (terminal, 10000);
+    vte_terminal_set_mouse_autohide (terminal, TRUE);
+
+    gdk_rgba_parse (&bg_color, "#1d1d20");
+    gdk_rgba_parse (&fg_color, "#dcdcdc");
+    for (gsize i = 0; i < G_N_ELEMENTS (palette); i++)
+    {
+        gdk_rgba_parse (&palette[i], color_palette_hex[i]);
+    }
+    vte_terminal_set_colors (terminal, &fg_color, &bg_color, palette, G_N_ELEMENTS (palette));
+
+    g_signal_connect (terminal, "child-exited", G_CALLBACK (on_child_exited), self);
+
+    GtkEventController *key_controller = gtk_event_controller_key_new ();
+    g_signal_connect (key_controller, "key-pressed", G_CALLBACK (on_key_pressed), self);
+    gtk_widget_add_controller (GTK_WIDGET (terminal), key_controller);
+
+    GtkGesture *click_gesture = gtk_gesture_click_new ();
+    gtk_gesture_single_set_button (GTK_GESTURE_SINGLE (click_gesture), GDK_BUTTON_SECONDARY);
+    g_signal_connect (click_gesture, "pressed", G_CALLBACK (on_right_click_pressed), self);
+    gtk_widget_add_controller (GTK_WIDGET (terminal), GTK_EVENT_CONTROLLER (click_gesture));
+
+    page = adw_tab_view_append (self->tab_view, GTK_WIDGET (terminal));
+    set_tab_title (self, page);
+    adw_tab_view_set_selected_page (self->tab_view, page);
+    spawn_shell (self, terminal);
+    gtk_widget_grab_focus (GTK_WIDGET (terminal));
+
+    return terminal;
+}
+
+static void
+on_new_tab_clicked (GtkButton *button,
+                    gpointer   user_data)
+{
+    add_terminal_tab (NAUTILUS_TERMINAL_PANEL (user_data));
+}
+
+static void
+on_n_pages_changed (AdwTabView *tab_view,
+                    GParamSpec *pspec,
+                    gpointer    user_data)
+{
+    if (adw_tab_view_get_n_pages (tab_view) == 0)
+    {
+        gtk_widget_set_visible (GTK_WIDGET (user_data), FALSE);
+    }
 }
 
 static void
@@ -226,9 +336,12 @@ nautilus_terminal_panel_init (NautilusTerminalPanel *self)
     GtkWidget *main_box;
     GtkWidget *header_box;
     GtkWidget *icon;
+    GtkWidget *new_tab_button;
     GtkWidget *separator;
+    AdwTabBar *tab_bar;
 
     main_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+    self->tab_view = adw_tab_view_new ();
 
     /* Header Bar */
     header_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
@@ -246,6 +359,12 @@ nautilus_terminal_panel_init (NautilusTerminalPanel *self)
     gtk_widget_set_hexpand (self->title_label, TRUE);
     gtk_box_append (GTK_BOX (header_box), self->title_label);
 
+    new_tab_button = gtk_button_new_from_icon_name ("list-add-symbolic");
+    gtk_button_set_has_frame (GTK_BUTTON (new_tab_button), FALSE);
+    gtk_widget_set_tooltip_text (new_tab_button, _("New Terminal Tab"));
+    g_signal_connect (new_tab_button, "clicked", G_CALLBACK (on_new_tab_clicked), self);
+    gtk_box_append (GTK_BOX (header_box), new_tab_button);
+
     self->close_button = gtk_button_new_from_icon_name ("window-close-symbolic");
     gtk_button_set_has_frame (GTK_BUTTON (self->close_button), FALSE);
     gtk_widget_set_tooltip_text (self->close_button, _("Close Terminal"));
@@ -257,66 +376,20 @@ nautilus_terminal_panel_init (NautilusTerminalPanel *self)
     separator = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
     gtk_box_append (GTK_BOX (main_box), separator);
 
-    /* VTE Terminal */
-    self->terminal = VTE_TERMINAL (vte_terminal_new ());
-    gtk_widget_set_vexpand (GTK_WIDGET (self->terminal), TRUE);
-    gtk_widget_set_hexpand (GTK_WIDGET (self->terminal), TRUE);
-    gtk_widget_set_size_request (GTK_WIDGET (self->terminal), -1, 120);
-    vte_terminal_set_scrollback_lines (self->terminal, 10000);
-    vte_terminal_set_mouse_autohide (self->terminal, TRUE);
+    tab_bar = adw_tab_bar_new ();
+    adw_tab_bar_set_view (tab_bar, self->tab_view);
+    adw_tab_bar_set_autohide (tab_bar, FALSE);
+    gtk_box_append (GTK_BOX (main_box), GTK_WIDGET (tab_bar));
 
-    GdkRGBA bg_color, fg_color;
-    GdkRGBA palette[16];
-    static const char *color_palette_hex[16] = {
-        /* Standard 8 colors */
-        "#242424", /* Black */
-        "#f66151", /* Red */
-        "#57e389", /* Green */
-        "#f6d32d", /* Yellow */
-        "#62a0ea", /* Blue (vibrant, high contrast) */
-        "#c061cb", /* Magenta */
-        "#4cd9e4", /* Cyan */
-        "#deddda", /* White */
-        /* Bright 8 colors */
-        "#5e5c64", /* Bright Black */
-        "#ed333b", /* Bright Red */
-        "#57e389", /* Bright Green */
-        "#f8e45c", /* Bright Yellow */
-        "#78aeed", /* Bright Blue */
-        "#dc8add", /* Bright Magenta */
-        "#6be5ee", /* Bright Cyan */
-        "#ffffff"  /* Bright White */
-    };
-
-    gdk_rgba_parse (&bg_color, "#1d1d20");
-    gdk_rgba_parse (&fg_color, "#dcdcdc");
-    vte_terminal_set_color_background (self->terminal, &bg_color);
-    vte_terminal_set_color_foreground (self->terminal, &fg_color);
-
-    for (int i = 0; i < 16; i++)
-    {
-        gdk_rgba_parse (&palette[i], color_palette_hex[i]);
-    }
-
-    vte_terminal_set_colors (self->terminal, &fg_color, &bg_color, palette, 16);
-
-    g_signal_connect (self->terminal, "child-exited", G_CALLBACK (on_child_exited), self);
-
-    /* Shortcuts and context menu */
-    GtkEventController *key_controller = gtk_event_controller_key_new ();
-    g_signal_connect (key_controller, "key-pressed", G_CALLBACK (on_key_pressed), self);
-    gtk_widget_add_controller (GTK_WIDGET (self->terminal), key_controller);
-
-    GtkGesture *click_gesture = gtk_gesture_click_new ();
-    gtk_gesture_single_set_button (GTK_GESTURE_SINGLE (click_gesture), GDK_BUTTON_SECONDARY);
-    g_signal_connect (click_gesture, "pressed", G_CALLBACK (on_right_click_pressed), self);
-    gtk_widget_add_controller (GTK_WIDGET (self->terminal), GTK_EVENT_CONTROLLER (click_gesture));
-
-    gtk_box_append (GTK_BOX (main_box), GTK_WIDGET (self->terminal));
+    gtk_widget_set_vexpand (GTK_WIDGET (self->tab_view), TRUE);
+    gtk_widget_set_hexpand (GTK_WIDGET (self->tab_view), TRUE);
+    gtk_widget_set_size_request (GTK_WIDGET (self->tab_view), -1, 120);
+    gtk_box_append (GTK_BOX (main_box), GTK_WIDGET (self->tab_view));
+    g_signal_connect (self->tab_view, "notify::n-pages", G_CALLBACK (on_n_pages_changed), self);
 
     adw_bin_set_child (ADW_BIN (self), main_box);
 
-    spawn_shell (self);
+    add_terminal_tab (self);
 }
 
 GtkWidget *
@@ -356,11 +429,14 @@ nautilus_terminal_panel_sync_location (NautilusTerminalPanel *self,
         gtk_label_set_text (GTK_LABEL (self->title_label), title);
     }
 
-    if (self->terminal != NULL)
+    VteTerminal *terminal = get_selected_terminal (self);
+    if (terminal != NULL)
     {
+        AdwTabPage *page = adw_tab_view_get_selected_page (self->tab_view);
         g_autofree char *quoted = g_shell_quote (path);
         g_autofree char *cmd = g_strdup_printf (" cd %s\n", quoted);
-        vte_terminal_feed_child (self->terminal, cmd, -1);
+        set_tab_title (self, page);
+        vte_terminal_feed_child (terminal, cmd, -1);
     }
 }
 
@@ -369,8 +445,11 @@ nautilus_terminal_panel_grab_focus (NautilusTerminalPanel *self)
 {
     g_return_if_fail (NAUTILUS_IS_TERMINAL_PANEL (self));
 
-    if (self->terminal != NULL)
+    VteTerminal *terminal = get_selected_terminal (self);
+    if (terminal == NULL)
     {
-        gtk_widget_grab_focus (GTK_WIDGET (self->terminal));
+        terminal = add_terminal_tab (self);
     }
+
+    gtk_widget_grab_focus (GTK_WIDGET (terminal));
 }
