@@ -1,40 +1,48 @@
-# nautilus
-[![Pipeline status](https://gitlab.gnome.org/GNOME/nautilus/badges/main/pipeline.svg)](https://gitlab.gnome.org/GNOME/nautilus/commits/main)
-[![coverage report](https://gitlab.gnome.org/GNOME/nautilus/badges/main/coverage.svg)](https://gitlab.gnome.org/GNOME/nautilus/commits/main) 
+# Custom Files
 
-This is the project of the [Files](https://apps.gnome.org/Nautilus/) app, a file browser for
-GNOME, internally known by its historical name `nautilus`.
+A modified version of GNOME Files (Nautilus) for GNOME desktops.
 
-## Supported version
-Only the latest version of Files as provided upstream is supported. Try out the [Flatpak nightly](https://welcome.gnome.org/en/app/Nautilus/#installing-a-nightly-build) installation before filling issues to ensure the installation is reproducible and doesn't have downstream changes on it. In case you cannot reproduce in the nightly installation, don't hesitate to file an issue in your distribution. This is to ensure the issue is well triaged and reaches the proper people.
+## Changes
 
-## Runtime dependencies
-- [Bubblewrap](https://github.com/containers/bubblewrap) installed. Used for security reasons.
-- [LocalSearch](https://gitlab.gnome.org/GNOME/localsearch) properly set up and with all features enabled. Used for fast search and metadata extraction, starred files and batch renaming.
-- [xdg-user-dirs-gtk](https://gitlab.gnome.org/GNOME/xdg-user-dirs-gtk) installed.  Used to create the default bookmarks and update localization.
+- Embedded terminal. Press `F4` to show or hide it. It runs the host Bash shell and reads `.bashrc`.
+- Folder colors, including matching colors in the left sidebar.
+- **Copy Full Path** in the right-click menu.
+- Double-click empty space to show or hide hidden files.
 
-## Discourse
+## Install
 
-For more informal discussion we use [GNOME Discourse](https://discourse.gnome.org/tags/nautilus) in the Applications category with the `nautilus` tag. Feel free to open a topic there.
+Works on Arch Linux and Debian-based distributions. Download and run the installer:
 
-## Extensions
+```bash
+curl -fLO https://github.com/aradar46/nautilus-custom/releases/latest/download/install.sh
+chmod +x install.sh
+./install.sh
+```
 
-Documentation for the libnautilus-extension API is available [here](https://gnome.pages.gitlab.gnome.org/nautilus/).  Also, if you are interested in developing a Nautilus extension in Python you should refer to the [nautilus-python](https://gnome.pages.gitlab.gnome.org/nautilus-python/) documentation.
+The installer adds Flathub, installs any required packages, downloads the latest release, and makes Custom Files the default folder handler. The system version of GNOME Files is not removed.
 
-## How to report issues
+Launch it from the application menu or run:
 
-Report issues to the GNOME [issue tracking system](https://gitlab.gnome.org/GNOME/nautilus/issues).
+```bash
+flatpak run org.gnome.Nautilus.Custom
+```
 
-## Feature requests
+## Update
 
-Files is a core compoment of the GNOME desktop experience. As such, any changes in behavior or appearance only happen in accordance with the [GNOME design team][design-team].
+Run the installer again. It always downloads the latest release.
 
-For major changes, it is best to start a discussion on [discourse] and reach out on the [#gnome-design matrix room][design-room], and only involve the issue tracker once agreement has been reached.
+## Uninstall
 
-In particular mockups must be approved by the design team to be considered for implementation.
+```bash
+flatpak uninstall --user org.gnome.Nautilus.Custom
+```
 
-For enhancements that are limited in scope and well-defined, it is acceptable to directly open an issue using the shortcoming template.
+## Manual installation
 
-[design-team]: https://gitlab.gnome.org/Teams/Design
-[discourse]: https://discourse.gnome.org/tag/nautilus
-[design-room]: https://matrix.to/#/#gnome-design:gnome.org
+Download `nautilus-custom.flatpak` from the [latest release](https://github.com/aradar46/nautilus-custom/releases/latest), then run:
+
+```bash
+flatpak install --user nautilus-custom.flatpak
+```
+
+This project is based on [GNOME Files](https://gitlab.gnome.org/GNOME/nautilus) and is licensed under GPL-3.0-or-later.
