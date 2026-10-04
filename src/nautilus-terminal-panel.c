@@ -334,52 +334,41 @@ static void
 nautilus_terminal_panel_init (NautilusTerminalPanel *self)
 {
     GtkWidget *main_box;
-    GtkWidget *header_box;
-    GtkWidget *icon;
+    GtkWidget *end_box;
     GtkWidget *new_tab_button;
     GtkWidget *separator;
     AdwTabBar *tab_bar;
 
+    self->title_label = NULL;
     main_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
     self->tab_view = adw_tab_view_new ();
 
-    /* Header Bar */
-    header_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 6);
-    gtk_widget_set_margin_start (header_box, 8);
-    gtk_widget_set_margin_end (header_box, 6);
-    gtk_widget_set_margin_top (header_box, 4);
-    gtk_widget_set_margin_bottom (header_box, 4);
+    tab_bar = adw_tab_bar_new ();
+    adw_tab_bar_set_view (tab_bar, self->tab_view);
+    adw_tab_bar_set_autohide (tab_bar, FALSE);
 
-    icon = gtk_image_new_from_icon_name ("utilities-terminal-symbolic");
-    gtk_box_append (GTK_BOX (header_box), icon);
-
-    self->title_label = gtk_label_new (_("Terminal"));
-    gtk_label_set_xalign (GTK_LABEL (self->title_label), 0.0);
-    gtk_label_set_ellipsize (GTK_LABEL (self->title_label), PANGO_ELLIPSIZE_START);
-    gtk_widget_set_hexpand (self->title_label, TRUE);
-    gtk_box_append (GTK_BOX (header_box), self->title_label);
+    /* End action buttons on the tab bar: + and X */
+    end_box = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 2);
+    gtk_widget_set_margin_end (end_box, 4);
 
     new_tab_button = gtk_button_new_from_icon_name ("list-add-symbolic");
     gtk_button_set_has_frame (GTK_BUTTON (new_tab_button), FALSE);
     gtk_widget_set_tooltip_text (new_tab_button, _("New Terminal Tab"));
     g_signal_connect (new_tab_button, "clicked", G_CALLBACK (on_new_tab_clicked), self);
-    gtk_box_append (GTK_BOX (header_box), new_tab_button);
+    gtk_box_append (GTK_BOX (end_box), new_tab_button);
 
     self->close_button = gtk_button_new_from_icon_name ("window-close-symbolic");
     gtk_button_set_has_frame (GTK_BUTTON (self->close_button), FALSE);
     gtk_widget_set_tooltip_text (self->close_button, _("Close Terminal"));
     g_signal_connect (self->close_button, "clicked", G_CALLBACK (on_close_clicked), self);
-    gtk_box_append (GTK_BOX (header_box), self->close_button);
+    gtk_box_append (GTK_BOX (end_box), self->close_button);
 
-    gtk_box_append (GTK_BOX (main_box), header_box);
+    adw_tab_bar_set_end_action_widget (tab_bar, end_box);
+
+    gtk_box_append (GTK_BOX (main_box), GTK_WIDGET (tab_bar));
 
     separator = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
     gtk_box_append (GTK_BOX (main_box), separator);
-
-    tab_bar = adw_tab_bar_new ();
-    adw_tab_bar_set_view (tab_bar, self->tab_view);
-    adw_tab_bar_set_autohide (tab_bar, FALSE);
-    gtk_box_append (GTK_BOX (main_box), GTK_WIDGET (tab_bar));
 
     gtk_widget_set_vexpand (GTK_WIDGET (self->tab_view), TRUE);
     gtk_widget_set_hexpand (GTK_WIDGET (self->tab_view), TRUE);

@@ -105,6 +105,7 @@ struct _NautilusWindow
     GtkWidget *network_address_bar;
     NautilusTerminalPanel *terminal_panel;
     NautilusWebPanel *web_panel;
+    GtkPaned *main_paned;
 
     guint sidebar_width_handler_id;
 
@@ -717,6 +718,14 @@ action_toggle_web_panel (GSimpleAction *action,
 
     if (!visible)
     {
+        if (window->main_paned != NULL)
+        {
+            int total = gtk_widget_get_width (GTK_WIDGET (window->main_paned));
+            if (total > 550)
+            {
+                gtk_paned_set_position (window->main_paned, total - 380);
+            }
+        }
         nautilus_web_panel_grab_focus (window->web_panel);
     }
     else
@@ -1750,6 +1759,7 @@ nautilus_window_class_init (NautilusWindowClass *class)
     gtk_widget_class_bind_template_child (wclass, NautilusWindow, network_address_bar);
     gtk_widget_class_bind_template_child (wclass, NautilusWindow, terminal_panel);
     gtk_widget_class_bind_template_child (wclass, NautilusWindow, web_panel);
+    gtk_widget_class_bind_template_child (wclass, NautilusWindow, main_paned);
 
     gtk_widget_class_bind_template_callback (wclass, create_tab_cb);
 

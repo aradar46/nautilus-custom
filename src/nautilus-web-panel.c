@@ -712,6 +712,16 @@ on_map (GtkWidget *widget,
     NautilusWebPanel *self = NAUTILUS_WEB_PANEL (widget);
 
     ensure_tabs (self);
+
+    GtkWidget *parent = gtk_widget_get_parent (widget);
+    if (GTK_IS_PANED (parent))
+    {
+        int total = gtk_widget_get_width (parent);
+        if (total > 550)
+        {
+            gtk_paned_set_position (GTK_PANED (parent), total - 380);
+        }
+    }
 }
 
 static void
@@ -859,7 +869,8 @@ nautilus_web_panel_init (NautilusWebPanel *self)
     gtk_widget_set_vexpand (GTK_WIDGET (self->tab_view), TRUE);
     gtk_box_append (GTK_BOX (self->main_box), GTK_WIDGET (self->tab_view));
 
-    gtk_widget_set_size_request (GTK_WIDGET (self), 400, -1);
+    gtk_widget_set_size_request (GTK_WIDGET (self), 380, -1);
+    gtk_widget_set_hexpand (GTK_WIDGET (self), FALSE);
     g_signal_connect (self, "map", G_CALLBACK (on_map), NULL);
 
     adw_bin_set_child (ADW_BIN (self), self->main_box);
