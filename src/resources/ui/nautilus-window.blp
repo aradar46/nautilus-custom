@@ -25,6 +25,12 @@ menu app_menu {
       action: "win.toggle-terminal";
       verb-icon: "utilities-terminal-symbolic";
     }
+
+    item {
+      label: _("Toggle _Web Sidebar");
+      action: "win.toggle-web-panel";
+      verb-icon: "sidebar-show-right-symbolic";
+    }
   }
 
   section undo_redo_section {
@@ -203,27 +209,41 @@ template $NautilusWindow: Adw.ApplicationWindow {
               view: tab_view;
             }
 
-            content: Paned content_paned {
-              orientation: vertical;
+            content: Paned main_paned {
+              orientation: horizontal;
               shrink-start-child: false;
               shrink-end-child: false;
               resize-start-child: true;
-              resize-end-child: true;
-              position: 380;
+              resize-end-child: false;
 
               [start]
-              Adw.TabView tab_view {
-                menu-model: tab_menu_model;
-                close-page => $tab_view_close_page_cb();
-                setup-menu => $tab_view_setup_menu_cb();
-                notify::selected-page => $tab_view_notify_selected_page_cb();
-                create-window => $tab_view_create_window_cb();
-                page-attached => $tab_view_page_attached_cb();
-                page-detached => $tab_view_page_detached_cb();
+              Paned content_paned {
+                orientation: vertical;
+                shrink-start-child: false;
+                shrink-end-child: false;
+                resize-start-child: true;
+                resize-end-child: true;
+                position: 380;
+
+                [start]
+                Adw.TabView tab_view {
+                  menu-model: tab_menu_model;
+                  close-page => $tab_view_close_page_cb();
+                  setup-menu => $tab_view_setup_menu_cb();
+                  notify::selected-page => $tab_view_notify_selected_page_cb();
+                  create-window => $tab_view_create_window_cb();
+                  page-attached => $tab_view_page_attached_cb();
+                  page-detached => $tab_view_page_detached_cb();
+                }
+
+                [end]
+                $NautilusTerminalPanel terminal_panel {
+                  visible: false;
+                }
               }
 
               [end]
-              $NautilusTerminalPanel terminal_panel {
+              $NautilusWebPanel web_panel {
                 visible: false;
               }
             };

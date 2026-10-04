@@ -127,6 +127,7 @@ tinysparql = dependency('tinysparql-3.0', version: '>= 3.8')
 icu_dep = dependency('icu-uc', version: '>=56')
 icu_i18n_dep = dependency('icu-i18n', version: '>=56')
 vte = dependency('vte-2.91-gtk4', version: '>= 0.70.0')
+webkit = dependency('webkitgtk-6.0', version: '>= 2.40.0')
 
 blueprint_cmd = find_program('blueprint-compiler', required : true, version : '>= 0.19.0')
 gi_docgen = find_program('gi-docgen', required: get_option('docs'))

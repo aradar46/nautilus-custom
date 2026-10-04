@@ -52,6 +52,7 @@
 #include "nautilus-sidebar.h"
 #include "nautilus-signaller.h"
 #include "nautilus-terminal-panel.h"
+#include "nautilus-web-panel.h"
 #include "nautilus-toolbar.h"
 #include "nautilus-trash-monitor.h"
 #include "nautilus-ui-utilities.h"
@@ -103,6 +104,7 @@ struct _NautilusWindow
 
     GtkWidget *network_address_bar;
     NautilusTerminalPanel *terminal_panel;
+    NautilusWebPanel *web_panel;
 
     guint sidebar_width_handler_id;
 
@@ -699,6 +701,31 @@ action_toggle_terminal (GSimpleAction *action,
 }
 
 static void
+action_toggle_web_panel (GSimpleAction *action,
+                         GVariant      *state,
+                         gpointer       user_data)
+{
+    NautilusWindow *window = NAUTILUS_WINDOW (user_data);
+
+    if (window->web_panel == NULL)
+    {
+        return;
+    }
+
+    gboolean visible = gtk_widget_get_visible (GTK_WIDGET (window->web_panel));
+    gtk_widget_set_visible (GTK_WIDGET (window->web_panel), !visible);
+
+    if (!visible)
+    {
+        nautilus_web_panel_grab_focus (window->web_panel);
+    }
+    else
+    {
+        nautilus_web_panel_reset (window->web_panel);
+    }
+}
+
+static void
 nautilus_window_set_up_sidebar (NautilusWindow *window)
 {
     nautilus_sidebar_set_open_flags (window->places_sidebar,
@@ -1129,6 +1156,7 @@ const GActionEntry win_entries[] =
     { .name = "restore-tab", .activate = action_restore_tab },
     { .name = "toggle-sidebar", .activate = action_toggle_sidebar },
     { .name = "toggle-terminal", .activate = action_toggle_terminal },
+    { .name = "toggle-web-panel", .activate = action_toggle_web_panel },
 };
 
 static void
@@ -1160,6 +1188,7 @@ nautilus_window_initialize_actions (NautilusWindow *window)
     nautilus_application_set_accelerator (app, "win.restore-tab", "<shift><control>t");
     nautilus_application_set_accelerator (app, "win.toggle-sidebar", "F9");
     nautilus_application_set_accelerator (app, "win.toggle-terminal", "F4");
+    nautilus_application_set_accelerator (app, "win.toggle-web-panel", "F6");
 
     /* Alt+N for the first 9 tabs */
     for (i = 0; i < 9; ++i)
@@ -1583,6 +1612,7 @@ nautilus_window_init (NautilusWindow *window)
     g_type_ensure (NAUTILUS_TYPE_PROGRESS_INDICATOR);
     g_type_ensure (NAUTILUS_TYPE_SHORTCUT_MANAGER);
     g_type_ensure (NAUTILUS_TYPE_TERMINAL_PANEL);
+    g_type_ensure (NAUTILUS_TYPE_WEB_PANEL);
     gtk_widget_init_template (GTK_WIDGET (window));
 
     g_signal_connect (window, "notify::maximized",
@@ -1711,6 +1741,7 @@ nautilus_window_class_init (NautilusWindowClass *class)
     gtk_widget_class_bind_template_child (wclass, NautilusWindow, tab_bar);
     gtk_widget_class_bind_template_child (wclass, NautilusWindow, network_address_bar);
     gtk_widget_class_bind_template_child (wclass, NautilusWindow, terminal_panel);
+    gtk_widget_class_bind_template_child (wclass, NautilusWindow, web_panel);
 
     gtk_widget_class_bind_template_callback (wclass, create_tab_cb);
 

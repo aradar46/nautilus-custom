@@ -2,6 +2,7 @@
 
 This custom Nautilus (GNOME Files) build includes:
 - **Embedded Bottom Terminal** (Toggle with `F4` or right-click -> *Open Terminal Here*)
+- **Embedded Right Web Sidebar** (Toggle with `F6`, the toolbar button, or Main Menu -> *Toggle Web Sidebar*)
 - **Native Folder Color Picker** (Right-click folder -> *Folder Color*, syncs with left sidebar)
 - **Copy Full Path** (Right-click file/folder/background -> *Copy Full Path*)
 
@@ -13,14 +14,14 @@ This custom Nautilus (GNOME Files) build includes:
 ```bash
 sudo pacman -S --needed \
   meson ninja gcc \
-  gtk4 libadwaita vte4 \
+  gtk4 libadwaita vte4 webkitgtk-6.0 \
   gexiv2 libportal-gtk4 libcloudproviders \
   gnome-desktop-4 gnome-autoar localsearch
 ```
 
 ### Step 2: Configure and compile
 ```bash
-meson setup build -Dprefix=/usr
+meson setup build -Dprefix=/usr -Dselinux=disabled
 ninja -C build
 ```
 
@@ -43,7 +44,7 @@ killall -9 nautilus 2>/dev/null
 ```bash
 sudo apt update && sudo apt install -y \
   meson ninja-build gcc \
-  libgtk-4-dev libadwaita-1-dev libvte-2.91-gtk4-dev \
+  libgtk-4-dev libadwaita-1-dev libvte-2.91-gtk4-dev libwebkitgtk-6.0-dev \
   libgexiv2-dev libportal-gtk4-dev libcloudproviders-dev \
   libgnome-desktop-4-dev libgnome-autoar-0-dev liblocalsearch-3-dev
 ```

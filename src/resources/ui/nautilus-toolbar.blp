@@ -100,5 +100,13 @@ template $NautilusToolbar: Adw.Bin {
       action-name: "view.new-folder";
       focus-on-click: false;
     }
+
+    [end]
+    Button web_panel_button {
+      icon-name: "sidebar-show-right-symbolic";
+      tooltip-text: _("Toggle Web Sidebar (F6)");
+      action-name: "win.toggle-web-panel";
+      focus-on-click: false;
+    }
   }
 }

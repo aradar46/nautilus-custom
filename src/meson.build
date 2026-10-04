@@ -259,6 +259,8 @@ libnautilus_sources = [
   'nautilus-tag-manager.h',
   'nautilus-terminal-panel.c',
   'nautilus-terminal-panel.h',
+  'nautilus-web-panel.c',
+  'nautilus-web-panel.h',
   'nautilus-thumbnails.c',
   'nautilus-thumbnails.h',
   'nautilus-toolbar.c',
@@ -310,6 +312,7 @@ nautilus_deps = [
   selinux,
   tinysparql,
   vte,
+  webkit,
 ]
 
 libnautilus = static_library(
