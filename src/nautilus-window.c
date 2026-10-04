@@ -1448,6 +1448,14 @@ nautilus_window_key_bubble (GtkEventControllerKey *controller,
 
     widget = gtk_event_controller_get_widget (GTK_EVENT_CONTROLLER (controller));
     window = NAUTILUS_WINDOW (widget);
+
+    GtkWidget *focus = gtk_window_get_focus (GTK_WINDOW (window));
+    if (focus != NULL && window->web_panel != NULL &&
+        gtk_widget_is_ancestor (focus, GTK_WIDGET (window->web_panel)))
+    {
+        return GDK_EVENT_STOP;
+    }
+
     if (window->active_slot != NULL &&
         nautilus_window_slot_handle_event (window->active_slot, controller, keyval, state))
     {

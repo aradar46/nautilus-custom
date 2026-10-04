@@ -9,6 +9,231 @@
 #include <glib/gi18n.h>
 #include <webkit/webkit.h>
 
+typedef enum
+{
+    SEARCH_ENGINE_GOOGLE,
+    SEARCH_ENGINE_STARTPAGE,
+    SEARCH_ENGINE_DUCKDUCKGO,
+} SearchEngine;
+
+static const char *
+get_engine_home_url (SearchEngine engine)
+{
+    switch (engine)
+    {
+        case SEARCH_ENGINE_GOOGLE:
+            return "https://www.google.com";
+        case SEARCH_ENGINE_STARTPAGE:
+            return "https://www.startpage.com";
+        case SEARCH_ENGINE_DUCKDUCKGO:
+        default:
+            return "https://duckduckgo.com";
+    }
+}
+
+static char *
+build_search_url (SearchEngine engine,
+                  const char  *escaped_query)
+{
+    switch (engine)
+    {
+        case SEARCH_ENGINE_GOOGLE:
+            return g_strdup_printf ("https://www.google.com/search?q=%s", escaped_query);
+        case SEARCH_ENGINE_STARTPAGE:
+            return g_strdup_printf ("https://www.startpage.com/sp/search?query=%s", escaped_query);
+        case SEARCH_ENGINE_DUCKDUCKGO:
+        default:
+            return g_strdup_printf ("https://duckduckgo.com/?q=%s", escaped_query);
+    }
+}
+
+static const char *vimium_script_source =
+    "(function() {"
+    "  if (window.__vimium_injected) return;"
+    "  window.__vimium_injected = true;"
+    "  let hintMode = false;"
+    "  let newTabMode = false;"
+    "  let insertMode = false;"
+    "  let hintOverlay = null;"
+    "  let activeHints = [];"
+    "  let keyBuffer = '';"
+    "  let lastGTime = 0;"
+    "  const HINT_CHARS = 'sadfjklewcmpgh';"
+    "  function isEditable(el) {"
+    "    if (!el) return false;"
+    "    const tag = el.tagName ? el.tagName.toLowerCase() : '';"
+    "    return tag === 'input' || tag === 'textarea' || tag === 'select' || el.isContentEditable;"
+    "  }"
+    "  function getClickableElements() {"
+    "    const selector = 'a[href], button, input, select, textarea, summary, [role=\"button\"], [role=\"link\"], [onclick], [tabindex]:not([tabindex=\"-1\"])';"
+    "    const elements = Array.from(document.querySelectorAll(selector));"
+    "    const visible = [];"
+    "    const vpWidth = window.innerWidth;"
+    "    const vpHeight = window.innerHeight;"
+    "    for (const el of elements) {"
+    "      const rect = el.getBoundingClientRect();"
+    "      if (rect.width > 3 && rect.height > 3 &&"
+    "          rect.bottom > 0 && rect.top < vpHeight &&"
+    "          rect.right > 0 && rect.left < vpWidth) {"
+    "        const style = window.getComputedStyle(el);"
+    "        if (style.visibility !== 'hidden' && style.display !== 'none' && parseFloat(style.opacity) > 0.05) {"
+    "          visible.push({ el, rect });"
+    "        }"
+    "      }"
+    "    }"
+    "    return visible;"
+    "  }"
+    "  function generateHintStrings(count) {"
+    "    const chars = HINT_CHARS;"
+    "    const base = chars.length;"
+    "    if (count <= base) {"
+    "      return chars.slice(0, count).split('');"
+    "    }"
+    "    const result = [];"
+    "    for (let i = 0; i < count; i++) {"
+    "      const first = chars[Math.floor(i / base) % base];"
+    "      const second = chars[i % base];"
+    "      result.push(first + second);"
+    "    }"
+    "    return result;"
+    "  }"
+    "  function clearHints() {"
+    "    if (hintOverlay) {"
+    "      hintOverlay.remove();"
+    "      hintOverlay = null;"
+    "    }"
+    "    activeHints = [];"
+    "    hintMode = false;"
+    "    keyBuffer = '';"
+    "  }"
+    "  function showHints(newTab) {"
+    "    clearHints();"
+    "    const clickables = getClickableElements();"
+    "    if (clickables.length === 0) return;"
+    "    hintMode = true;"
+    "    newTabMode = newTab;"
+    "    keyBuffer = '';"
+    "    hintOverlay = document.createElement('div');"
+    "    hintOverlay.id = '__vimium_hint_overlay';"
+    "    hintOverlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:2147483647;pointer-events:none;';"
+    "    const hintStrings = generateHintStrings(clickables.length);"
+    "    clickables.forEach((item, index) => {"
+    "      const code = hintStrings[index];"
+    "      const badge = document.createElement('span');"
+    "      badge.textContent = code.toUpperCase();"
+    "      badge.dataset.code = code;"
+    "      badge.style.cssText = 'position:fixed;' +"
+    "        'top:' + Math.max(2, item.rect.top) + 'px;' +"
+    "        'left:' + Math.max(2, item.rect.left) + 'px;' +"
+    "        'background:#ffe600;color:#111;font-family:monospace,sans-serif;' +"
+    "        'font-size:11px;font-weight:700;line-height:1;padding:2px 4px;' +"
+    "        'border:1px solid #b39b00;border-radius:3px;' +"
+    "        'box-shadow:0 1px 3px rgba(0,0,0,0.4);z-index:2147483647;' +"
+    "        'pointer-events:none;user-select:none;';"
+    "      hintOverlay.appendChild(badge);"
+    "      activeHints.push({ code, el: item.el, badge });"
+    "    });"
+    "    document.documentElement.appendChild(hintOverlay);"
+    "  }"
+    "  function handleHintKey(key) {"
+    "    keyBuffer += key.toLowerCase();"
+    "    let matched = activeHints.filter(h => h.code.startsWith(keyBuffer));"
+    "    if (matched.length === 0) {"
+    "      clearHints();"
+    "      return;"
+    "    }"
+    "    if (matched.length === 1 && matched[0].code === keyBuffer) {"
+    "      const target = matched[0].el;"
+    "      clearHints();"
+    "      if (newTabMode && target.tagName && target.tagName.toLowerCase() === 'a' && target.href) {"
+    "        window.open(target.href, '_blank');"
+    "      } else {"
+    "        target.focus();"
+    "        target.click();"
+    "      }"
+    "      return;"
+    "    }"
+    "    for (const h of activeHints) {"
+    "      if (h.code.startsWith(keyBuffer)) {"
+    "        h.badge.style.display = 'inline-block';"
+    "        h.badge.style.background = '#ff9800';"
+    "      } else {"
+    "        h.badge.style.display = 'none';"
+    "      }"
+    "    }"
+    "  }"
+    "  window.addEventListener('keydown', function(e) {"
+    "    if (e.key === 'Escape') {"
+    "      if (hintMode) {"
+    "        e.preventDefault();"
+    "        e.stopPropagation();"
+    "        clearHints();"
+    "        return;"
+    "      }"
+    "      if (insertMode) {"
+    "        insertMode = false;"
+    "        return;"
+    "      }"
+    "      if (isEditable(document.activeElement)) {"
+    "        document.activeElement.blur();"
+    "        return;"
+    "      }"
+    "    }"
+    "    if (hintMode) {"
+    "      if (/^[a-zA-Z]$/.test(e.key) && !e.ctrlKey && !e.altKey && !e.metaKey) {"
+    "        e.preventDefault();"
+    "        e.stopPropagation();"
+    "        handleHintKey(e.key);"
+    "      } else {"
+    "        clearHints();"
+    "      }"
+    "      return;"
+    "    }"
+    "    if (insertMode || isEditable(document.activeElement)) {"
+    "      return;"
+    "    }"
+    "    if (e.ctrlKey || e.altKey || e.metaKey) {"
+    "      return;"
+    "    }"
+    "    const now = Date.now();"
+    "    switch (e.key) {"
+    "      case 'f': e.preventDefault(); e.stopPropagation(); showHints(false); break;"
+    "      case 'F': e.preventDefault(); e.stopPropagation(); showHints(true); break;"
+    "      case 'j': e.preventDefault(); e.stopPropagation(); window.scrollBy({ top: 60, behavior: 'smooth' }); break;"
+    "      case 'k': e.preventDefault(); e.stopPropagation(); window.scrollBy({ top: -60, behavior: 'smooth' }); break;"
+    "      case 'h': e.preventDefault(); e.stopPropagation(); window.scrollBy({ left: -50, behavior: 'smooth' }); break;"
+    "      case 'l': e.preventDefault(); e.stopPropagation(); window.scrollBy({ left: 50, behavior: 'smooth' }); break;"
+    "      case 'd': e.preventDefault(); e.stopPropagation(); window.scrollBy({ top: window.innerHeight * 0.5, behavior: 'smooth' }); break;"
+    "      case 'u': e.preventDefault(); e.stopPropagation(); window.scrollBy({ top: -window.innerHeight * 0.5, behavior: 'smooth' }); break;"
+    "      case 'g':"
+    "        if (now - lastGTime < 400) {"
+    "          e.preventDefault();"
+    "          e.stopPropagation();"
+    "          window.scrollTo({ top: 0, behavior: 'smooth' });"
+    "          lastGTime = 0;"
+    "        } else {"
+    "          lastGTime = now;"
+    "        }"
+    "        break;"
+    "      case 'G': e.preventDefault(); e.stopPropagation(); window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }); break;"
+    "      case 'r': e.preventDefault(); e.stopPropagation(); window.location.reload(); break;"
+    "      case 'H': e.preventDefault(); e.stopPropagation(); window.history.back(); break;"
+    "      case 'L': e.preventDefault(); e.stopPropagation(); window.history.forward(); break;"
+    "      case 'i':"
+    "        if (now - lastGTime < 400) {"
+    "          e.preventDefault();"
+    "          e.stopPropagation();"
+    "          const firstInput = document.querySelector('input:not([type=\"hidden\"]), textarea');"
+    "          if (firstInput) firstInput.focus();"
+    "          lastGTime = 0;"
+    "        } else {"
+    "          insertMode = true;"
+    "        }"
+    "        break;"
+    "    }"
+    "  }, true);"
+    "})();";
+
 struct _NautilusWebPanel
 {
     AdwBin parent_instance;
@@ -20,11 +245,17 @@ struct _NautilusWebPanel
     GtkWidget *home_button;
     GtkWidget *new_tab_button;
     GtkWidget *url_entry;
+    GtkWidget *engine_button;
+    GtkWidget *radio_google;
+    GtkWidget *radio_startpage;
+    GtkWidget *radio_duckduckgo;
     GtkWidget *close_button;
     GtkWidget *progress_bar;
 
     AdwTabBar *tab_bar;
     AdwTabView *tab_view;
+
+    SearchEngine current_engine;
 };
 
 G_DEFINE_FINAL_TYPE (NautilusWebPanel, nautilus_web_panel, ADW_TYPE_BIN)
@@ -124,7 +355,7 @@ load_uri_from_text (NautilusWebPanel *self,
     else
     {
         g_autofree char *escaped = g_uri_escape_string (trimmed, NULL, TRUE);
-        target_uri = g_strdup_printf ("https://duckduckgo.com/?q=%s", escaped);
+        target_uri = build_search_url (self->current_engine, escaped);
     }
 
     webkit_web_view_load_uri (view, target_uri);
@@ -186,14 +417,16 @@ on_home_clicked (GtkButton *button,
 {
     NautilusWebPanel *self = NAUTILUS_WEB_PANEL (user_data);
     WebKitWebView *view = get_active_web_view (self);
+    const char *home_url = get_engine_home_url (self->current_engine);
 
     if (view != NULL)
     {
-        webkit_web_view_load_uri (view, "https://duckduckgo.com");
+        webkit_web_view_load_uri (view, home_url);
+        gtk_widget_grab_focus (GTK_WIDGET (view));
     }
     else
     {
-        add_web_tab (self, "https://duckduckgo.com");
+        add_web_tab (self, home_url);
     }
 }
 
@@ -202,10 +435,9 @@ on_new_tab_clicked (GtkButton *button,
                     gpointer   user_data)
 {
     NautilusWebPanel *self = NAUTILUS_WEB_PANEL (user_data);
+    const char *home_url = get_engine_home_url (self->current_engine);
 
-    add_web_tab (self, "https://duckduckgo.com");
-    gtk_widget_grab_focus (self->url_entry);
-    gtk_editable_select_region (GTK_EDITABLE (self->url_entry), 0, -1);
+    add_web_tab (self, home_url);
 }
 
 static void
@@ -216,6 +448,47 @@ on_close_clicked (GtkButton *button,
 
     gtk_widget_set_visible (GTK_WIDGET (self), FALSE);
     nautilus_web_panel_reset (self);
+}
+
+static void
+on_engine_toggled (GtkCheckButton *button,
+                   gpointer        user_data)
+{
+    NautilusWebPanel *self = NAUTILUS_WEB_PANEL (user_data);
+
+    if (!gtk_check_button_get_active (button))
+    {
+        return;
+    }
+
+    if (button == GTK_CHECK_BUTTON (self->radio_google))
+    {
+        self->current_engine = SEARCH_ENGINE_GOOGLE;
+        gtk_entry_set_placeholder_text (GTK_ENTRY (self->url_entry), _("Search Google or address…"));
+    }
+    else if (button == GTK_CHECK_BUTTON (self->radio_startpage))
+    {
+        self->current_engine = SEARCH_ENGINE_STARTPAGE;
+        gtk_entry_set_placeholder_text (GTK_ENTRY (self->url_entry), _("Search Startpage or address…"));
+    }
+    else if (button == GTK_CHECK_BUTTON (self->radio_duckduckgo))
+    {
+        self->current_engine = SEARCH_ENGINE_DUCKDUCKGO;
+        gtk_entry_set_placeholder_text (GTK_ENTRY (self->url_entry), _("Search DuckDuckGo or address…"));
+    }
+
+    WebKitWebView *view = get_active_web_view (self);
+    if (view != NULL)
+    {
+        const char *uri = webkit_web_view_get_uri (view);
+        if (uri == NULL || *uri == '\0' ||
+            g_str_has_prefix (uri, "https://www.google.com") ||
+            g_str_has_prefix (uri, "https://www.startpage.com") ||
+            g_str_has_prefix (uri, "https://duckduckgo.com"))
+        {
+            webkit_web_view_load_uri (view, get_engine_home_url (self->current_engine));
+        }
+    }
 }
 
 static void
@@ -328,6 +601,18 @@ on_view_decide_policy (WebKitWebView           *web_view,
     return FALSE;
 }
 
+static void
+inject_vimium_script (WebKitWebView *view)
+{
+    WebKitUserContentManager *ucm = webkit_web_view_get_user_content_manager (view);
+    WebKitUserScript *script = webkit_user_script_new (vimium_script_source,
+                                                       WEBKIT_USER_CONTENT_INJECT_ALL_FRAMES,
+                                                       WEBKIT_USER_SCRIPT_INJECT_AT_DOCUMENT_END,
+                                                       NULL, NULL);
+    webkit_user_content_manager_add_script (ucm, script);
+    webkit_user_script_unref (script);
+}
+
 static AdwTabPage *
 add_web_tab (NautilusWebPanel *self,
              const char       *initial_uri)
@@ -337,12 +622,22 @@ add_web_tab (NautilusWebPanel *self,
     AdwTabPage *page;
 
     view = WEBKIT_WEB_VIEW (webkit_web_view_new ());
+    gtk_widget_set_focusable (GTK_WIDGET (view), TRUE);
+    gtk_widget_set_can_focus (GTK_WIDGET (view), TRUE);
+
+    GtkGesture *click_gesture = gtk_gesture_click_new ();
+    gtk_gesture_single_set_button (GTK_GESTURE_SINGLE (click_gesture), 0);
+    g_signal_connect_swapped (click_gesture, "pressed", G_CALLBACK (gtk_widget_grab_focus), view);
+    gtk_widget_add_controller (GTK_WIDGET (view), GTK_EVENT_CONTROLLER (click_gesture));
+
     settings = webkit_web_view_get_settings (view);
     webkit_settings_set_enable_developer_extras (settings, FALSE);
     webkit_settings_set_enable_javascript (settings, TRUE);
 
     gtk_widget_set_hexpand (GTK_WIDGET (view), TRUE);
     gtk_widget_set_vexpand (GTK_WIDGET (view), TRUE);
+
+    inject_vimium_script (view);
 
     g_signal_connect (view, "load-changed", G_CALLBACK (on_view_load_changed), self);
     g_signal_connect (view, "notify::estimated-load-progress", G_CALLBACK (on_view_progress_changed), self);
@@ -360,8 +655,10 @@ add_web_tab (NautilusWebPanel *self,
     }
     else
     {
-        webkit_web_view_load_uri (view, "https://duckduckgo.com");
+        webkit_web_view_load_uri (view, get_engine_home_url (self->current_engine));
     }
+
+    gtk_widget_grab_focus (GTK_WIDGET (view));
 
     return page;
 }
@@ -404,7 +701,7 @@ ensure_tabs (NautilusWebPanel *self)
 
     if (adw_tab_view_get_n_pages (self->tab_view) == 0)
     {
-        add_web_tab (self, "https://duckduckgo.com");
+        add_web_tab (self, get_engine_home_url (self->current_engine));
     }
 }
 
@@ -441,7 +738,11 @@ nautilus_web_panel_init (NautilusWebPanel *self)
 {
     GtkWidget *header_box;
     GtkWidget *separator;
+    GtkWidget *popover;
+    GtkWidget *pbox;
+    GtkWidget *plabel;
 
+    self->current_engine = SEARCH_ENGINE_GOOGLE;
     self->main_box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 
     /* Navigation / Header Bar */
@@ -453,21 +754,21 @@ nautilus_web_panel_init (NautilusWebPanel *self)
 
     self->back_button = gtk_button_new_from_icon_name ("go-previous-symbolic");
     gtk_button_set_has_frame (GTK_BUTTON (self->back_button), FALSE);
-    gtk_widget_set_tooltip_text (self->back_button, _("Back"));
+    gtk_widget_set_tooltip_text (self->back_button, _("Back (H)"));
     gtk_widget_set_sensitive (self->back_button, FALSE);
     g_signal_connect (self->back_button, "clicked", G_CALLBACK (on_back_clicked), self);
     gtk_box_append (GTK_BOX (header_box), self->back_button);
 
     self->forward_button = gtk_button_new_from_icon_name ("go-next-symbolic");
     gtk_button_set_has_frame (GTK_BUTTON (self->forward_button), FALSE);
-    gtk_widget_set_tooltip_text (self->forward_button, _("Forward"));
+    gtk_widget_set_tooltip_text (self->forward_button, _("Forward (L)"));
     gtk_widget_set_sensitive (self->forward_button, FALSE);
     g_signal_connect (self->forward_button, "clicked", G_CALLBACK (on_forward_clicked), self);
     gtk_box_append (GTK_BOX (header_box), self->forward_button);
 
     self->reload_button = gtk_button_new_from_icon_name ("view-refresh-symbolic");
     gtk_button_set_has_frame (GTK_BUTTON (self->reload_button), FALSE);
-    gtk_widget_set_tooltip_text (self->reload_button, _("Reload"));
+    gtk_widget_set_tooltip_text (self->reload_button, _("Reload (r)"));
     g_signal_connect (self->reload_button, "clicked", G_CALLBACK (on_reload_clicked), self);
     gtk_box_append (GTK_BOX (header_box), self->reload_button);
 
@@ -485,11 +786,48 @@ nautilus_web_panel_init (NautilusWebPanel *self)
 
     self->url_entry = gtk_entry_new ();
     gtk_widget_set_hexpand (self->url_entry, TRUE);
-    gtk_entry_set_placeholder_text (GTK_ENTRY (self->url_entry), _("Search or address…"));
+    gtk_entry_set_placeholder_text (GTK_ENTRY (self->url_entry), _("Search Google or address…"));
     gtk_entry_set_icon_from_icon_name (GTK_ENTRY (self->url_entry), GTK_ENTRY_ICON_PRIMARY, "system-search-symbolic");
     gtk_entry_set_input_purpose (GTK_ENTRY (self->url_entry), GTK_INPUT_PURPOSE_URL);
     g_signal_connect (self->url_entry, "activate", G_CALLBACK (on_entry_activate), self);
     gtk_box_append (GTK_BOX (header_box), self->url_entry);
+
+    /* Engine Selector Menu Button */
+    self->engine_button = gtk_menu_button_new ();
+    gtk_menu_button_set_has_frame (GTK_MENU_BUTTON (self->engine_button), FALSE);
+    gtk_menu_button_set_icon_name (GTK_MENU_BUTTON (self->engine_button), "preferences-system-symbolic");
+    gtk_widget_set_tooltip_text (self->engine_button, _("Search Engine: Google, Startpage, DuckDuckGo"));
+
+    popover = gtk_popover_new ();
+    pbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
+    gtk_widget_set_margin_start (pbox, 10);
+    gtk_widget_set_margin_end (pbox, 10);
+    gtk_widget_set_margin_top (pbox, 8);
+    gtk_widget_set_margin_bottom (pbox, 8);
+
+    plabel = gtk_label_new (_("Search Engine & Start Page"));
+    gtk_label_set_xalign (GTK_LABEL (plabel), 0.0);
+    gtk_box_append (GTK_BOX (pbox), plabel);
+
+    self->radio_google = gtk_check_button_new_with_label ("Google");
+    self->radio_startpage = gtk_check_button_new_with_label ("Startpage");
+    self->radio_duckduckgo = gtk_check_button_new_with_label ("DuckDuckGo");
+
+    gtk_check_button_set_group (GTK_CHECK_BUTTON (self->radio_startpage), GTK_CHECK_BUTTON (self->radio_google));
+    gtk_check_button_set_group (GTK_CHECK_BUTTON (self->radio_duckduckgo), GTK_CHECK_BUTTON (self->radio_google));
+    gtk_check_button_set_active (GTK_CHECK_BUTTON (self->radio_google), TRUE);
+
+    g_signal_connect (self->radio_google, "toggled", G_CALLBACK (on_engine_toggled), self);
+    g_signal_connect (self->radio_startpage, "toggled", G_CALLBACK (on_engine_toggled), self);
+    g_signal_connect (self->radio_duckduckgo, "toggled", G_CALLBACK (on_engine_toggled), self);
+
+    gtk_box_append (GTK_BOX (pbox), self->radio_google);
+    gtk_box_append (GTK_BOX (pbox), self->radio_startpage);
+    gtk_box_append (GTK_BOX (pbox), self->radio_duckduckgo);
+
+    gtk_popover_set_child (GTK_POPOVER (popover), pbox);
+    gtk_menu_button_set_popover (GTK_MENU_BUTTON (self->engine_button), popover);
+    gtk_box_append (GTK_BOX (header_box), self->engine_button);
 
     self->close_button = gtk_button_new_from_icon_name ("window-close-symbolic");
     gtk_button_set_has_frame (GTK_BUTTON (self->close_button), FALSE);
@@ -539,8 +877,16 @@ nautilus_web_panel_grab_focus (NautilusWebPanel *self)
     g_return_if_fail (NAUTILUS_IS_WEB_PANEL (self));
 
     ensure_tabs (self);
-    gtk_widget_grab_focus (self->url_entry);
-    gtk_editable_select_region (GTK_EDITABLE (self->url_entry), 0, -1);
+    WebKitWebView *view = get_active_web_view (self);
+    if (view != NULL)
+    {
+        gtk_widget_grab_focus (GTK_WIDGET (view));
+    }
+    else
+    {
+        gtk_widget_grab_focus (self->url_entry);
+        gtk_editable_select_region (GTK_EDITABLE (self->url_entry), 0, -1);
+    }
 }
 
 void
