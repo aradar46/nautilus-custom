@@ -343,7 +343,8 @@ tab_view_setup_menu_cb (AdwTabView     *tab_view,
     GAction *restore_tab_action;
     GAction *close_other_tabs_action;
     GAction *move_tab_to_new_window_action;
-    int position, n_pages;
+    int position = 0;
+    int n_pages = 0;
     gboolean menu_is_closed = (page == NULL);
 
     window->menu_page = page;
@@ -731,6 +732,62 @@ action_toggle_web_panel (GSimpleAction *action,
     else
     {
         nautilus_web_panel_reset (window->web_panel);
+    }
+}
+
+static void
+action_cycle_focus (GSimpleAction *action,
+                    GVariant      *state,
+                    gpointer       user_data)
+{
+    NautilusWindow *window = NAUTILUS_WINDOW (user_data);
+    GtkWidget *focus = gtk_window_get_focus (GTK_WINDOW (window));
+    gboolean term_visible = window->terminal_panel != NULL &&
+                            gtk_widget_get_visible (GTK_WIDGET (window->terminal_panel));
+    gboolean web_visible = window->web_panel != NULL &&
+                           gtk_widget_get_visible (GTK_WIDGET (window->web_panel));
+
+    gboolean in_term = focus != NULL && window->terminal_panel != NULL &&
+                       gtk_widget_is_ancestor (focus, GTK_WIDGET (window->terminal_panel));
+    gboolean in_web = focus != NULL && window->web_panel != NULL &&
+                      gtk_widget_is_ancestor (focus, GTK_WIDGET (window->web_panel));
+
+    if (in_term)
+    {
+        if (web_visible)
+        {
+            nautilus_web_panel_grab_focus (window->web_panel);
+        }
+        else if (window->active_slot != NULL)
+        {
+            gtk_widget_grab_focus (GTK_WIDGET (window->active_slot));
+        }
+    }
+    else if (in_web)
+    {
+        if (window->active_slot != NULL)
+        {
+            gtk_widget_grab_focus (GTK_WIDGET (window->active_slot));
+        }
+        else if (term_visible)
+        {
+            nautilus_terminal_panel_grab_focus (window->terminal_panel);
+        }
+    }
+    else
+    {
+        if (term_visible)
+        {
+            nautilus_terminal_panel_grab_focus (window->terminal_panel);
+        }
+        else if (web_visible)
+        {
+            nautilus_web_panel_grab_focus (window->web_panel);
+        }
+        else if (window->active_slot != NULL)
+        {
+            gtk_widget_grab_focus (GTK_WIDGET (window->active_slot));
+        }
     }
 }
 
@@ -1166,6 +1223,7 @@ const GActionEntry win_entries[] =
     { .name = "toggle-sidebar", .activate = action_toggle_sidebar },
     { .name = "toggle-terminal", .activate = action_toggle_terminal },
     { .name = "toggle-web-panel", .activate = action_toggle_web_panel },
+    { .name = "cycle-focus", .activate = action_cycle_focus },
 };
 
 static void
@@ -1198,6 +1256,7 @@ nautilus_window_initialize_actions (NautilusWindow *window)
     nautilus_application_set_accelerator (app, "win.toggle-sidebar", "F9");
     nautilus_application_set_accelerator (app, "win.toggle-terminal", "F4");
     nautilus_application_set_accelerator (app, "win.toggle-web-panel", "F6");
+    nautilus_application_set_accelerator (app, "win.cycle-focus", "F7");
 
     /* Alt+N for the first 9 tabs */
     for (i = 0; i < 9; ++i)

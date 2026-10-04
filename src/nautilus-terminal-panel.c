@@ -5,6 +5,7 @@
  */
 
 #include "nautilus-terminal-panel.h"
+#include "nautilus-window.h"
 
 #include <glib/gi18n.h>
 #include <vte/vte.h>
@@ -47,7 +48,12 @@ on_close_clicked (GtkButton *button,
                   gpointer   user_data)
 {
     NautilusTerminalPanel *self = NAUTILUS_TERMINAL_PANEL (user_data);
+    GtkWidget *win = gtk_widget_get_ancestor (GTK_WIDGET (self), NAUTILUS_TYPE_WINDOW);
     gtk_widget_set_visible (GTK_WIDGET (self), FALSE);
+    if (win != NULL)
+    {
+        gtk_widget_grab_focus (win);
+    }
 }
 
 static void
@@ -177,6 +183,39 @@ on_right_click_pressed (GtkGestureClick *gesture,
     gtk_popover_popup (GTK_POPOVER (popover));
 }
 
+static void
+terminal_panel_cycle_tab (NautilusTerminalPanel *self,
+                          int                    direction)
+{
+    if (self->tab_view == NULL)
+    {
+        return;
+    }
+
+    int n_pages = adw_tab_view_get_n_pages (self->tab_view);
+    if (n_pages <= 1)
+    {
+        return;
+    }
+
+    AdwTabPage *current = adw_tab_view_get_selected_page (self->tab_view);
+    int pos = adw_tab_view_get_page_position (self->tab_view, current);
+    int next_pos = (pos + direction) % n_pages;
+    if (next_pos < 0)
+    {
+        next_pos += n_pages;
+    }
+
+    AdwTabPage *next = adw_tab_view_get_nth_page (self->tab_view, next_pos);
+    adw_tab_view_set_selected_page (self->tab_view, next);
+
+    GtkWidget *child = adw_tab_page_get_child (next);
+    if (child != NULL)
+    {
+        gtk_widget_grab_focus (child);
+    }
+}
+
 static gboolean
 on_key_pressed (GtkEventControllerKey *controller,
                 guint                  keyval,
@@ -199,7 +238,15 @@ on_key_pressed (GtkEventControllerKey *controller,
         else if (keyval == GDK_KEY_W || keyval == GDK_KEY_w)
         {
             AdwTabPage *page = adw_tab_view_get_page (self->tab_view, GTK_WIDGET (terminal));
-            adw_tab_view_close_page (self->tab_view, page);
+            if (page != NULL)
+            {
+                adw_tab_view_close_page (self->tab_view, page);
+            }
+            return GDK_EVENT_STOP;
+        }
+        else if (keyval == GDK_KEY_Tab || keyval == GDK_KEY_ISO_Left_Tab)
+        {
+            terminal_panel_cycle_tab (self, -1);
             return GDK_EVENT_STOP;
         }
         else if (keyval == GDK_KEY_C || keyval == GDK_KEY_c)
@@ -213,25 +260,49 @@ on_key_pressed (GtkEventControllerKey *controller,
             return GDK_EVENT_STOP;
         }
     }
-    else if (mods == GDK_CONTROL_MASK && keyval == GDK_KEY_Page_Up)
+    else if (mods == GDK_CONTROL_MASK)
     {
-        adw_tab_view_select_previous_page (self->tab_view);
-        return GDK_EVENT_STOP;
-    }
-    else if (mods == GDK_CONTROL_MASK && keyval == GDK_KEY_Page_Down)
-    {
-        adw_tab_view_select_next_page (self->tab_view);
-        return GDK_EVENT_STOP;
+        if (keyval == GDK_KEY_Page_Down || keyval == GDK_KEY_Tab)
+        {
+            terminal_panel_cycle_tab (self, 1);
+            return GDK_EVENT_STOP;
+        }
+        else if (keyval == GDK_KEY_Page_Up)
+        {
+            terminal_panel_cycle_tab (self, -1);
+            return GDK_EVENT_STOP;
+        }
+        else if (keyval == GDK_KEY_Insert)
+        {
+            vte_terminal_copy_clipboard_format (terminal, VTE_FORMAT_TEXT);
+            return GDK_EVENT_STOP;
+        }
     }
     else if (mods == GDK_SHIFT_MASK && keyval == GDK_KEY_Insert)
     {
         vte_terminal_paste_clipboard (terminal);
         return GDK_EVENT_STOP;
     }
-    else if (mods == GDK_CONTROL_MASK && keyval == GDK_KEY_Insert)
+    else if (mods == 0)
     {
-        vte_terminal_copy_clipboard_format (terminal, VTE_FORMAT_TEXT);
-        return GDK_EVENT_STOP;
+        if (keyval == GDK_KEY_F7)
+        {
+            GtkWidget *win = gtk_widget_get_ancestor (GTK_WIDGET (self), NAUTILUS_TYPE_WINDOW);
+            if (win != NULL)
+            {
+                g_action_group_activate_action (G_ACTION_GROUP (win), "cycle-focus", NULL);
+                return GDK_EVENT_STOP;
+            }
+        }
+        else if (keyval == GDK_KEY_F4)
+        {
+            GtkWidget *win = gtk_widget_get_ancestor (GTK_WIDGET (self), NAUTILUS_TYPE_WINDOW);
+            if (win != NULL)
+            {
+                g_action_group_activate_action (G_ACTION_GROUP (win), "toggle-terminal", NULL);
+                return GDK_EVENT_STOP;
+            }
+        }
     }
 
     return GDK_EVENT_PROPAGATE;
@@ -277,6 +348,7 @@ add_terminal_tab (NautilusTerminalPanel *self)
     g_signal_connect (terminal, "child-exited", G_CALLBACK (on_child_exited), self);
 
     GtkEventController *key_controller = gtk_event_controller_key_new ();
+    gtk_event_controller_set_propagation_phase (key_controller, GTK_PHASE_CAPTURE);
     g_signal_connect (key_controller, "key-pressed", G_CALLBACK (on_key_pressed), self);
     gtk_widget_add_controller (GTK_WIDGET (terminal), key_controller);
 
@@ -308,7 +380,13 @@ on_n_pages_changed (AdwTabView *tab_view,
 {
     if (adw_tab_view_get_n_pages (tab_view) == 0)
     {
-        gtk_widget_set_visible (GTK_WIDGET (user_data), FALSE);
+        GtkWidget *self = GTK_WIDGET (user_data);
+        GtkWidget *win = gtk_widget_get_ancestor (self, NAUTILUS_TYPE_WINDOW);
+        gtk_widget_set_visible (self, FALSE);
+        if (win != NULL)
+        {
+            gtk_widget_grab_focus (win);
+        }
     }
 }
 

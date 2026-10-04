@@ -5,6 +5,7 @@
  */
 
 #include "nautilus-web-panel.h"
+#include "nautilus-window.h"
 
 #include <glib/gi18n.h>
 #include <webkit/webkit.h>
@@ -445,9 +446,14 @@ on_close_clicked (GtkButton *button,
                   gpointer   user_data)
 {
     NautilusWebPanel *self = NAUTILUS_WEB_PANEL (user_data);
+    GtkWidget *win = gtk_widget_get_ancestor (GTK_WIDGET (self), NAUTILUS_TYPE_WINDOW);
 
     gtk_widget_set_visible (GTK_WIDGET (self), FALSE);
     nautilus_web_panel_reset (self);
+    if (win != NULL)
+    {
+        gtk_widget_grab_focus (win);
+    }
 }
 
 static void
@@ -674,11 +680,172 @@ on_tab_close_page (AdwTabView *tab_view,
 
     if (adw_tab_view_get_n_pages (tab_view) == 0)
     {
+        GtkWidget *win = gtk_widget_get_ancestor (GTK_WIDGET (self), NAUTILUS_TYPE_WINDOW);
         gtk_widget_set_visible (GTK_WIDGET (self), FALSE);
         nautilus_web_panel_reset (self);
+        if (win != NULL)
+        {
+            gtk_widget_grab_focus (win);
+        }
     }
 
     return GDK_EVENT_STOP;
+}
+
+static void
+web_panel_close_current_tab (NautilusWebPanel *self)
+{
+    if (self->tab_view == NULL)
+    {
+        return;
+    }
+
+    AdwTabPage *current = adw_tab_view_get_selected_page (self->tab_view);
+    if (current != NULL)
+    {
+        adw_tab_view_close_page (self->tab_view, current);
+    }
+}
+
+static void
+web_panel_focus_url_entry (NautilusWebPanel *self)
+{
+    if (self->url_entry != NULL)
+    {
+        gtk_widget_grab_focus (self->url_entry);
+        gtk_editable_select_region (GTK_EDITABLE (self->url_entry), 0, -1);
+    }
+}
+
+static void
+web_panel_cycle_tab (NautilusWebPanel *self,
+                     int               direction)
+{
+    if (self->tab_view == NULL)
+    {
+        return;
+    }
+
+    int n_pages = adw_tab_view_get_n_pages (self->tab_view);
+    if (n_pages <= 1)
+    {
+        return;
+    }
+
+    AdwTabPage *current = adw_tab_view_get_selected_page (self->tab_view);
+    int pos = adw_tab_view_get_page_position (self->tab_view, current);
+    int next_pos = (pos + direction) % n_pages;
+    if (next_pos < 0)
+    {
+        next_pos += n_pages;
+    }
+
+    AdwTabPage *next = adw_tab_view_get_nth_page (self->tab_view, next_pos);
+    adw_tab_view_set_selected_page (self->tab_view, next);
+
+    WebKitWebView *view = WEBKIT_WEB_VIEW (adw_tab_page_get_child (next));
+    if (view != NULL)
+    {
+        gtk_widget_grab_focus (GTK_WIDGET (view));
+    }
+}
+
+static gboolean
+on_web_panel_key_pressed (GtkEventControllerKey *controller,
+                          guint                  keyval,
+                          guint                  keycode,
+                          GdkModifierType        state,
+                          gpointer               user_data)
+{
+    NautilusWebPanel *self = NAUTILUS_WEB_PANEL (user_data);
+    GdkModifierType mods = state & (GDK_CONTROL_MASK | GDK_SHIFT_MASK | GDK_ALT_MASK);
+
+    if (mods == 0)
+    {
+        if (keyval == GDK_KEY_F7)
+        {
+            GtkWidget *win = gtk_widget_get_ancestor (GTK_WIDGET (self), NAUTILUS_TYPE_WINDOW);
+            if (win != NULL)
+            {
+                g_action_group_activate_action (G_ACTION_GROUP (win), "cycle-focus", NULL);
+                return GDK_EVENT_STOP;
+            }
+        }
+        else if (keyval == GDK_KEY_F6)
+        {
+            GtkWidget *win = gtk_widget_get_ancestor (GTK_WIDGET (self), NAUTILUS_TYPE_WINDOW);
+            if (win != NULL)
+            {
+                g_action_group_activate_action (G_ACTION_GROUP (win), "toggle-web-panel", NULL);
+                return GDK_EVENT_STOP;
+            }
+        }
+        else if (keyval == GDK_KEY_Escape)
+        {
+            if (gtk_widget_has_focus (self->url_entry))
+            {
+                WebKitWebView *view = get_active_web_view (self);
+                if (view != NULL)
+                {
+                    gtk_widget_grab_focus (GTK_WIDGET (view));
+                    return GDK_EVENT_STOP;
+                }
+            }
+        }
+    }
+    else if (mods == (GDK_CONTROL_MASK | GDK_SHIFT_MASK))
+    {
+        if (keyval == GDK_KEY_T || keyval == GDK_KEY_t)
+        {
+            add_web_tab (self, get_engine_home_url (self->current_engine));
+            return GDK_EVENT_STOP;
+        }
+        else if (keyval == GDK_KEY_W || keyval == GDK_KEY_w)
+        {
+            web_panel_close_current_tab (self);
+            return GDK_EVENT_STOP;
+        }
+        else if (keyval == GDK_KEY_Tab || keyval == GDK_KEY_ISO_Left_Tab)
+        {
+            web_panel_cycle_tab (self, -1);
+            return GDK_EVENT_STOP;
+        }
+    }
+    else if (mods == GDK_CONTROL_MASK)
+    {
+        if (keyval == GDK_KEY_T || keyval == GDK_KEY_t)
+        {
+            add_web_tab (self, get_engine_home_url (self->current_engine));
+            return GDK_EVENT_STOP;
+        }
+        else if (keyval == GDK_KEY_W || keyval == GDK_KEY_w)
+        {
+            web_panel_close_current_tab (self);
+            return GDK_EVENT_STOP;
+        }
+        else if (keyval == GDK_KEY_L || keyval == GDK_KEY_l)
+        {
+            web_panel_focus_url_entry (self);
+            return GDK_EVENT_STOP;
+        }
+        else if (keyval == GDK_KEY_Page_Down || keyval == GDK_KEY_Tab)
+        {
+            web_panel_cycle_tab (self, 1);
+            return GDK_EVENT_STOP;
+        }
+        else if (keyval == GDK_KEY_Page_Up)
+        {
+            web_panel_cycle_tab (self, -1);
+            return GDK_EVENT_STOP;
+        }
+    }
+    else if (mods == GDK_ALT_MASK && (keyval == GDK_KEY_D || keyval == GDK_KEY_d))
+    {
+        web_panel_focus_url_entry (self);
+        return GDK_EVENT_STOP;
+    }
+
+    return GDK_EVENT_PROPAGATE;
 }
 
 static void
@@ -872,6 +1039,11 @@ nautilus_web_panel_init (NautilusWebPanel *self)
     gtk_widget_set_size_request (GTK_WIDGET (self), 380, -1);
     gtk_widget_set_hexpand (GTK_WIDGET (self), FALSE);
     g_signal_connect (self, "map", G_CALLBACK (on_map), NULL);
+
+    GtkEventController *key_controller = gtk_event_controller_key_new ();
+    gtk_event_controller_set_propagation_phase (key_controller, GTK_PHASE_CAPTURE);
+    g_signal_connect (key_controller, "key-pressed", G_CALLBACK (on_web_panel_key_pressed), self);
+    gtk_widget_add_controller (GTK_WIDGET (self), key_controller);
 
     adw_bin_set_child (ADW_BIN (self), self->main_box);
 }
